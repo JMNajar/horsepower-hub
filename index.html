@@ -13,8 +13,9 @@
     :root {
       --red:    #CC2929;
       --navy:   #1A2B4A;
-      --cream:  #FBF7F0;
-      --border: #dde4f0;
+      --cream:  #E8DECE;
+      --white:  #fff;
+      --border: #cfc5b5;
       --muted:  #6b7a99;
       --lnavy:  #eef1f8;
     }
@@ -26,35 +27,35 @@
       min-height: 100vh;
     }
 
-    /* NAV */
+    /* NAV — light cream band */
     nav {
-      background: var(--navy);
-      padding: .9rem 2rem;
+      background: var(--white);
+      border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
     nav img {
-      height: 38px;
+      height: 40px;
       object-fit: contain;
-      background: rgba(255,255,255,.92);
-      border-radius: 6px;
-      padding: 3px 10px;
     }
-    nav span {
+    nav .nav-brand-text {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: .04em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .05em;
     }
     nav .nav-sub {
-      font-size: .75rem;
-      font-weight: 400;
-      color: rgba(255,255,255,.6);
-      letter-spacing: .06em;
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: .08em;
       text-transform: uppercase;
-      margin-left: .5rem;
+      margin-left: .6rem;
+      border-left: 1px solid #ccc;
+      padding-left: .6rem;
     }
 
     /* HERO */
@@ -62,7 +63,6 @@
       background: var(--navy);
       padding: 3.5rem 2rem 3rem;
       text-align: center;
-      border-bottom: 4px solid var(--red);
     }
     .hero-label {
       display: inline-block;
@@ -96,98 +96,106 @@
 
     /* MAIN */
     main {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 3rem 1.5rem 4rem;
     }
 
-    /* SECTION HEADERS */
-    .section-header {
+    /* CATEGORY SECTION */
+    .category {
+      margin-bottom: 3rem;
+    }
+    .category-header {
       display: flex;
       align-items: center;
       gap: .75rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid var(--border);
     }
-    .section-header h2 {
+    .category-header h2 {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--navy);
-      letter-spacing: .02em;
+      letter-spacing: .03em;
+      text-transform: uppercase;
     }
-    .section-tag {
-      font-size: .68rem;
+    .cat-tag {
+      font-size: .65rem;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
       padding: .2rem .65rem;
       border-radius: 10px;
     }
-    .tag-red   { background: #fbe9e9; color: var(--red); }
-    .tag-navy  { background: var(--lnavy); color: var(--navy); }
-    .tag-cream { background: #f0ebe0; color: #7a6a40; }
+    .cat-intelligence { background: #1A2B4A; color: #fff; }
+    .cat-client       { background: var(--red); color: #fff; }
+    .cat-marketing    { background: #3d5a2a; color: #fff; }
 
     /* BUILD CARDS GRID */
     .builds-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3rem;
+      gap: 1.2rem;
     }
 
     .build-card {
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
-      border-left: 4px solid var(--navy);
-      padding: 1.5rem 1.6rem;
+      border-top: 3px solid var(--navy);
+      padding: 1.4rem 1.5rem;
       text-decoration: none;
       display: flex;
       flex-direction: column;
-      gap: .5rem;
+      gap: .45rem;
       transition: box-shadow .15s, transform .15s, border-color .15s;
     }
     .build-card:hover {
-      box-shadow: 0 6px 24px rgba(26,43,74,.12);
+      box-shadow: 0 6px 24px rgba(26,43,74,.14);
       transform: translateY(-2px);
-      border-color: var(--red);
-    }
-    .build-card.featured {
-      border-left-color: var(--red);
+      border-top-color: var(--red);
     }
     .build-card-tag {
       font-size: .65rem;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--muted);
     }
     .build-card h3 {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--navy);
       line-height: 1.25;
     }
     .build-card p {
       font-size: .875rem;
-      color: #4a5a7a;
+      color: #4a5570;
       line-height: 1.55;
       flex: 1;
     }
     .build-card-url {
-      font-size: .75rem;
+      font-size: .73rem;
       color: var(--muted);
-      font-family: 'Inter', monospace;
-      margin-top: .25rem;
+      margin-top: .3rem;
       display: flex;
       align-items: center;
-      gap: .35rem;
+      gap: .3rem;
     }
     .build-card-url::before {
       content: '↗';
       color: var(--red);
       font-size: .8rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
     }
 
     /* BIO CARD */
@@ -198,18 +206,17 @@
       display: flex;
       gap: 2rem;
       align-items: flex-start;
-      margin-bottom: 3rem;
     }
     .bio-initials {
-      width: 72px;
-      height: 72px;
+      width: 68px;
+      height: 68px;
       background: var(--red);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: #fff;
       flex-shrink: 0;
@@ -222,7 +229,7 @@
       margin-bottom: .2rem;
     }
     .bio-title {
-      font-size: .78rem;
+      font-size: .76rem;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -245,13 +252,13 @@
     footer img {
       height: 32px;
       object-fit: contain;
-      background: rgba(255,255,255,.92);
-      border-radius: 6px;
-      padding: 3px 10px;
       margin-bottom: .75rem;
       display: block;
       margin-left: auto;
       margin-right: auto;
+      background: rgba(255,255,255,.9);
+      border-radius: 5px;
+      padding: 3px 10px;
     }
     footer p {
       font-size: .8rem;
@@ -274,7 +281,8 @@
 
 <nav>
   <img src="assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
-  <span>HORSEPOWER AI <span class="nav-sub">Build Site</span></span>
+  <span class="nav-brand-text">HORSEPOWER AI</span>
+  <span class="nav-sub">Build Site</span>
 </nav>
 
 <div class="hero">
@@ -285,61 +293,86 @@
 
 <main>
 
-  <!-- LIVE BUILDS -->
-  <div class="section-header">
-    <span class="section-tag tag-red">LIVE</span>
-    <h2>Active Builds</h2>
+  <!-- INTELLIGENCE -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-tag cat-intelligence">Intelligence</span>
+      <h2>Intelligence</h2>
+    </div>
+    <div class="builds-grid">
+
+      <a class="build-card" href="https://policy-tracker-rosy.vercel.app" target="_blank" rel="noopener">
+        <div class="build-card-tag">Cannabis &amp; Vapor</div>
+        <h3>GFTO AI Compliance Engine</h3>
+        <p>Real-time federal legislative and regulatory intelligence dashboard for cannabis executives. Tracks bills, executive actions, lawmaker profiles, and campaign finance data.</p>
+        <div class="build-card-url">policy-tracker-rosy.vercel.app</div>
+      </a>
+
+      <a class="build-card" href="https://mb-review.vercel.app" target="_blank" rel="noopener">
+        <div class="build-card-tag">Health &amp; Supplements</div>
+        <h3>Methylene Blue Market Intelligence</h3>
+        <p>Competitive market intelligence covering the methylene blue health and supplement landscape — brands, positioning, and opportunity analysis.</p>
+        <div class="build-card-url">mb-review.vercel.app</div>
+      </a>
+
+      <a class="build-card" href="https://ptma-competitive-intelligence-brief.vercel.app/" target="_blank" rel="noopener">
+        <div class="build-card-tag">Nicotine &amp; FDA</div>
+        <h3>PMTA Nicotine — Competitive Intelligence Brief</h3>
+        <p>March 2026 FDA market analysis covering the five Marketing Granted Orders issued across oral nicotine pouches and ENDS. Strategic implications for independent brands.</p>
+        <div class="build-card-url">ptma-competitive-intelligence-brief.vercel.app</div>
+      </a>
+
+    </div>
   </div>
 
-  <div class="builds-grid">
+  <!-- CLIENT WORK -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-tag cat-client">Client Work</span>
+      <h2>Client Work</h2>
+    </div>
+    <div class="builds-grid">
 
-    <a class="build-card featured" href="https://policy-tracker-rosy.vercel.app" target="_blank" rel="noopener">
-      <div class="build-card-tag">Cannabis &amp; Vapor Intel</div>
-      <h3>GFTO AI Compliance Engine</h3>
-      <p>Real-time federal legislative and regulatory intelligence dashboard for cannabis executives. Tracks bills, executive actions, lawmaker profiles, and campaign finance data.</p>
-      <div class="build-card-url">policy-tracker-rosy.vercel.app</div>
-    </a>
+      <a class="build-card" href="https://buzzwinkle-roys-toys.vercel.app" target="_blank" rel="noopener">
+        <div class="build-card-tag">POD Program</div>
+        <h3>Roy's Toys RoadWear</h3>
+        <p>Brand pitch and partnership onboarding site for Roy's Toys Customs. Includes 90-day roadmap, budget breakdown, POD process, and brand agreement form.</p>
+        <div class="build-card-url">buzzwinkle-roys-toys.vercel.app</div>
+      </a>
 
-    <a class="build-card featured" href="https://mb-review.vercel.app" target="_blank" rel="noopener">
-      <div class="build-card-tag">Market Intelligence</div>
-      <h3>Methylene Blue Market Intelligence</h3>
-      <p>Competitive market intelligence site covering the methylene blue health and supplement landscape — brands, positioning, and opportunity analysis.</p>
-      <div class="build-card-url">mb-review.vercel.app</div>
-    </a>
+      <a class="build-card" href="https://roystoyscustoms.com" target="_blank" rel="noopener">
+        <div class="build-card-tag">Client Site</div>
+        <h3>Roy's Toys Customs</h3>
+        <p>Roy Martin's custom motorcycle and vehicle business site. Home base for the Roy's Toys brand and the anchor identity for the RoadWear POD program.</p>
+        <div class="build-card-url">roystoyscustoms.com</div>
+      </a>
 
-    <a class="build-card" href="https://buzzwinkle-roys-toys.vercel.app" target="_blank" rel="noopener">
-      <div class="build-card-tag">POD Program</div>
-      <h3>Roy's Toys RoadWear</h3>
-      <p>Brand pitch and partnership onboarding site for Roy's Toys Customs. Includes 90-day roadmap, budget breakdown, POD process, and brand agreement form.</p>
-      <div class="build-card-url">buzzwinkle-roys-toys.vercel.app</div>
-    </a>
-
-    <a class="build-card" href="https://roystoyscustoms.com" target="_blank" rel="noopener">
-      <div class="build-card-tag">Client Site</div>
-      <h3>Roy's Toys Customs</h3>
-      <p>Roy Martin's custom motorcycle and vehicle business site. Home base for the Roy's Toys brand and the anchor identity for the RoadWear POD program.</p>
-      <div class="build-card-url">roystoyscustoms.com</div>
-    </a>
-
-    <a class="build-card featured" href="https://horsepowerai-landing.vercel.app/" target="_blank" rel="noopener">
-      <div class="build-card-tag">Marketing &amp; Lead Gen</div>
-      <h3>Horsepower AI Landing Page</h3>
-      <p>AI-powered marketing and revenue platform for serious businesses. Showcases lead generation systems, intelligent workflows, and revenue intelligence tools built for growth.</p>
-      <div class="build-card-url">horsepowerai-landing.vercel.app</div>
-    </a>
-
-    <a class="build-card featured" href="https://ptma-competitive-intelligence-brief.vercel.app/" target="_blank" rel="noopener">
-      <div class="build-card-tag">Competitive Intelligence</div>
-      <h3>PMTA Nicotine — Competitive Intelligence Brief</h3>
-      <p>March 2026 FDA market analysis covering the five Marketing Granted Orders issued across oral nicotine pouches and ENDS. Tracks structural shifts, approval acceleration, and strategic implications for independent brands.</p>
-      <div class="build-card-url">ptma-competitive-intelligence-brief.vercel.app</div>
-    </a>
-
+    </div>
   </div>
+
+  <!-- MARKETING -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-tag cat-marketing">Marketing</span>
+      <h2>Marketing</h2>
+    </div>
+    <div class="builds-grid">
+
+      <a class="build-card" href="https://horsepowerai-landing.vercel.app/" target="_blank" rel="noopener">
+        <div class="build-card-tag">Lead Gen &amp; Revenue</div>
+        <h3>Horsepower AI Landing Page</h3>
+        <p>AI-powered marketing and revenue platform for serious businesses. Showcases lead generation systems, intelligent workflows, and revenue intelligence tools built for growth.</p>
+        <div class="build-card-url">horsepowerai-landing.vercel.app</div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
 
   <!-- ABOUT JEFF -->
-  <div class="section-header">
-    <span class="section-tag tag-navy">FOUNDER</span>
+  <div class="category-header" style="margin-bottom:1.25rem">
+    <span class="cat-tag cat-intelligence">Founder</span>
     <h2>Jeff Najar</h2>
   </div>
 
