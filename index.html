@@ -270,10 +270,91 @@
     }
     footer a:hover { color: var(--red); }
 
+    /* COST TRACKER */
+    .cost-tracker {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.5rem;
+      transition: background .3s;
+    }
+    .cost-tracker.overdue { background: var(--red); }
+    .cost-tracker-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cost-tracker-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      margin-bottom: .4rem;
+    }
+    .cost-tracker-amount {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .cost-tracker-meta { font-size: .78rem; color: rgba(255,255,255,.6); }
+    .cost-tracker-actions { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+    .cost-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .5rem 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: opacity .15s;
+      letter-spacing: .03em;
+    }
+    .cost-btn:hover { opacity: .85; }
+    .cost-btn-console { background: rgba(255,255,255,.15); color: #fff; }
+    .cost-btn-update  { background: #fff; color: var(--navy); }
+    .cost-tracker.overdue .cost-btn-update { color: var(--red); }
+    .cost-overdue-banner {
+      margin-top: 1rem;
+      padding: .65rem 1rem;
+      background: rgba(0,0,0,.2);
+      border-radius: 6px;
+      font-size: .84rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .cost-editor {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: .75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .cost-input {
+      font-family: 'Inter', sans-serif;
+      font-size: .9rem;
+      padding: .5rem .85rem;
+      border-radius: 6px;
+      border: none;
+      width: 150px;
+      outline: none;
+      color: var(--navy);
+    }
+    .cost-btn-save   { background: var(--red); color: #fff; }
+    .cost-tracker.overdue .cost-btn-save { background: var(--navy); }
+    .cost-btn-cancel { background: rgba(255,255,255,.15); color: #fff; }
+
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.9rem; }
       .bio-card { flex-direction: column; gap: 1rem; }
       .builds-grid { grid-template-columns: 1fr; }
+      .cost-tracker-top { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -291,6 +372,29 @@
 </div>
 
 <main>
+
+  <!-- ANTHROPIC COST TRACKER -->
+  <div class="cost-tracker" id="costTracker">
+    <div class="cost-tracker-top">
+      <div>
+        <div class="cost-tracker-label">Anthropic API — Total Account Spend</div>
+        <div class="cost-tracker-amount" id="ctAmount">—</div>
+        <div class="cost-tracker-meta" id="ctMeta">No spend recorded yet</div>
+      </div>
+      <div class="cost-tracker-actions">
+        <a class="cost-btn cost-btn-console" href="https://platform.claude.com/workspaces/default/cost" target="_blank" rel="noopener">Open Console ↗</a>
+        <button class="cost-btn cost-btn-update" onclick="toggleCostEditor()">Update</button>
+      </div>
+    </div>
+    <div class="cost-editor" id="ctEditor" style="display:none">
+      <input class="cost-input" id="ctInput" type="text" placeholder="e.g. $0.01" autocomplete="off">
+      <button class="cost-btn cost-btn-save" onclick="saveCost()">Save</button>
+      <button class="cost-btn cost-btn-cancel" onclick="toggleCostEditor()">Cancel</button>
+    </div>
+    <div class="cost-overdue-banner" id="ctOverdue" style="display:none">
+      OVERDUE — Last updated more than 30 days ago. Open the console, enter the current total, and hit Save.
+    </div>
+  </div>
 
   <!-- INTELLIGENCE -->
   <div class="category">
@@ -394,6 +498,51 @@
   <img src="assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
   <p>&copy; 2026 Horsepower AI &nbsp;·&nbsp; <a href="mailto:jeff.najar@horsepowermarketing.com">jeff.najar@horsepowermarketing.com</a></p>
 </footer>
+
+<script>
+  (function () {
+    var tracker  = document.getElementById('costTracker');
+    var amountEl = document.getElementById('ctAmount');
+    var metaEl   = document.getElementById('ctMeta');
+    var editorEl = document.getElementById('ctEditor');
+    var overdueEl= document.getElementById('ctOverdue');
+    var inputEl  = document.getElementById('ctInput');
+
+    function render() {
+      var raw = localStorage.getItem('anthropicCost');
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      var daysSince = Math.floor((Date.now() - data.ts) / 86400000);
+      var saved = new Date(data.ts);
+      amountEl.textContent = data.cost;
+      metaEl.textContent = 'Last updated ' + saved.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      if (daysSince >= 30) {
+        tracker.classList.add('overdue');
+        overdueEl.style.display = 'block';
+      } else {
+        tracker.classList.remove('overdue');
+        overdueEl.style.display = 'none';
+      }
+    }
+
+    window.toggleCostEditor = function () {
+      var open = editorEl.style.display === 'flex';
+      editorEl.style.display = open ? 'none' : 'flex';
+      if (!open) inputEl.focus();
+    };
+
+    window.saveCost = function () {
+      var val = inputEl.value.trim();
+      if (!val) return;
+      localStorage.setItem('anthropicCost', JSON.stringify({ cost: val, ts: Date.now() }));
+      inputEl.value = '';
+      editorEl.style.display = 'none';
+      render();
+    };
+
+    render();
+  })();
+</script>
 
 </body>
 </html>
