@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Board — Horsepower AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #CC2929;
+      --navy:   #1A2B4A;
+      --cream:  #F8F2CC;
+      --white:  #fff;
+      --border: #cfc5b5;
+      --muted:  #6b7a99;
+      --lnavy:  #eef1f8;
+      --green:  #1a7a4a;
+      --green-bg: #e6f4ed;
+      --amber:  #a35e00;
+      --amber-bg: #fff4e0;
+      --blocked: #7a1a1a;
+      --blocked-bg: #fce8e8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .05em;
+    }
+    .nav-pipe {
+      color: #ccc;
+      margin: 0 .4rem;
+      font-weight: 300;
+    }
+    .nav-sub {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .nav-date {
+      margin-left: auto;
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero p {
+      margin-top: .5rem;
+      font-size: .95rem;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .04em;
+    }
+
+    /* ── BOARD ── */
+    .board {
+      max-width: 860px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--red);
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      transition: box-shadow .15s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(26,43,74,.1); }
+    .card.done {
+      border-left-color: var(--green);
+      opacity: .7;
+    }
+    .card.blocked { border-left-color: var(--blocked); }
+
+    .card-left { display: flex; flex-direction: column; gap: .35rem; }
+
+    .card-project {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .card.done .card-project { text-decoration: line-through; color: var(--muted); }
+
+    .card-action {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .card.done .card-action { color: var(--green); }
+
+    .card-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-top: .1rem;
+      line-height: 1.5;
+    }
+
+    /* ── STATUS BUTTON ── */
+    .status-btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      padding: .45rem 1.1rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .status-btn.in-progress {
+      background: var(--amber-bg);
+      color: var(--amber);
+    }
+    .status-btn.done {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+    .status-btn.blocked {
+      background: var(--blocked-bg);
+      color: var(--blocked);
+    }
+
+    /* ── RESET ── */
+    .reset-wrap {
+      text-align: center;
+      margin-top: .5rem;
+    }
+    .reset-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .75rem;
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: border-color .15s, color .15s;
+    }
+    .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer strong { color: var(--navy); }
+
+    @media (max-width: 600px) {
+      .card { grid-template-columns: 1fr; }
+      .status-btn { width: 100%; text-align: center; }
+      .hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="assets/horsepowerai-logo.png" alt="Horsepower AI Logo">
+  <span class="nav-brand">HORSEPOWER AI</span>
+  <span class="nav-pipe">|</span>
+  <span class="nav-sub">Action Board</span>
+  <span class="nav-date" id="today-date"></span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Active <span>Project Actions</span></h1>
+  <p>What's moving right now — Jeffrey Najar / Horsepower AI</p>
+</div>
+
+<!-- BOARD -->
+<div class="board" id="board">
+
+  <div class="card" data-id="easyriders">
+    <div class="card-left">
+      <div class="card-project">Easyriders</div>
+      <div class="card-action">Video</div>
+      <div class="card-desc">Drive video content production — shorts pipeline, Keith Ball segments, and YouTube channel execution.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="ai-launch-pad">
+    <div class="card-left">
+      <div class="card-project">AI Launch Pad</div>
+      <div class="card-action">Presentation</div>
+      <div class="card-desc">Build out the founding cohort presentation — Week 1 through 6 deck, CEO onboarding materials, and delivery framework.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="flying-piston">
+    <div class="card-left">
+      <div class="card-project">Flying Piston Benefit</div>
+      <div class="card-action">Artists</div>
+      <div class="card-desc">Identify, reach out to, and confirm participating artists for the Flying Piston Benefit event.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="mtca">
+    <div class="card-left">
+      <div class="card-project">MTCA</div>
+      <div class="card-action">Promos & Ads</div>
+      <div class="card-desc">Develop promotional and advertising assets — copy, creative direction, and placement strategy.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="gfto-mb">
+    <div class="card-left">
+      <div class="card-project">GFTO</div>
+      <div class="card-action">Methylene Blue</div>
+      <div class="card-desc">Continue market intelligence work on Methylene Blue — research, review site (mb-review.vercel.app), and D2C marketing strategy.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="fp-roadwear">
+    <div class="card-left">
+      <div class="card-project">Flying Piston Roadwear</div>
+      <div class="card-action">T-Shirts &amp; POD</div>
+      <div class="card-desc">Launch Flying Piston print-on-demand line — t-shirt designs, product setup, and storefront integration.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+  <div class="card" data-id="roys-toys">
+    <div class="card-left">
+      <div class="card-project">Roy's Toys Customs</div>
+      <div class="card-action">Website</div>
+      <div class="card-desc">Build and deliver Roy Martin's custom motorcycle website — brand identity, product pages, and RoadWear integration.</div>
+    </div>
+    <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
+  </div>
+
+</div>
+
+<div class="board" style="padding-top:0; margin-top:-1.5rem;">
+  <div class="reset-wrap">
+    <button class="reset-btn" onclick="resetAll()">Reset All to In Progress</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Horsepower AI</strong> &nbsp;·&nbsp; horsepowerai.ai &nbsp;·&nbsp; Jeffrey Najar
+</footer>
+
+<script>
+  // Date
+  const dateEl = document.getElementById('today-date');
+  const now = new Date();
+  dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+  // Status cycle: in-progress → done → blocked → in-progress
+  const STATES = ['in-progress', 'done', 'blocked'];
+  const LABELS = { 'in-progress': 'In Progress', 'done': 'Done', 'blocked': 'Blocked' };
+
+  function cycleStatus(btn) {
+    const card = btn.closest('.card');
+    const id = card.dataset.id;
+    const current = STATES.indexOf(btn.classList[1]);
+    const next = STATES[(current + 1) % STATES.length];
+
+    // Remove all state classes from button and card
+    STATES.forEach(s => { btn.classList.remove(s); card.classList.remove(s); });
+
+    btn.classList.add(next);
+    if (next !== 'in-progress') card.classList.add(next);
+    btn.textContent = LABELS[next];
+
+    // Persist
+    const saved = getStorage();
+    saved[id] = next;
+    localStorage.setItem('hp-action-states', JSON.stringify(saved));
+  }
+
+  function getStorage() {
+    try { return JSON.parse(localStorage.getItem('hp-action-states') || '{}'); } catch { return {}; }
+  }
+
+  function resetAll() {
+    localStorage.removeItem('hp-action-states');
+    document.querySelectorAll('.card').forEach(card => {
+      const btn = card.querySelector('.status-btn');
+      STATES.forEach(s => { btn.classList.remove(s); card.classList.remove(s); });
+      btn.classList.add('in-progress');
+      btn.textContent = 'In Progress';
+    });
+  }
+
+  // Restore saved states on load
+  (function restoreStates() {
+    const saved = getStorage();
+    document.querySelectorAll('.card').forEach(card => {
+      const id = card.dataset.id;
+      if (!saved[id] || saved[id] === 'in-progress') return;
+      const btn = card.querySelector('.status-btn');
+      const state = saved[id];
+      STATES.forEach(s => { btn.classList.remove(s); card.classList.remove(s); });
+      btn.classList.add(state);
+      if (state !== 'in-progress') card.classList.add(state);
+      btn.textContent = LABELS[state];
+    });
+  })();
+</script>
+
+</body>
+</html>
