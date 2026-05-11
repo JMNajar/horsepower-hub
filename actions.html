@@ -37,18 +37,20 @@
     nav {
       background: var(--white);
       border-bottom: 3px solid var(--red);
-      padding: .75rem 2rem;
+      padding: .6rem 2rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-    nav img { height: 80px; object-fit: contain; }
+    nav img { height: 72px; object-fit: contain; }
     .nav-sub {
       font-size: .72rem;
       font-weight: 600;
       color: var(--muted);
       letter-spacing: .1em;
       text-transform: uppercase;
+      border-left: 1px solid #ddd;
+      padding-left: 1rem;
     }
     .nav-date {
       margin-left: auto;
@@ -82,8 +84,8 @@
     /* ── BOARD ── */
     .board {
       max-width: 860px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem 4rem;
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem 3rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -167,23 +169,23 @@
     /* ── RESET ── */
     .reset-wrap {
       text-align: center;
-      margin-top: .5rem;
+      padding: 1rem 0 2rem;
     }
     .reset-btn {
       background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .75rem;
-      padding: .4rem 1rem;
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.4);
+      font-size: .72rem;
+      padding: .4rem 1.2rem;
       border-radius: 50px;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
-      letter-spacing: .05em;
+      letter-spacing: .07em;
       text-transform: uppercase;
       font-weight: 600;
       transition: border-color .15s, color .15s;
     }
-    .reset-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .reset-btn:hover { border-color: rgba(255,255,255,.5); color: rgba(255,255,255,.7); }
 
     /* ── FOOTER ── */
     footer {
@@ -283,12 +285,10 @@
     <button class="status-btn in-progress" onclick="cycleStatus(this)">In Progress</button>
   </div>
 
-</div>
-
-<div class="board" style="padding-top:0; margin-top:-1.5rem;">
   <div class="reset-wrap">
     <button class="reset-btn" onclick="resetAll()">Reset All to In Progress</button>
   </div>
+
 </div>
 
 <!-- FOOTER -->
