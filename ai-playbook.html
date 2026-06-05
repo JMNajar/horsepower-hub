@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Adoption Playbook — Horsepower AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #CC2929;
+      --navy:   #1A2B4A;
+      --cream:  #F8F2CC;
+      --white:  #fff;
+      --border: #cfc5b5;
+      --muted:  #6b7a99;
+      --lnavy:  #eef1f8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-back {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      margin-left: auto;
+      transition: color .15s;
+    }
+    .nav-back:hover { color: var(--red); }
+    .nav-sub {
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-left: .6rem;
+      border-left: 1px solid #ccc;
+      padding-left: .6rem;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 4rem 2rem 3.25rem;
+      text-align: center;
+    }
+    .hero-label {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: .9rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero > p {
+      color: rgba(255,255,255,.7);
+      font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
+    }
+    .hero-source {
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+    }
+    .hero-source a { color: rgba(255,255,255,.55); text-decoration: none; }
+    .hero-source a:hover { color: var(--red); }
+
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      border-top: 3px solid var(--navy);
+      padding: 1.75rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .toc-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: .5rem;
+    }
+    .toc-list li a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      color: var(--navy);
+      font-size: .9rem;
+      font-weight: 500;
+      padding: .5rem .75rem;
+      border-radius: 6px;
+      transition: background .15s;
+    }
+    .toc-list li a:hover { background: var(--lnavy); }
+    .toc-num {
+      width: 24px;
+      height: 24px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* FOUNDATION SECTION */
+    .foundation {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 80px;
+    }
+    .foundation-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 3px solid var(--red);
+    }
+    .foundation-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--red);
+      opacity: .5;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .foundation-header-text {}
+    .foundation-header-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      line-height: 1.2;
+    }
+    .foundation-header-text p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: .4rem;
+      line-height: 1.55;
+    }
+
+    .content-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .content-block h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .9rem;
+    }
+    .content-block p {
+      font-size: .9rem;
+      color: #3d4f6e;
+      line-height: 1.7;
+      margin-bottom: .75rem;
+    }
+    .content-block p:last-child { margin-bottom: 0; }
+
+    /* LISTS */
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      font-size: .9rem;
+      color: #3d4f6e;
+      line-height: 1.55;
+      padding: .4rem 0;
+      border-bottom: 1px solid #f0ece2;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li::before {
+      content: '→';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    /* WARNING BOX */
+    .warning-block {
+      background: #fff8f8;
+      border: 1px solid #f0c8c8;
+      border-left: 4px solid var(--red);
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .warning-block h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .85rem;
+    }
+
+    /* ACTION PLAN */
+    .action-plan {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .action-plan-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 1.25rem;
+    }
+    .action-phases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .action-phase {
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+    }
+    .action-phase-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: .5rem;
+    }
+    .action-phase ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .action-phase ul li {
+      font-size: .83rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.55;
+      padding: .3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      gap: .5rem;
+    }
+    .action-phase ul li:last-child { border-bottom: none; }
+    .action-phase ul li::before {
+      content: '·';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* NOTES SECTION */
+    .notes-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      border-top: 3px solid #2A6B45;
+      padding: 2rem;
+      margin-top: 3rem;
+      scroll-margin-top: 80px;
+    }
+    .notes-tag {
+      display: inline-block;
+      background: #2A6B45;
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .2rem .7rem;
+      border-radius: 10px;
+      margin-bottom: .75rem;
+    }
+    .notes-section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .5rem;
+    }
+    .notes-section > p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .opener-block {
+      background: var(--lnavy);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .opener-block p {
+      font-size: .9rem;
+      color: #3d4f6e;
+      line-height: 1.65;
+    }
+    .opener-block blockquote {
+      margin-top: .75rem;
+      padding: .75rem 1.25rem;
+      background: #fff;
+      border-left: 3px solid var(--red);
+      border-radius: 4px;
+      font-size: .9rem;
+      color: var(--navy);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .notes-client-list { list-style: none; padding: 0; margin: 1rem 0 1.5rem; }
+    .notes-client-list li {
+      display: flex;
+      gap: .6rem;
+      font-size: .9rem;
+      color: #3d4f6e;
+      padding: .45rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .notes-client-list li:last-child { border-bottom: none; }
+    .notes-client-list li::before {
+      content: '→';
+      color: #2A6B45;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .notes-lines { margin-top: 1rem; }
+    .notes-line {
+      border-bottom: 1px solid var(--border);
+      height: 2.25rem;
+      margin-bottom: .1rem;
+    }
+    .last-updated {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      text-align: right;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      border-top: 3px solid var(--red);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    footer img {
+      height: 32px;
+      object-fit: contain;
+      margin-bottom: .75rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255,255,255,.9);
+      border-radius: 5px;
+      padding: 3px 10px;
+    }
+    footer p { font-size: .8rem; color: rgba(255,255,255,.5); }
+    footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.9rem; }
+      .action-phases { grid-template-columns: 1fr; }
+      .foundation-num { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">AI Adoption Playbook</span>
+  <a class="nav-back" href="index.html">← Back to Hub</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">AI Adoption Playbook</div>
+  <h1>The <span>Four Foundations</span> of AI Readiness</h1>
+  <p>A working reference for Horsepower AI engagements. Built on TechPoint Indiana's AI Adoption Playbook — adapted for small and mid-size business implementation.</p>
+  <p class="hero-source">Source: <a href="https://techpoint.org/ai-adoption-playbook" target="_blank" rel="noopener">techpoint.org/ai-adoption-playbook</a> &nbsp;·&nbsp; Compiled June 2026</p>
+</div>
+
+<main>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">Jump to Section</div>
+    <ul class="toc-list">
+      <li><a href="#f1"><span class="toc-num">1</span>Data Readiness</a></li>
+      <li><a href="#f2"><span class="toc-num">2</span>People Readiness</a></li>
+      <li><a href="#f3"><span class="toc-num">3</span>Innovation Strategy</a></li>
+      <li><a href="#f4"><span class="toc-num">4</span>Infrastructure</a></li>
+      <li><a href="#notes"><span class="toc-num" style="background:#2A6B45">✎</span>Field Notes</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FOUNDATION 1: DATA READINESS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="foundation" id="f1">
+    <div class="foundation-header">
+      <div class="foundation-num">01</div>
+      <div class="foundation-header-text">
+        <h2>Data Readiness as a Competitive Advantage</h2>
+        <p>Build the foundation for AI with trusted, accessible, well-governed data.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>The Reality: Most AI Failures Are Data Failures</h3>
+      <p>When AI initiatives stall, leaders often blame the tool. In reality, the breakdown usually occurs much earlier — in the data itself. Before investing in new AI capabilities, organizations must answer three questions:</p>
+      <ul class="check-list">
+        <li>Where does our critical data live?</li>
+        <li>Who owns it?</li>
+        <li>Can we trust it?</li>
+      </ul>
+      <p style="margin-top:.75rem">If those questions are difficult to answer, scaling AI will amplify risk rather than productivity.</p>
+    </div>
+
+    <div class="content-block">
+      <h3>Common Barriers to AI Scale</h3>
+      <ul class="check-list">
+        <li>Fragmented systems</li>
+        <li>Outdated or incomplete data</li>
+        <li>Siloed ownership</li>
+        <li>Lack of governance</li>
+        <li>Inconsistent definitions across teams</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3>What "AI-Ready Data" Means for an SMB</h3>
+      <p>AI-readiness does not mean enterprise-scale transformation overnight. If monthly reports require manual reconciliation, or finance and operations use different definitions of the same metric — AI scale will be constrained. AI-ready means:</p>
+      <ul class="check-list">
+        <li>Core operational data is mapped</li>
+        <li>Every critical dataset has a clear owner</li>
+        <li>Reporting logic is documented</li>
+        <li>Manual reconciliation is minimized</li>
+        <li>Access and permissions are defined</li>
+      </ul>
+    </div>
+
+    <div class="warning-block">
+      <h3>⚠ Warning Signs You Need to Prioritize Data Readiness</h3>
+      <ul class="check-list">
+        <li>Reports require manual intervention</li>
+        <li>Departments define the same metrics differently</li>
+        <li>AI pilot outputs are inconsistent</li>
+        <li>No one is accountable for data quality</li>
+        <li>System integration projects repeatedly stall</li>
+      </ul>
+    </div>
+
+    <div class="action-plan">
+      <div class="action-plan-title">30-60-90 Day Action Plan</div>
+      <div class="action-phases">
+        <div class="action-phase">
+          <div class="action-phase-label">Days 1–30 · Establish Visibility</div>
+          <ul>
+            <li>Map core systems and workflows</li>
+            <li>Document where critical data lives</li>
+            <li>Assign accountable owners for datasets</li>
+            <li>Connect with TechPoint CDO Network</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 31–60 · Stabilize One Workflow</div>
+          <ul>
+            <li>Select one friction-creating workflow</li>
+            <li>Standardize definitions</li>
+            <li>Reduce manual reconciliation</li>
+            <li>Clarify access controls</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 61–90 · Integrate AI</div>
+          <ul>
+            <li>Define measurable KPIs</li>
+            <li>Track performance changes</li>
+            <li>Document learnings for replication</li>
+            <li>Explore AI use case repository</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FOUNDATION 2: PEOPLE READINESS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="foundation" id="f2">
+    <div class="foundation-header">
+      <div class="foundation-num">02</div>
+      <div class="foundation-header-text">
+        <h2>Building the Workforce AI Can't Replace</h2>
+        <p>AI adoption depends equally on people and technology. Prepare through change management and practical upskilling — not replacement.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>Augmentation Over Replacement</h3>
+      <p>AI excels at codified work — tasks that are routine, rules-based, and well documented. Humans excel at judgment, context, communication, and accountability. Organizations that struggle with AI adoption often deploy tools without preparing their people. Tools pile onto existing workloads, managers lack capacity, and adoption stalls.</p>
+    </div>
+
+    <div class="content-block">
+      <h3>What AI-Ready Talent Actually Requires</h3>
+      <p>Organizations don't need machine learning engineers everywhere. Teams need operational AI fluency:</p>
+      <ul class="check-list">
+        <li>Effective prompt structuring</li>
+        <li>AI output validation</li>
+        <li>Sensitive data protection awareness</li>
+        <li>Understanding when human oversight is necessary</li>
+        <li>Workflow adaptation for automation</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3>Underutilized Strategy: Early-Career Talent</h3>
+      <p>Deploy interns and early-career professionals on foundational AI work — they gain real experience while strengthening your organization's infrastructure:</p>
+      <ul class="check-list">
+        <li>Data cleanup</li>
+        <li>Process documentation</li>
+        <li>Workflow mapping</li>
+        <li>AI tool testing</li>
+        <li>Knowledge capture</li>
+      </ul>
+    </div>
+
+    <div class="warning-block">
+      <h3>⚠ Warning Signs</h3>
+      <ul class="check-list">
+        <li>AI tools deployed without structured training</li>
+        <li>Managers unclear on measuring AI-enabled productivity</li>
+        <li>Employees experimenting with tools outside governance frameworks</li>
+        <li>Rising workforce anxiety</li>
+        <li>Reactive rather than planned upskilling conversations</li>
+      </ul>
+    </div>
+
+    <div class="action-plan">
+      <div class="action-plan-title">30-60-90 Day Action Plan</div>
+      <div class="action-phases">
+        <div class="action-phase">
+          <div class="action-phase-label">Days 1–30 · Assess & Align</div>
+          <ul>
+            <li>Message: "AI = productivity tool, not replacement"</li>
+            <li>Identify roles exposed to AI-enabled change</li>
+            <li>Break roles into task-level components</li>
+            <li>Determine routine vs. judgment-based tasks</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 31–60 · Build Capacity</div>
+          <ul>
+            <li>Launch pilot AI literacy cohort</li>
+            <li>Train on prompting, governance, workflow redesign</li>
+            <li>Deploy early-career support on foundational projects</li>
+            <li>Managers: document execution vs. innovation conflicts</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 61–90 · Measure & Codify</div>
+          <ul>
+            <li>Track productivity improvements</li>
+            <li>Refine role expectations</li>
+            <li>Formalize augmentation strategy</li>
+            <li>Engage Indiana AI Innovation Network</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FOUNDATION 3: INNOVATION STRATEGY -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="foundation" id="f3">
+    <div class="foundation-header">
+      <div class="foundation-num">03</div>
+      <div class="foundation-header-text">
+        <h2>Smart Innovation Strategy: Build, Buy, or Partner?</h2>
+        <p>Identify appropriate opportunities, align investments to business goals, and make disciplined decisions — before spending.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>Discipline Over Hype</h3>
+      <p>Most small and mid-sized businesses don't require custom AI systems. They benefit from disciplined integration of existing tools that make sense for their environment. The most successful organizations focus on integrating mature platforms — not developing proprietary models.</p>
+      <p><strong>"Buying another tool will not fix foundational gaps."</strong></p>
+    </div>
+
+    <div class="content-block">
+      <h3>5 Questions Before Any AI Investment</h3>
+      <ul class="check-list">
+        <li>Does this solve a clearly-defined business problem?</li>
+        <li>Is our data stable enough to support it?</li>
+        <li>Will this integrate with existing systems?</li>
+        <li>Is ROI measurable and time-bound?</li>
+        <li>Who owns implementation and accountability?</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3>Common SMB Mistakes</h3>
+      <ul class="check-list">
+        <li>Expanding pilots without governance structures</li>
+        <li>Overestimating automation capabilities</li>
+        <li>Underinvesting in change management</li>
+        <li>Failing to discontinue underperforming tools</li>
+      </ul>
+    </div>
+
+    <div class="action-plan">
+      <div class="action-plan-title">30-60-90 Day Action Plan</div>
+      <div class="action-phases">
+        <div class="action-phase">
+          <div class="action-phase-label">Days 1–30 · Define the Use Case</div>
+          <ul>
+            <li>Identify one high-impact, measurable use case</li>
+            <li>Establish baseline performance metrics</li>
+            <li>Map system dependencies</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 31–60 · Pilot with Guardrails</div>
+          <ul>
+            <li>Deploy tightly scoped pilot</li>
+            <li>Train small, accountable user group</li>
+            <li>Track KPIs weekly</li>
+            <li>Do not expand scope mid-pilot</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 61–90 · Decide with Discipline</div>
+          <ul>
+            <li>Scale only if ROI is measurable</li>
+            <li>Revise if partial progress exists</li>
+            <li>Sunset if performance doesn't justify cost</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FOUNDATION 4: INFRASTRUCTURE -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="foundation" id="f4">
+    <div class="foundation-header">
+      <div class="foundation-num">04</div>
+      <div class="foundation-header-text">
+        <h2>Infrastructure &amp; Sustainability</h2>
+        <p>AI requires appropriate technical and operational conditions. Address infrastructure, compute costs, and vendor risk before scaling.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>AI Is Not Virtual</h3>
+      <p>Despite appearing intangible, every AI workflow operates on physical infrastructure — data centers, compute power, energy grids, and water-cooled systems. As adoption scales, these physical requirements shape long-term cost structures. Small businesses need to account for:</p>
+      <ul class="check-list">
+        <li>Cloud pricing volatility</li>
+        <li>Increased compute consumption</li>
+        <li>Vendor dependency risk</li>
+        <li>Regulatory shifts</li>
+      </ul>
+    </div>
+
+    <div class="warning-block">
+      <h3>⚠ Warning Signs for Reassessment</h3>
+      <ul class="check-list">
+        <li>Compute costs are not visible in ROI models</li>
+        <li>Vendor contracts lack transparency</li>
+        <li>AI growth projections assume flat cloud costs</li>
+        <li>Sustainability commitments are disconnected from AI expansion</li>
+      </ul>
+    </div>
+
+    <div class="action-plan">
+      <div class="action-plan-title">30-60-90 Day Action Plan</div>
+      <div class="action-phases">
+        <div class="action-phase">
+          <div class="action-phase-label">Days 1–30 · Cost Visibility</div>
+          <ul>
+            <li>Audit AI-related cloud usage</li>
+            <li>Review vendor contracts</li>
+            <li>Document compute-related expenses</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 31–60 · Pilot with Guardrails</div>
+          <ul>
+            <li>Incorporate compute costs into AI ROI modeling</li>
+            <li>Assess vendor diversification options</li>
+            <li>Align AI expansion with financial planning</li>
+          </ul>
+        </div>
+        <div class="action-phase">
+          <div class="action-phase-label">Days 61–90 · Formalize Governance</div>
+          <ul>
+            <li>Establish oversight for AI infrastructure decisions</li>
+            <li>Document cost and risk monitoring cadence</li>
+            <li>Align AI growth projections with operating strategy</li>
+            <li>Engage ecosystem peers on sustainability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- FIELD NOTES -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="notes-section" id="notes">
+    <span class="notes-tag">Field Notes</span>
+    <h2>Jeff's Applications &amp; Client Notes</h2>
+    <p>How this framework is being applied across Horsepower AI engagements. Add observations, client outcomes, and real-world findings as they develop.</p>
+
+    <div class="opener-block">
+      <p><strong>How to use this in a client conversation:</strong> Position the framework as a diagnostic before any tool discussion. Opening question:</p>
+      <blockquote>"Before we talk about AI tools, let's make sure your foundation is solid — because that's where most AI projects fail."</blockquote>
+      <p style="margin-top:.75rem;font-size:.88rem;color:var(--muted)">Walk through the four foundations as a discovery checklist. Each warning signs list is a qualifying question. Each 30-60-90 plan is a potential engagement scope.</p>
+    </div>
+
+    <h3 style="font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:.75rem">Active Engagements Using This Framework</h3>
+    <ul class="notes-client-list">
+      <li>MTCA — Mother Theodore Catholic Academies · AI implementation + workforce development (Wooden Boy Industries)</li>
+      <li>Innovation Connector / Ted Baker — LaunchReady 7 Levels assessment and engagement (Muncie, IN)</li>
+      <li>Horsepower AI — Internal 90-day operations build (ClickUp, Convertwave, SOPs, KPI dashboards)</li>
+    </ul>
+
+    <h3 style="font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin-bottom:.75rem">Notes — Add As You Go</h3>
+    <div class="notes-lines">
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+      <div class="notes-line"></div>
+    </div>
+
+    <p class="last-updated">Last updated: June 5, 2026 · <a href="https://techpoint.org/ai-adoption-playbook" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">View original source</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <img src="assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <p>&copy; 2026 Horsepower AI &nbsp;·&nbsp; <a href="mailto:jeff.najar@horsepowermarketing.com">jeff.najar@horsepowermarketing.com</a></p>
+</footer>
+
+</body>
+</html>
