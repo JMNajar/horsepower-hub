@@ -194,6 +194,61 @@
       margin-top: 2rem;
     }
 
+    /* LEAD CAPTURE FORM */
+    .lead-intro {
+      font-size: .93rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 540px) { .lead-grid { grid-template-columns: 1fr; } }
+    .field-group { display: flex; flex-direction: column; gap: .35rem; }
+    .field-group label {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .field-group input {
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: .6rem .85rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .92rem;
+      color: var(--navy);
+      background: var(--cream);
+      outline: none;
+      transition: border-color .15s;
+    }
+    .field-group input:focus { border-color: var(--red); }
+    .lead-submit-area {
+      margin-top: 1.5rem;
+      border-top: 1.5px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    .lead-submit-area p {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .lead-error {
+      display: none;
+      background: #fff0f0;
+      border: 1.5px solid #f0a0a0;
+      border-radius: 7px;
+      padding: .65rem .9rem;
+      font-size: .84rem;
+      color: #a00;
+      margin-top: .85rem;
+    }
+
     /* OPTION CARDS (used in stepper) */
     .options { display: flex; flex-direction: column; gap: .5rem; }
     .option {
@@ -519,7 +574,7 @@
 <section class="hero">
   <div class="hero-label">Free Assessment</div>
   <h1>The AI Business Diagnostic</h1>
-  <p>Build your profile. Answer 10 questions. Get your score and your three highest-value moves — instantly.</p>
+  <p>Tell us about your business, then answer 10 questions. Get your score and your three highest-value moves — instantly.</p>
   <div class="hero-meta">
     <span>Takes 4–5 minutes</span>
     <span>No technical knowledge required</span>
@@ -557,25 +612,60 @@
 <!-- DIAGNOSTIC -->
 <div class="section-wrap">
   <div class="section-label">The Diagnostic</div>
-  <h2 class="section-heading">One question at a time.</h2>
+  <h2 class="section-heading">Start with the basics, then we'll dig in.</h2>
 
-  <!-- STEPPER -->
   <div class="diag-wrap" id="diagWrap">
-    <div class="stepper-progress">
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill" style="width: 5.26%"></div>
+
+    <!-- LEAD CAPTURE (shown first) -->
+    <div id="leadCapture">
+      <p class="lead-intro">Fill in your contact info below, then we'll walk you through the diagnostic one question at a time.</p>
+      <div class="lead-grid">
+        <div class="field-group">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" placeholder="Jeff" required>
+        </div>
+        <div class="field-group">
+          <label for="lname">Last Name *</label>
+          <input type="text" id="lname" placeholder="Najar" required>
+        </div>
+        <div class="field-group">
+          <label for="company">Company Name *</label>
+          <input type="text" id="company" placeholder="Horsepower AI" required>
+        </div>
+        <div class="field-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="you@yourcompany.com" required>
+        </div>
+        <div class="field-group">
+          <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <input type="tel" id="phone" placeholder="(555) 000-0000">
+        </div>
       </div>
-      <div class="progress-label" id="progressLabel">Step 1 of 19</div>
+      <div class="lead-submit-area">
+        <p>Your results appear instantly on screen. No spam — just your score and your next move.</p>
+        <button class="btn-primary" onclick="startDiagnostic()">Start My Diagnostic →</button>
+        <div class="lead-error" id="leadError">Please fill in your name, company, and email to continue.</div>
+      </div>
     </div>
 
-    <div id="stepContent"></div>
+    <!-- STEPPER (hidden until lead form submitted) -->
+    <div id="stepperWrap" style="display:none">
+      <div class="stepper-progress">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill" style="width: 7.14%"></div>
+        </div>
+        <div class="progress-label" id="progressLabel">Question 1 of 14</div>
+      </div>
 
-    <div class="step-nav" id="stepNav">
-      <button class="btn-back-step" id="btnBack" onclick="prevStep()" style="display:none">← Back</button>
-      <button class="btn-primary" id="btnNext" onclick="nextStep()">Continue →</button>
-      <button class="btn-skip" id="btnSkip" onclick="skipStep()" style="display:none">Skip for now</button>
+      <div id="stepContent"></div>
+
+      <div class="step-nav" id="stepNav">
+        <button class="btn-back-step" id="btnBack" onclick="prevStep()" style="display:none">← Back</button>
+        <button class="btn-primary" id="btnNext" onclick="nextStep()">Continue →</button>
+      </div>
+      <div class="step-error" id="stepError"></div>
     </div>
-    <div class="step-error" id="stepError"></div>
+
   </div>
 
   <!-- RESULTS -->
@@ -611,14 +701,6 @@
   const CALENDLY_URL = 'https://calendly.com/hpmarketers';
 
   const STEPS = [
-    // Lead capture
-    { type: 'text',  field: 'fname',   context: "Let's get started",  q: "What's your first name?",                      placeholder: "First name",              required: true  },
-    { type: 'text',  field: 'lname',   context: "Your profile",       q: "And your last name?",                          placeholder: "Last name",               required: true  },
-    { type: 'text',  field: 'company', context: "Your business",      q: "What's your company name?",                    placeholder: "Company name",            required: true  },
-    { type: 'email', field: 'email',   context: "Stay in touch",      q: "Best email address to reach you?",             placeholder: "you@yourcompany.com",     required: true  },
-    { type: 'tel',   field: 'phone',   context: "Optional",           q: "What's your phone number?",                    placeholder: "(555) 000-0000",          required: false,
-      hint: "Optional — skip if you prefer." },
-
     // Qualification
     { type: 'radio', field: 'industry', context: "About Your Business", q: "What industry are you in?",
       options: [
@@ -748,10 +830,40 @@
     }
   ];
 
-  const TOTAL = STEPS.length;
+  const TOTAL = STEPS.length; // 14
   let currentStep = 0;
   let answers = {};
   let autoAdvanceTimer = null;
+
+  function startDiagnostic() {
+    var fname   = document.getElementById('fname').value.trim();
+    var lname   = document.getElementById('lname').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var errEl   = document.getElementById('leadError');
+
+    if (!fname || !lname || !company || !email) {
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    answers.fname   = fname;
+    answers.lname   = lname;
+    answers.company = company;
+    answers.email   = email;
+    answers.phone   = document.getElementById('phone').value.trim();
+
+    document.getElementById('leadCapture').style.display = 'none';
+    document.getElementById('stepperWrap').style.display = 'block';
+    renderStep(0);
+    document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   const outcomes = {
     foundation: {
@@ -792,7 +904,7 @@
 
     // Progress bar
     document.getElementById('progressFill').style.width = ((stepNum / TOTAL) * 100) + '%';
-    document.getElementById('progressLabel').textContent = 'Step ' + stepNum + ' of ' + TOTAL;
+    document.getElementById('progressLabel').textContent = 'Question ' + stepNum + ' of ' + TOTAL;
 
     // Build HTML
     let html = '';
@@ -821,31 +933,12 @@
     document.getElementById('stepContent').innerHTML = html;
     document.getElementById('stepError').style.display = 'none';
 
-    // Update nav buttons
+    // Update nav buttons — all steps are radio, Next is hidden (auto-advance)
     var btnBack = document.getElementById('btnBack');
     var btnNext = document.getElementById('btnNext');
-    var btnSkip = document.getElementById('btnSkip');
 
     btnBack.style.display = idx > 0 ? 'inline-block' : 'none';
-    btnSkip.style.display = (!step.required && step.type !== 'radio') ? 'inline-block' : 'none';
-
-    if (step.type === 'radio') {
-      btnNext.style.display = 'none';
-    } else {
-      btnNext.style.display = 'inline-block';
-      btnNext.textContent = 'Continue →';
-    }
-
-    // Text input behavior
-    if (step.type !== 'radio') {
-      var inp = document.getElementById('stepInput');
-      if (inp) {
-        inp.focus();
-        inp.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter') nextStep();
-        });
-      }
-    }
+    btnNext.style.display = 'none';
 
     // Radio auto-advance
     if (step.type === 'radio') {
@@ -869,33 +962,15 @@
   function nextStep() {
     var step = STEPS[currentStep];
     var errEl = document.getElementById('stepError');
+    var sel = document.querySelector('input[name="step_radio"]:checked');
 
-    if (step.type === 'radio') {
-      var sel = document.querySelector('input[name="step_radio"]:checked');
-      if (!sel) {
-        errEl.textContent = 'Please select an option to continue.';
-        errEl.style.display = 'block';
-        return;
-      }
-      answers[step.field] = step.score ? parseInt(sel.value) : sel.value;
-    } else {
-      var inp = document.getElementById('stepInput');
-      var val = inp ? inp.value.trim() : '';
-      if (step.required && !val) {
-        errEl.textContent = 'Please fill in this field to continue.';
-        errEl.style.display = 'block';
-        if (inp) inp.focus();
-        return;
-      }
-      if (step.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        errEl.textContent = 'Please enter a valid email address.';
-        errEl.style.display = 'block';
-        if (inp) inp.focus();
-        return;
-      }
-      answers[step.field] = val;
+    if (!sel) {
+      errEl.textContent = 'Please select an option to continue.';
+      errEl.style.display = 'block';
+      return;
     }
 
+    answers[step.field] = step.score ? parseInt(sel.value) : sel.value;
     errEl.style.display = 'none';
 
     if (currentStep < TOTAL - 1) {
@@ -979,7 +1054,14 @@
   function resetDiag() {
     currentStep = 0;
     answers = {};
-    renderStep(0);
+    document.getElementById('leadCapture').style.display = 'block';
+    document.getElementById('stepperWrap').style.display = 'none';
+    document.getElementById('leadError').style.display = 'none';
+    document.getElementById('fname').value = '';
+    document.getElementById('lname').value = '';
+    document.getElementById('company').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
     document.getElementById('diagWrap').style.display = 'block';
     document.getElementById('results').style.display = 'none';
     document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -989,8 +1071,7 @@
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  // Boot
-  renderStep(0);
+  // Stepper boots via startDiagnostic() after lead form submit
 </script>
 
 </body>
