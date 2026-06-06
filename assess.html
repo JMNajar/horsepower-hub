@@ -185,7 +185,7 @@
     .oc-momentum  { border-top: 3px solid var(--amber); }
     .oc-scale     { border-top: 3px solid var(--green); }
 
-    /* DIAGNOSTIC FORM */
+    /* DIAGNOSTIC WRAPPER */
     .diag-wrap {
       background: var(--white);
       border: 1.5px solid var(--border);
@@ -193,97 +193,8 @@
       padding: 2.5rem 2.5rem 2rem;
       margin-top: 2rem;
     }
-    .diag-intro {
-      font-size: .93rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
 
-    /* LEAD CAPTURE */
-    .lead-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2.25rem;
-    }
-    @media (max-width: 540px) { .lead-grid { grid-template-columns: 1fr; } }
-    .field-group { display: flex; flex-direction: column; gap: .35rem; }
-    .field-group label {
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .field-group input {
-      border: 1.5px solid var(--border);
-      border-radius: 7px;
-      padding: .6rem .85rem;
-      font-family: 'Inter', sans-serif;
-      font-size: .92rem;
-      color: var(--navy);
-      background: var(--cream);
-      outline: none;
-      transition: border-color .15s;
-    }
-    .field-group input:focus { border-color: var(--red); }
-
-    /* QUESTION SECTIONS */
-    .q-section {
-      margin-bottom: 2.25rem;
-    }
-    .q-section-header {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: .6rem;
-      border-bottom: 2px solid var(--lnavy);
-    }
-    .q-section-num {
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Oswald', sans-serif;
-      font-size: .78rem;
-      font-weight: 700;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .q-section-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: .02em;
-    }
-    .q-section-sub {
-      font-size: .78rem;
-      color: var(--muted);
-      margin-top: .1rem;
-    }
-
-    .question {
-      margin-bottom: 1.5rem;
-    }
-    .question-text {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: .75rem;
-      line-height: 1.5;
-    }
-    .q-num-inline {
-      color: var(--red);
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      margin-right: .35rem;
-    }
+    /* OPTION CARDS (used in stepper) */
     .options { display: flex; flex-direction: column; gap: .5rem; }
     .option {
       display: flex;
@@ -301,18 +212,117 @@
     .option input[type="radio"]:checked ~ .option-text { color: var(--navy); font-weight: 600; }
     .option:has(input:checked) { border-color: var(--red); background: #fff5f5; }
 
-    /* SUBMIT */
-    .submit-area {
-      margin-top: 2rem;
-      border-top: 1.5px solid var(--border);
-      padding-top: 1.75rem;
-      text-align: center;
+    /* STEPPER */
+    .stepper-progress {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1.5px solid var(--lnavy);
     }
-    .submit-area p {
+    .progress-track {
+      flex: 1;
+      height: 6px;
+      background: var(--lnavy);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--red);
+      border-radius: 3px;
+      transition: width .35s ease;
+    }
+    .progress-label {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .step-context {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: .5rem;
+    }
+    .step-question {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 1.5rem;
+      max-width: 620px;
+    }
+    .step-hint {
       font-size: .82rem;
       color: var(--muted);
-      margin-bottom: 1.1rem;
+      margin-top: -.75rem;
+      margin-bottom: 1.25rem;
     }
+    .step-input {
+      width: 100%;
+      max-width: 480px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: .9rem 1.1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      background: var(--cream);
+      outline: none;
+      transition: border-color .15s;
+      display: block;
+    }
+    .step-input:focus { border-color: var(--red); }
+
+    .step-nav {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .btn-back-step {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: .7rem 1.25rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-back-step:hover { border-color: var(--navy); color: var(--navy); }
+
+    .btn-skip {
+      background: none;
+      border: none;
+      font-size: .82rem;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: underline;
+      padding: .5rem 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-skip:hover { color: var(--navy); }
+
+    .step-error {
+      display: none;
+      font-size: .82rem;
+      color: #a00;
+      margin-top: .75rem;
+      font-weight: 500;
+    }
+
+    /* BUTTONS */
     .btn-primary {
       display: inline-block;
       background: var(--red);
@@ -347,16 +357,6 @@
       text-decoration: none;
     }
     .btn-secondary:hover { opacity: .85; }
-    .error-msg {
-      display: none;
-      background: #fff0f0;
-      border: 1.5px solid #f0a0a0;
-      border-radius: 7px;
-      padding: .75rem 1rem;
-      font-size: .85rem;
-      color: #a00;
-      margin-top: 1rem;
-    }
 
     /* RESULTS */
     #results {
@@ -366,6 +366,29 @@
       border-radius: 14px;
       padding: 2.5rem;
       margin-top: 2rem;
+    }
+    .result-greeting {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .6rem;
+    }
+    .result-profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+    .result-profile span {
+      background: var(--lnavy);
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .3rem .8rem;
+      border-radius: 20px;
     }
     .result-badge {
       display: inline-block;
@@ -478,6 +501,7 @@
       .diag-wrap { padding: 1.5rem 1.25rem; }
       #results { padding: 1.5rem 1.25rem; }
       .result-score { font-size: 2.75rem; }
+      .step-question { font-size: 1.35rem; }
     }
   </style>
 </head>
@@ -495,9 +519,9 @@
 <section class="hero">
   <div class="hero-label">Free Assessment</div>
   <h1>The AI Business Diagnostic</h1>
-  <p>10 questions. Instant results. Find out exactly where AI can add revenue, save time, and give your business a competitive edge.</p>
+  <p>Build your profile. Answer 10 questions. Get your score and your three highest-value moves — instantly.</p>
   <div class="hero-meta">
-    <span>Takes 3 minutes</span>
+    <span>Takes 4–5 minutes</span>
     <span>No technical knowledge required</span>
     <span>Actionable recommendations included</span>
   </div>
@@ -533,189 +557,31 @@
 <!-- DIAGNOSTIC -->
 <div class="section-wrap">
   <div class="section-label">The Diagnostic</div>
-  <h2 class="section-heading">10 Questions. Honest Answers.</h2>
+  <h2 class="section-heading">One question at a time.</h2>
 
-  <div class="diag-wrap">
-    <p class="diag-intro">Answer each question based on how your business actually operates today — not how you'd like it to. The more honest your answers, the more useful your results.</p>
-
-    <form id="diagForm" novalidate>
-
-      <!-- LEAD CAPTURE -->
-      <div class="lead-grid">
-        <div class="field-group">
-          <label for="fname">First Name *</label>
-          <input type="text" id="fname" placeholder="Jeff" required>
-        </div>
-        <div class="field-group">
-          <label for="lname">Last Name *</label>
-          <input type="text" id="lname" placeholder="Najar" required>
-        </div>
-        <div class="field-group">
-          <label for="company">Company Name *</label>
-          <input type="text" id="company" placeholder="Horsepower AI" required>
-        </div>
-        <div class="field-group">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" placeholder="you@yourcompany.com" required>
-        </div>
+  <!-- STEPPER -->
+  <div class="diag-wrap" id="diagWrap">
+    <div class="stepper-progress">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width: 5.26%"></div>
       </div>
+      <div class="progress-label" id="progressLabel">Step 1 of 19</div>
+    </div>
 
-      <!-- SECTION 1 -->
-      <div class="q-section">
-        <div class="q-section-header">
-          <div class="q-section-num">1</div>
-          <div>
-            <div class="q-section-title">Revenue &amp; Customer Growth</div>
-            <div class="q-section-sub">How you're winning customers and driving visibility</div>
-          </div>
-        </div>
+    <div id="stepContent"></div>
 
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q1.</span> How do most of your new customers find you today?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q1" value="1" required><span class="option-text">Word of mouth only — I don't actively promote the business online</span></label>
-            <label class="option"><input type="radio" name="q1" value="2"><span class="option-text">I have a website and some social presence but it's not consistent</span></label>
-            <label class="option"><input type="radio" name="q1" value="3"><span class="option-text">I actively manage search, social, and reviews to drive inbound leads</span></label>
-            <label class="option"><input type="radio" name="q1" value="4"><span class="option-text">I use AI-powered tools to continuously track, optimize, and grow my visibility</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q2.</span> How often do you follow up with past customers or warm prospects?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q2" value="1" required><span class="option-text">Rarely — it falls through the cracks</span></label>
-            <label class="option"><input type="radio" name="q2" value="2"><span class="option-text">Occasionally, but it's manual and inconsistent</span></label>
-            <label class="option"><input type="radio" name="q2" value="3"><span class="option-text">We have a process, but it's time-consuming to keep up with</span></label>
-            <label class="option"><input type="radio" name="q2" value="4"><span class="option-text">We use automated sequences that run without manual effort</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q3.</span> How would you rate your online visibility compared to your top competitors?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q3" value="1" required><span class="option-text">I honestly don't know how I compare</span></label>
-            <label class="option"><input type="radio" name="q3" value="2"><span class="option-text">I think we're behind but haven't measured it</span></label>
-            <label class="option"><input type="radio" name="q3" value="3"><span class="option-text">We're competitive but there's room to grow</span></label>
-            <label class="option"><input type="radio" name="q3" value="4"><span class="option-text">We actively monitor and consistently outperform competitors online</span></label>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 2 -->
-      <div class="q-section">
-        <div class="q-section-header">
-          <div class="q-section-num">2</div>
-          <div>
-            <div class="q-section-title">Time &amp; Operations</div>
-            <div class="q-section-sub">Where manual work is costing you money and margin</div>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q4.</span> How much of your week is spent on tasks that feel repetitive or administrative?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q4" value="1" required><span class="option-text">Most of it — I'm in the weeds constantly</span></label>
-            <label class="option"><input type="radio" name="q4" value="2"><span class="option-text">More than I'd like — it limits my strategic time</span></label>
-            <label class="option"><input type="radio" name="q4" value="3"><span class="option-text">Some of it — I've automated a few things but not enough</span></label>
-            <label class="option"><input type="radio" name="q4" value="4"><span class="option-text">Very little — most routine work runs without me</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q5.</span> When a customer reaches out after hours, what happens?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q5" value="1" required><span class="option-text">They wait until the next business day</span></label>
-            <label class="option"><input type="radio" name="q5" value="2"><span class="option-text">I try to respond when I can, but it's not reliable</span></label>
-            <label class="option"><input type="radio" name="q5" value="3"><span class="option-text">We have some automated responses but limited resolution</span></label>
-            <label class="option"><input type="radio" name="q5" value="4"><span class="option-text">AI handles initial contact and qualifies the lead immediately</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q6.</span> How do you track what's working in your marketing and sales?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q6" value="1" required><span class="option-text">I go by gut feel and general impressions</span></label>
-            <label class="option"><input type="radio" name="q6" value="2"><span class="option-text">I look at basic metrics occasionally but don't act on them systematically</span></label>
-            <label class="option"><input type="radio" name="q6" value="3"><span class="option-text">I track regularly but spend a lot of time pulling reports manually</span></label>
-            <label class="option"><input type="radio" name="q6" value="4"><span class="option-text">I have dashboards that surface what's working in real time</span></label>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 3 -->
-      <div class="q-section">
-        <div class="q-section-header">
-          <div class="q-section-num">3</div>
-          <div>
-            <div class="q-section-title">Tools &amp; Intelligence</div>
-            <div class="q-section-sub">What technology is actually powering your decisions</div>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q7.</span> Which best describes how AI is used in your business today?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q7" value="1" required><span class="option-text">We haven't started — not sure where to begin</span></label>
-            <label class="option"><input type="radio" name="q7" value="2"><span class="option-text">A few people use ChatGPT or similar tools on their own</span></label>
-            <label class="option"><input type="radio" name="q7" value="3"><span class="option-text">We've deployed AI in one or two specific workflows</span></label>
-            <label class="option"><input type="radio" name="q7" value="4"><span class="option-text">AI is embedded across marketing, operations, and customer communication</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q8.</span> How do you use customer and business data to make decisions?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q8" value="1" required><span class="option-text">Mostly from memory and experience</span></label>
-            <label class="option"><input type="radio" name="q8" value="2"><span class="option-text">I have data but rarely have time to use it strategically</span></label>
-            <label class="option"><input type="radio" name="q8" value="3"><span class="option-text">I review data regularly and it shapes my decisions</span></label>
-            <label class="option"><input type="radio" name="q8" value="4"><span class="option-text">I have systems that surface insights automatically so I can act fast</span></label>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 4 -->
-      <div class="q-section">
-        <div class="q-section-header">
-          <div class="q-section-num">4</div>
-          <div>
-            <div class="q-section-title">People &amp; Momentum</div>
-            <div class="q-section-sub">Your team's capacity to move with AI</div>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q9.</span> When you introduce a new tool or system, how does your team typically respond?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q9" value="1" required><span class="option-text">There's usually resistance — change is slow and painful</span></label>
-            <label class="option"><input type="radio" name="q9" value="2"><span class="option-text">Mixed — some adapt, some don't</span></label>
-            <label class="option"><input type="radio" name="q9" value="3"><span class="option-text">Most people get on board with some guidance and time</span></label>
-            <label class="option"><input type="radio" name="q9" value="4"><span class="option-text">We adopt quickly — the team is wired for continuous improvement</span></label>
-          </div>
-        </div>
-
-        <div class="question">
-          <div class="question-text"><span class="q-num-inline">Q10.</span> What's the biggest thing holding your business back from using AI more?</div>
-          <div class="options">
-            <label class="option"><input type="radio" name="q10" value="1" required><span class="option-text">I don't know where to start</span></label>
-            <label class="option"><input type="radio" name="q10" value="2"><span class="option-text">I don't have time to figure it out</span></label>
-            <label class="option"><input type="radio" name="q10" value="3"><span class="option-text">I need someone to show me what's possible for MY specific business</span></label>
-            <label class="option"><input type="radio" name="q10" value="4"><span class="option-text">I'm already using AI but want to go deeper and faster</span></label>
-          </div>
-        </div>
-      </div>
-
-      <!-- SUBMIT -->
-      <div class="submit-area">
-        <p>Your results appear instantly. No spam — just your score and your next move.</p>
-        <button type="submit" class="btn-primary">Get My Diagnostic Results →</button>
-        <div class="error-msg" id="errorMsg">Please answer all 10 questions and fill in your name, company, and email before submitting.</div>
-      </div>
-
-    </form>
+    <div class="step-nav" id="stepNav">
+      <button class="btn-back-step" id="btnBack" onclick="prevStep()" style="display:none">← Back</button>
+      <button class="btn-primary" id="btnNext" onclick="nextStep()">Continue →</button>
+      <button class="btn-skip" id="btnSkip" onclick="skipStep()" style="display:none">Skip for now</button>
+    </div>
+    <div class="step-error" id="stepError"></div>
   </div>
 
   <!-- RESULTS -->
   <div id="results">
+    <div id="resultGreeting" class="result-greeting"></div>
+    <div id="resultProfile" class="result-profile"></div>
     <div id="resultBadge" class="result-badge"></div>
     <div id="resultScore" class="result-score"></div>
     <div id="resultLevel" class="result-level"></div>
@@ -742,14 +608,154 @@
 </footer>
 
 <script>
-  // Calendly link — update when Jeff provides it
   const CALENDLY_URL = 'https://calendly.com/hpmarketers';
+
+  const STEPS = [
+    // Lead capture
+    { type: 'text',  field: 'fname',   context: "Let's get started",  q: "What's your first name?",                      placeholder: "First name",              required: true  },
+    { type: 'text',  field: 'lname',   context: "Your profile",       q: "And your last name?",                          placeholder: "Last name",               required: true  },
+    { type: 'text',  field: 'company', context: "Your business",      q: "What's your company name?",                    placeholder: "Company name",            required: true  },
+    { type: 'email', field: 'email',   context: "Stay in touch",      q: "Best email address to reach you?",             placeholder: "you@yourcompany.com",     required: true  },
+    { type: 'tel',   field: 'phone',   context: "Optional",           q: "What's your phone number?",                    placeholder: "(555) 000-0000",          required: false,
+      hint: "Optional — skip if you prefer." },
+
+    // Qualification
+    { type: 'radio', field: 'industry', context: "About Your Business", q: "What industry are you in?",
+      options: [
+        "Retail or E-Commerce",
+        "Professional Services (legal, financial, consulting, marketing)",
+        "Healthcare or Wellness",
+        "Food, Hospitality, or Events",
+        "Trades, Construction, or Real Estate",
+        "Education, Nonprofit, or Other"
+      ]
+    },
+    { type: 'radio', field: 'company_size', context: "About Your Business", q: "How many people work in your company?",
+      options: [
+        "Just me — I'm a solo operator",
+        "2–10 employees",
+        "11–50 employees",
+        "51 or more employees"
+      ]
+    },
+    { type: 'radio', field: 'timeline', context: "Your Readiness", q: "When are you looking to move on AI for your business?",
+      options: [
+        "Right now — I'm ready to start",
+        "In the next 1–3 months",
+        "In the next 6–12 months",
+        "Just researching for now"
+      ]
+    },
+    { type: 'radio', field: 'primary_challenge', context: "Your Readiness", q: "What's your #1 business challenge right now?",
+      options: [
+        "Getting more customers through the door",
+        "Saving time on work that isn't growing the business",
+        "Knowing what's actually working in my marketing",
+        "Staying ahead of competitors who are moving fast"
+      ]
+    },
+
+    // Scoring questions
+    { type: 'radio', field: 'q1', score: true, context: "Revenue & Customer Growth",
+      q: "How do most of your new customers find you today?",
+      options: [
+        "Word of mouth only — I don't actively promote the business online",
+        "I have a website and some social presence but it's not consistent",
+        "I actively manage search, social, and reviews to drive inbound leads",
+        "I use AI-powered tools to continuously track, optimize, and grow my visibility"
+      ]
+    },
+    { type: 'radio', field: 'q2', score: true, context: "Revenue & Customer Growth",
+      q: "How often do you follow up with past customers or warm prospects?",
+      options: [
+        "Rarely — it falls through the cracks",
+        "Occasionally, but it's manual and inconsistent",
+        "We have a process, but it's time-consuming to keep up with",
+        "We use automated sequences that run without manual effort"
+      ]
+    },
+    { type: 'radio', field: 'q3', score: true, context: "Revenue & Customer Growth",
+      q: "How would you rate your online visibility compared to your top competitors?",
+      options: [
+        "I honestly don't know how I compare",
+        "I think we're behind but haven't measured it",
+        "We're competitive but there's room to grow",
+        "We actively monitor and consistently outperform competitors online"
+      ]
+    },
+    { type: 'radio', field: 'q4', score: true, context: "Time & Operations",
+      q: "How much of your week is spent on tasks that feel repetitive or administrative?",
+      options: [
+        "Most of it — I'm in the weeds constantly",
+        "More than I'd like — it limits my strategic time",
+        "Some of it — I've automated a few things but not enough",
+        "Very little — most routine work runs without me"
+      ]
+    },
+    { type: 'radio', field: 'q5', score: true, context: "Time & Operations",
+      q: "When a customer reaches out after hours, what happens?",
+      options: [
+        "They wait until the next business day",
+        "I try to respond when I can, but it's not reliable",
+        "We have some automated responses but limited resolution",
+        "AI handles initial contact and qualifies the lead immediately"
+      ]
+    },
+    { type: 'radio', field: 'q6', score: true, context: "Time & Operations",
+      q: "How do you track what's working in your marketing and sales?",
+      options: [
+        "I go by gut feel and general impressions",
+        "I look at basic metrics occasionally but don't act on them systematically",
+        "I track regularly but spend a lot of time pulling reports manually",
+        "I have dashboards that surface what's working in real time"
+      ]
+    },
+    { type: 'radio', field: 'q7', score: true, context: "Tools & Intelligence",
+      q: "Which best describes how AI is used in your business today?",
+      options: [
+        "We haven't started — not sure where to begin",
+        "A few people use ChatGPT or similar tools on their own",
+        "We've deployed AI in one or two specific workflows",
+        "AI is embedded across marketing, operations, and customer communication"
+      ]
+    },
+    { type: 'radio', field: 'q8', score: true, context: "Tools & Intelligence",
+      q: "How do you use customer and business data to make decisions?",
+      options: [
+        "Mostly from memory and experience",
+        "I have data but rarely have time to use it strategically",
+        "I review data regularly and it shapes my decisions",
+        "I have systems that surface insights automatically so I can act fast"
+      ]
+    },
+    { type: 'radio', field: 'q9', score: true, context: "People & Momentum",
+      q: "When you introduce a new tool or system, how does your team typically respond?",
+      options: [
+        "There's usually resistance — change is slow and painful",
+        "Mixed — some adapt, some don't",
+        "Most people get on board with some guidance and time",
+        "We adopt quickly — the team is wired for continuous improvement"
+      ]
+    },
+    { type: 'radio', field: 'q10', score: true, context: "People & Momentum",
+      q: "What's the biggest thing holding your business back from using AI more?",
+      options: [
+        "I don't know where to start",
+        "I don't have time to figure it out",
+        "I need someone to show me what's possible for MY specific business",
+        "I'm already using AI but want to go deeper and faster"
+      ]
+    }
+  ];
+
+  const TOTAL = STEPS.length;
+  let currentStep = 0;
+  let answers = {};
+  let autoAdvanceTimer = null;
 
   const outcomes = {
     foundation: {
-      badge: 'Foundation Stage',
-      badgeClass: 'badge-foundation',
-      scoreClass: 'score-foundation',
+      badge: 'Foundation Stage', badgeClass: 'badge-foundation', scoreClass: 'score-foundation',
       level: 'Foundation — Real Opportunity Ahead',
       desc: "Your business has untapped AI potential that most of your competitors haven't moved on yet. The gap between where you are and where AI can take you is actually an advantage — because you can build the right foundation from the start, without inheriting someone else's bad systems. The businesses that win with AI aren't necessarily the most tech-savvy. They're the ones who move first with the right guidance.",
       actions: [
@@ -759,61 +765,189 @@
       ]
     },
     momentum: {
-      badge: 'Momentum Stage',
-      badgeClass: 'badge-momentum',
-      scoreClass: 'score-momentum',
+      badge: 'Momentum Stage', badgeClass: 'badge-momentum', scoreClass: 'score-momentum',
       level: 'Momentum — Time to Connect the Dots',
       desc: "You've got the instincts and some of the pieces — now it's about integration. The businesses at your stage most commonly have AI working in pockets but not as a system. That means you're still leaving time and revenue on the table between the parts that work. The move from Momentum to Scale isn't about adding more tools — it's about connecting what you already have into a workflow that runs without you.",
       actions: [
         'Map your current AI touchpoints and identify the gaps between them — the handoffs where data gets lost or manual effort creeps back in.',
-        'Build a single customer journey from first touch to repeat business and identify every step where AI should be doing work it currently isn\'t.',
+        "Build a single customer journey from first touch to repeat business and identify every step where AI should be doing work it currently isn't.",
         'Set one measurable AI outcome for the next 90 days — leads generated, hours recaptured, or response time improved — and hold yourself to it.'
       ]
     },
     scale: {
-      badge: 'Scale Stage',
-      badgeClass: 'badge-scale',
-      scoreClass: 'score-scale',
+      badge: 'Scale Stage', badgeClass: 'badge-scale', scoreClass: 'score-scale',
       level: 'Scale — Pull Further Ahead',
       desc: "You're operating above most small businesses in your market. The businesses at your stage have moved past \"using AI\" and are starting to embed it into how the company thinks and operates. The risk at this stage isn't falling behind — it's complacency. Your competitors are catching up faster than they were a year ago, and the gap you've built can close quickly if you stop pushing.",
       actions: [
-        'Identify the one area of your business that still runs on manual judgment and intuition — that\'s the next AI priority. Every business at your stage has one.',
+        "Identify the one area of your business that still runs on manual judgment and intuition — that's the next AI priority. Every business at your stage has one.",
         'Build or commission an intelligence system that monitors your market, competitors, or customer behavior continuously — not just when you have time to look.',
         'Use AI to develop a new revenue stream or product line that would have taken 6 months to build two years ago. The compounding advantage is available to you now.'
       ]
     }
   };
 
-  document.getElementById('diagForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const questions = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
-    const errEl = document.getElementById('errorMsg');
+  function renderStep(idx) {
+    const step = STEPS[idx];
+    const stepNum = idx + 1;
 
-    let score = 0;
-    let allAnswered = true;
+    // Progress bar
+    document.getElementById('progressFill').style.width = ((stepNum / TOTAL) * 100) + '%';
+    document.getElementById('progressLabel').textContent = 'Step ' + stepNum + ' of ' + TOTAL;
 
-    questions.forEach(function(q) {
-      const sel = document.querySelector('input[name="' + q + '"]:checked');
-      if (sel) { score += parseInt(sel.value); }
-      else { allAnswered = false; }
-    });
+    // Build HTML
+    let html = '';
+    if (step.context) html += '<div class="step-context">' + esc(step.context) + '</div>';
+    html += '<div class="step-question">' + esc(step.q) + '</div>';
+    if (step.hint) html += '<div class="step-hint">' + esc(step.hint) + '</div>';
 
-    if (!fname || !lname || !company || !email || !allAnswered) {
-      errEl.style.display = 'block';
-      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
+    if (step.type === 'radio') {
+      html += '<div class="options" id="stepOptions">';
+      step.options.forEach(function(opt, i) {
+        var val = step.score ? (i + 1) : opt;
+        var checked = (answers[step.field] !== undefined && String(answers[step.field]) === String(val)) ? ' checked' : '';
+        var selectedStyle = checked ? ' style="border-color:var(--red);background:#fff5f5;"' : '';
+        html += '<label class="option"' + selectedStyle + '>'
+              + '<input type="radio" name="step_radio" value="' + esc(String(val)) + '"' + checked + '>'
+              + '<span class="option-text">' + esc(opt) + '</span>'
+              + '</label>';
+      });
+      html += '</div>';
+    } else {
+      var inputType = step.type === 'email' ? 'email' : step.type === 'tel' ? 'tel' : 'text';
+      var savedVal = answers[step.field] || '';
+      html += '<input type="' + inputType + '" id="stepInput" class="step-input" placeholder="' + esc(step.placeholder) + '" value="' + esc(savedVal) + '" autocomplete="off">';
     }
+
+    document.getElementById('stepContent').innerHTML = html;
+    document.getElementById('stepError').style.display = 'none';
+
+    // Update nav buttons
+    var btnBack = document.getElementById('btnBack');
+    var btnNext = document.getElementById('btnNext');
+    var btnSkip = document.getElementById('btnSkip');
+
+    btnBack.style.display = idx > 0 ? 'inline-block' : 'none';
+    btnSkip.style.display = (!step.required && step.type !== 'radio') ? 'inline-block' : 'none';
+
+    if (step.type === 'radio') {
+      btnNext.style.display = 'none';
+    } else {
+      btnNext.style.display = 'inline-block';
+      btnNext.textContent = 'Continue →';
+    }
+
+    // Text input behavior
+    if (step.type !== 'radio') {
+      var inp = document.getElementById('stepInput');
+      if (inp) {
+        inp.focus();
+        inp.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') nextStep();
+        });
+      }
+    }
+
+    // Radio auto-advance
+    if (step.type === 'radio') {
+      var opts = document.querySelectorAll('#stepOptions .option');
+      opts.forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+          var radio = this.querySelector('input[type="radio"]');
+          radio.checked = true;
+          opts.forEach(function(o) { o.removeAttribute('style'); });
+          this.style.borderColor = 'var(--red)';
+          this.style.background = '#fff5f5';
+          var step = STEPS[currentStep];
+          answers[step.field] = step.score ? parseInt(radio.value) : radio.value;
+          autoAdvanceTimer = setTimeout(function() { nextStep(); }, 400);
+        });
+      });
+    }
+  }
+
+  function nextStep() {
+    var step = STEPS[currentStep];
+    var errEl = document.getElementById('stepError');
+
+    if (step.type === 'radio') {
+      var sel = document.querySelector('input[name="step_radio"]:checked');
+      if (!sel) {
+        errEl.textContent = 'Please select an option to continue.';
+        errEl.style.display = 'block';
+        return;
+      }
+      answers[step.field] = step.score ? parseInt(sel.value) : sel.value;
+    } else {
+      var inp = document.getElementById('stepInput');
+      var val = inp ? inp.value.trim() : '';
+      if (step.required && !val) {
+        errEl.textContent = 'Please fill in this field to continue.';
+        errEl.style.display = 'block';
+        if (inp) inp.focus();
+        return;
+      }
+      if (step.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        errEl.textContent = 'Please enter a valid email address.';
+        errEl.style.display = 'block';
+        if (inp) inp.focus();
+        return;
+      }
+      answers[step.field] = val;
+    }
+
     errEl.style.display = 'none';
 
-    let outcome;
+    if (currentStep < TOTAL - 1) {
+      currentStep++;
+      renderStep(currentStep);
+      document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      showResults();
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) {
+      if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+      currentStep--;
+      renderStep(currentStep);
+      document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function skipStep() {
+    answers[STEPS[currentStep].field] = '';
+    currentStep++;
+    renderStep(currentStep);
+    document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showResults() {
+    var score = 0;
+    ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'].forEach(function(q) {
+      if (answers[q]) score += answers[q];
+    });
+
+    var outcome;
     if (score <= 20) outcome = outcomes.foundation;
     else if (score <= 32) outcome = outcomes.momentum;
     else outcome = outcomes.scale;
 
+    // Personalized greeting
+    var firstName = answers.fname || '';
+    document.getElementById('resultGreeting').textContent = firstName ? firstName + ', here\'s your diagnostic:' : 'Your diagnostic results:';
+
+    // Profile tags
+    var profileParts = [];
+    if (answers.industry) profileParts.push(answers.industry);
+    if (answers.company_size) profileParts.push(answers.company_size);
+    if (answers.timeline) profileParts.push(answers.timeline);
+    if (answers.primary_challenge) profileParts.push('Challenge: ' + answers.primary_challenge);
+    var profileEl = document.getElementById('resultProfile');
+    profileEl.innerHTML = profileParts.map(function(p) { return '<span>' + esc(p) + '</span>'; }).join('');
+
+    // Score + outcome
     document.getElementById('resultBadge').textContent = outcome.badge;
     document.getElementById('resultBadge').className = 'result-badge ' + outcome.badgeClass;
     document.getElementById('resultScore').textContent = score + ' / 40';
@@ -821,28 +955,42 @@
     document.getElementById('resultLevel').textContent = outcome.level;
     document.getElementById('resultDesc').textContent = outcome.desc;
 
-    const actionList = document.getElementById('actionList');
+    var actionList = document.getElementById('actionList');
     actionList.innerHTML = '';
     outcome.actions.forEach(function(a) {
-      const li = document.createElement('li');
+      var li = document.createElement('li');
       li.textContent = a;
       actionList.appendChild(li);
     });
 
-    document.getElementById('calendlyBtn').href = CALENDLY_URL;
+    // Calendly with prefill
+    var name = encodeURIComponent(((answers.fname || '') + ' ' + (answers.lname || '')).trim());
+    var email = encodeURIComponent(answers.email || '');
+    var cal = CALENDLY_URL;
+    if (name || email) cal += '?name=' + name + '&email=' + email;
+    document.getElementById('calendlyBtn').href = cal;
 
-    document.getElementById('diagForm').style.display = 'none';
-    const resultsEl = document.getElementById('results');
+    document.getElementById('diagWrap').style.display = 'none';
+    var resultsEl = document.getElementById('results');
     resultsEl.style.display = 'block';
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  }
 
   function resetDiag() {
-    document.getElementById('diagForm').reset();
-    document.getElementById('diagForm').style.display = 'block';
+    currentStep = 0;
+    answers = {};
+    renderStep(0);
+    document.getElementById('diagWrap').style.display = 'block';
     document.getElementById('results').style.display = 'none';
-    document.getElementById('diagForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('diagWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Boot
+  renderStep(0);
 </script>
 
 </body>
