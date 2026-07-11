@@ -450,6 +450,8 @@
       transition: gap .15s;
     }
     .build-card:hover .build-card-link { gap: .5rem; }
+    .build-card summary::-webkit-details-marker { display: none; }
+    .build-card summary::marker { content: ""; }
 
     /* DIVIDER */
     .divider {
@@ -791,6 +793,23 @@
         <span class="cat-tag cat-marketing">Marketing</span>
       </div>
       <div class="builds-grid">
+
+        <div class="build-card">
+          <div class="build-card-tag">Landing Page Example</div>
+          <h3>Purely Elevated Paws × Essential Origins — Free Bag Offer</h3>
+          <p>Direct-response landing page build spec using Cialdini, Chris Voss, and NLP persuasion frameworks — honest social proof, real risk-reversal, objection handling, and repeated CTA placement, refined through multiple rating passes.</p>
+          <div class="build-card-best-for"><strong>Best for:</strong> Brands evaluating how Horsepower AI approaches conversion-focused landing page design</div>
+          <a class="build-card-link" href="https://horsepower-hub.vercel.app/pep-eo-offer.html" target="_blank" rel="noopener" style="margin-top:.5rem;">View Live Example ↗</a>
+          <details style="margin-top:.75rem;">
+            <summary style="cursor:pointer;font-size:.78rem;font-weight:700;color:var(--navy);list-style:none;">▸ View Rating &amp; Design Requirements</summary>
+            <div style="margin-top:.6rem;font-size:.8rem;color:#4a5570;line-height:1.6;padding-top:.6rem;border-top:1px solid var(--border);">
+              <strong style="color:var(--navy);">Final rating: 4.6 / 5</strong><br>
+              Rated on best practices (structure, framing, logic, design, tone) and persuasion technique (Cialdini's principles, Chris Voss tactical empathy, NLP language patterns).<br><br>
+              <strong style="color:var(--navy);">What earns the high mark:</strong> honest social proof (verified early feedback, not fabricated reviews), a real risk-reversal guarantee, direct objection handling, future-pacing copy, and CTA repeated at every point of rising conviction.<br><br>
+              <strong style="color:var(--navy);">What's holding it under 5:</strong> two placeholder values still pending real numbers (inventory cap, offer end date) before launch, and unresolved customer-service ownership.
+            </div>
+          </details>
+        </div>
 
         <a class="build-card" href="https://mb-marketing-plan.vercel.app/" target="_blank" rel="noopener">
           <div class="build-card-tag">Cannabis &amp; Supplements</div>
