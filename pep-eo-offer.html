@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUILD SPEC — Free Bag Offer — Purely Elevated Paws x Essential Origins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --forest: #1B4332;
+    --forest-dark: #10281f;
+    --gold: #D4A017;
+    --cream: #FAF6EC;
+    --white: #fff;
+    --border: #e3ddc9;
+    --muted: #6b7263;
+    --text: #24301f;
+  }
+  body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--text); line-height:1.55; }
+  h1,h2,h3 { font-family:'Fraunces',serif; }
+  img { max-width:100%; display:block; }
+  .wrap { max-width: 720px; margin:0 auto; padding: 0 1.25rem; }
+  .btn {
+    display:inline-block; background:var(--gold); color:#1a1305; font-weight:700;
+    padding:.95rem 2rem; border-radius:6px; text-decoration:none; font-size:1.05rem;
+    border:none; cursor:pointer; letter-spacing:.01em;
+  }
+  .btn:hover { background:#c1910f; }
+  section { padding: 2.75rem 0; border-bottom:1px solid var(--border); }
+  .center { text-align:center; }
+
+  /* SPEC BANNER — remove when recreating in Wix */
+  .spec-banner {
+    background:#1a1305; color:#f5d78a; font-family:'Inter',sans-serif; font-size:.8rem;
+    text-align:center; padding:.6rem 1rem; font-weight:600; letter-spacing:.02em;
+  }
+  .spec-note {
+    background:#fff8e6; border:1px dashed #c1910f; color:#6b4e00; font-size:.82rem;
+    padding:.75rem 1rem; border-radius:6px; margin-top:.9rem;
+  }
+
+  /* HEADER */
+  header { background:var(--white); border-bottom:3px solid var(--forest); padding:1rem 0; }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; }
+  .eo-word { font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--forest); }
+  .eo-sub { font-size:.68rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+  .coa-badge { font-size:.68rem; font-weight:700; background:var(--forest); color:#fff; padding:.35rem .7rem; border-radius:20px; letter-spacing:.04em; }
+
+  /* HERO */
+  .hero { background:var(--forest); color:#fff; text-align:center; padding:3rem 0 2.5rem; }
+  .hero .offer-tag { display:inline-block; background:var(--gold); color:#1a1305; font-weight:700; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; padding:.35rem 1rem; border-radius:20px; margin-bottom:1.1rem; }
+  .hero h1 { font-size:2.1rem; line-height:1.2; margin-bottom:.75rem; }
+  .hero p.sub { font-size:1.05rem; color:#cfe0d6; max-width:520px; margin:0 auto 1rem; }
+  .hero p.why { font-size:.92rem; color:#a9c2b3; font-style:italic; max-width:480px; margin:0 auto 1.5rem; }
+  .hero img.product { max-width:260px; margin:1.25rem auto; }
+
+  /* TRUST BAR */
+  .trust-bar { background:var(--white); padding:1.1rem 0; }
+  .trust-bar .wrap { display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; }
+  .pill { background:var(--cream); border:1px solid var(--border); color:var(--forest); font-size:.72rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:.4rem .85rem; border-radius:20px; }
+
+  /* PROBLEM */
+  .problem p { font-size:1.05rem; max-width:580px; margin:0 auto; }
+  .problem .name { font-weight:700; color:var(--forest); }
+
+  /* SOLUTION */
+  .solution h2 { font-size:1.5rem; margin-bottom:.75rem; color:var(--forest); }
+  .claims { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem; }
+  .claim-card { flex:1; min-width:150px; background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center; }
+  .claim-card .label { font-weight:700; color:var(--forest); font-size:.95rem; }
+
+  /* INGREDIENTS */
+  .ingredients ul { list-style:none; margin-top:1rem; }
+  .ingredients li { padding:.55rem 0; border-bottom:1px dashed var(--border); }
+  .ingredients li strong { color:var(--forest); }
+
+  /* ORIGIN STORY */
+  .origin .dogs { display:flex; gap:.75rem; margin:1.25rem 0; }
+  .origin .dogs img { border-radius:8px; flex:1; object-fit:cover; height:120px; }
+  .origin blockquote { font-family:'Fraunces',serif; font-size:1.15rem; color:var(--forest); font-style:italic; margin:1rem 0; }
+
+  /* GUARANTEE */
+  .guarantee { background:var(--forest); color:#fff; border-radius:10px; padding:1.75rem; }
+  .guarantee h2 { color:var(--gold); font-size:1.25rem; margin-bottom:.6rem; }
+  .guarantee p { color:#dbe8e0; font-size:.95rem; }
+
+  /* PROOF */
+  .proof-note { background:#fff8e6; border:1px solid #f0dba0; border-radius:8px; padding:1rem; font-size:.9rem; color:#6b4e00; margin-top:1rem; }
+  .coa-box { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem; margin-top:1rem; font-size:.88rem; }
+  .coa-box a { color:var(--forest); font-weight:700; }
+
+  /* VALUE STACK */
+  .value-stack { background:var(--white); border:2px solid var(--forest); border-radius:10px; padding:1.5rem; }
+  .value-stack ul { list-style:none; }
+  .value-stack li { padding:.4rem 0; font-weight:600; }
+  .value-stack li::before { content:"✓ "; color:var(--forest); font-weight:800; }
+
+  /* OFFER */
+  .offer-box { background:var(--gold); color:#1a1305; border-radius:10px; padding:1.5rem; text-align:center; }
+  .offer-box .price { font-size:2rem; font-family:'Fraunces',serif; font-weight:700; }
+  .offer-box .strike { text-decoration:line-through; opacity:.6; font-size:1.1rem; }
+
+  /* ORDER FORM (visual mock — real checkout wired by Mark's team in Wix) */
+  .order-form { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.5rem; }
+  .order-form .field { margin-bottom:.9rem; }
+  .order-form label { display:block; font-size:.82rem; font-weight:700; color:var(--forest); margin-bottom:.3rem; }
+  .order-form input { width:100%; padding:.65rem .75rem; border:1px solid var(--border); border-radius:6px; font-family:'Inter',sans-serif; font-size:.95rem; background:#fafafa; }
+  .order-bump { background:var(--cream); border:1px dashed var(--gold); border-radius:8px; padding:.85rem; font-size:.88rem; margin:1rem 0; }
+  .reassure { font-size:.78rem; color:var(--muted); margin-top:.5rem; }
+
+  /* FAQ */
+  .faq details { border-bottom:1px solid var(--border); padding:.85rem 0; }
+  .faq summary { font-weight:700; cursor:pointer; color:var(--forest); }
+  .faq p { margin-top:.5rem; font-size:.92rem; color:var(--text); }
+
+  /* FOOTER */
+  footer { background:var(--forest-dark); color:#a9b8ae; font-size:.75rem; padding:2rem 0; line-height:1.6; }
+  footer .wrap p { margin-bottom:.85rem; }
+  footer a { color:#cfe0d6; }
+</style>
+</head>
+<body>
+
+<div class="spec-banner">BUILD SPEC — reference mockup for Mark's team to recreate live inside Wix on buyorigins.com. Not a functioning checkout.</div>
+
+<header>
+  <div class="wrap">
+    <div>
+      <div class="eo-word">Essential Origins</div>
+      <div class="eo-sub">presented by EO &nbsp;·&nbsp; buyorigins.com</div>
+    </div>
+    <div class="coa-badge">COA Tested</div>
+  </div>
+</header>
+
+<!-- 2. HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="offer-tag">Free Bag — Just Pay Shipping</span>
+    <h1>Free Bag of Purely Elevated Paws Soft Chews — Just Pay $5.95 Shipping</h1>
+    <p class="sub">Calm behavior + mobility comfort, in a daily chew dogs actually love.</p>
+    <p class="why">We're giving away our travel bag because we know once your dog tries it, you'll want the jar.</p>
+    <img class="product" src="https://purelyelevatedpaws.com/cdn/shop/files/03_10-count-bag_with-chews_social.png" alt="Purely Elevated Paws 10-Count Soft Chew Bag">
+    <a href="#order" class="btn">Claim Your Free Bag →</a>
+  </div>
+</section>
+
+<!-- 3. TRUST BAR -->
+<div class="trust-bar">
+  <div class="wrap">
+    <span class="pill">Third-Party Tested</span>
+    <span class="pill">THC-Free</span>
+    <span class="pill">CBD + CBG</span>
+    <span class="pill">No Subscription — One-Time Offer</span>
+  </div>
+</div>
+
+<!-- 4. PROBLEM -->
+<section class="problem">
+  <div class="wrap center">
+    <p><span class="name">Roxy</span> used to shake through every thunderstorm — pacing, panting, unable to settle no matter how long we sat with her. If your dog gets that way during storms, car rides, or the vet's office, you already know how helpless it feels to watch.</p>
+  </div>
+</section>
+
+<!-- 5. SOLUTION -->
+<section class="solution">
+  <div class="wrap">
+    <h2 class="center">A daily chew built for real moments, not just marketing claims</h2>
+    <p class="center">Bioavailable Functional Chews™ made with beef liver, CBD + CBG, and Deeper Green™ absorption technology — formulated for three things, not eight.</p>
+    <div class="claims">
+      <div class="claim-card"><div class="label">Calm Behavior</div><div>Storms, car rides, vet visits</div></div>
+      <div class="claim-card"><div class="label">Mobility Comfort</div><div>Senior dogs, daily movement</div></div>
+      <div class="claim-card"><div class="label">Digestive Wellness</div><div>Pumpkin + fiber support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. INGREDIENTS -->
+<section class="ingredients">
+  <div class="wrap">
+    <h2 class="center" style="font-size:1.4rem;color:var(--forest);margin-bottom:.5rem;">What's actually in it</h2>
+    <ul>
+      <li><strong>Beef Liver</strong> — the reason dogs actually eat it</li>
+      <li><strong>Organic Pumpkin & Sweet Potato</strong> — digestive and fiber support</li>
+      <li><strong>Broad Spectrum CBD + CBG</strong> — calm behavior and mobility comfort</li>
+      <li><strong>Deeper Green™ Infusion Technology</strong> — advanced absorption</li>
+    </ul>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:1rem;">14.5mg CBD + 2.5mg CBG per chew · 145mg CBD + 25mg CBG per bag. Intended for intermittent or supplemental feeding only. Consult your veterinarian before use.</p>
+  </div>
+</section>
+
+<!-- 7. ORIGIN STORY -->
+<section class="origin">
+  <div class="wrap">
+    <h2 class="center" style="font-size:1.4rem;color:var(--forest);">Why we carry this</h2>
+    <div class="dogs">
+      <img src="https://purelyelevatedpaws.com/cdn/shop/files/pep-roxy-final.png" alt="Roxy">
+      <img src="https://purelyelevatedpaws.com/cdn/shop/files/pep-zeus-final.png" alt="Zeus">
+      <img src="https://purelyelevatedpaws.com/cdn/shop/files/pep-odin-final.png" alt="Odin">
+    </div>
+    <blockquote>"Inspired by Roxy, Zeus, Odin, and every pet treated like family."</blockquote>
+    <p>Purely Elevated Paws was formulated using the same Deeper Green™ technology behind our own Essential Origins wellness products. Our team helped bring it to life — and we loved it enough that we wanted our own customers to have it too.</p>
+  </div>
+</section>
+
+<!-- 8. GUARANTEE -->
+<section>
+  <div class="wrap">
+    <div class="guarantee">
+      <h2>Our Promise</h2>
+      <p>If you receive a damaged or defective item, contact our team within 7 days of receiving it — we'll arrange a replacement or refund and cover all associated shipping costs. Full return policy available at checkout.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. PROOF -->
+<section>
+  <div class="wrap">
+    <h2 class="center" style="font-size:1.4rem;color:var(--forest);">Real transparency, not just claims</h2>
+    <div class="coa-box">
+      <strong>Batch-tested and verified.</strong> Every batch is documented with lot-level testing — potency, THC status, and lab results.
+      <br><a href="https://purelyelevatedpaws.com/pages/coa" target="_blank">View Lab Results / COA →</a>
+    </div>
+    <div class="proof-note">Customer reviews are on the way — this offer is intentionally launching first through a small trusted group so real reviews are here by the time you read this. Check back for verified customer photos and feedback.</div>
+  </div>
+</section>
+
+<!-- 10 + 11. VALUE STACK + OFFER -->
+<section id="order-preview">
+  <div class="wrap">
+    <div class="value-stack" style="margin-bottom:1.25rem;">
+      <ul>
+        <li>10 Bioavailable Functional Chews™</li>
+        <li>Third-party COA tested, THC-free</li>
+        <li>No subscription — one-time offer</li>
+        <li>Damaged/defective item guarantee</li>
+      </ul>
+    </div>
+    <div class="offer-box">
+      <div class="strike">$14.99</div>
+      <div class="price">FREE + $5.95 shipping</div>
+      <div style="font-size:.85rem;margin-top:.4rem;">One-time offer. No auto-ship, no subscription.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. ORDER FORM (visual mock) -->
+<section id="order">
+  <div class="wrap">
+    <h2 class="center" style="font-size:1.4rem;color:var(--forest);margin-bottom:1rem;">Claim Your Free Bag</h2>
+    <div class="order-form">
+      <div class="field"><label>Name</label><input type="text" disabled placeholder="First and last name"></div>
+      <div class="field"><label>Email *</label><input type="email" disabled placeholder="you@email.com"></div>
+      <div class="field"><label>Shipping Address</label><input type="text" disabled placeholder="Street, City, State, ZIP"></div>
+      <div class="order-bump">☐ <strong>Add the 30-Count Daily Jar at a special one-time price</strong> — skip the reorder wait.</div>
+      <div class="field"><label>Payment — $5.95 Shipping</label><input type="text" disabled placeholder="Card details (Wix Payments checkout)"></div>
+      <button class="btn" style="width:100%;" disabled>Claim Your Free Bag — $5.95</button>
+      <p class="reassure">We'll only email you about your order and occasional updates — unsubscribe anytime.</p>
+    </div>
+    <div class="spec-note">BUILD NOTE for Mark's team: this form is a visual reference only. Wire the real fields to EO's Wix commerce checkout so the $5.95 charge and order actually process through buyorigins.com. Add exit-intent email capture (lightweight popup offering to email this link) for anyone who navigates away without completing checkout.</div>
+  </div>
+</section>
+
+<!-- 14. FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2 class="center" style="font-size:1.4rem;color:var(--forest);margin-bottom:.5rem;">Questions</h2>
+    <details><summary>Is this really free?</summary><p>Yes — you only pay $5.95 for shipping. No hidden fees, no subscription.</p></details>
+    <details><summary>What if my dog doesn't like it?</summary><p>Made with real beef liver — most dogs take to it immediately. If your item arrives damaged or defective, we'll replace or refund it within 7 days of delivery, shipping covered.</p></details>
+    <details><summary>How much CBD is in each chew?</summary><p>14.5mg CBD + 2.5mg CBG per chew, third-party lab tested.</p></details>
+    <details><summary>Is this safe? Is it THC-free?</summary><p>Yes — broad spectrum, THC-free, third-party tested. Consult your veterinarian before use, especially if your pet has a medical condition or takes medication.</p></details>
+    <details><summary>Who do I contact with questions?</summary><p>Email orders@buyorigins.com or call 530-999-9999.</p></details>
+  </div>
+</section>
+<div class="spec-note wrap" style="margin:1rem auto;">BUILD NOTE: the contact info above (orders@[domain] / phone) was supplied as boilerplate return-policy text — "orders@EO.com" is not a real domain (should likely be buyorigins.com) and the phone number reads as a placeholder pattern. Confirm real contact details before this goes live, and confirm who's actually answering — this role is still unassigned per the program table.</div>
+
+<!-- 15. LEGAL FOOTER -->
+<footer>
+  <div class="wrap">
+    <p><strong>©2026 Essential Origins LLC.</strong> Presented by Essential Origins. All rights reserved.</p>
+    <p>CBD products are not for use by or sale to persons under the age of 21. This product should be used only as directed on the label. Should not be used if pregnant or nursing. Consult a physician before use if you have a serious medical condition or use prescription medications. A doctor's advice should be sought before using this or any supplemental dietary product.</p>
+    <p>All CBD products on this page contain 0.3% THC or less and are derived from hemp. FDA DISCLAIMER: The statements made regarding these products have not been evaluated by the Food and Drug Administration. The efficacy of these products has not been confirmed by FDA-approved research. These products are not intended to diagnose, treat, cure, or prevent any disease. Please consult your health care professional about potential interactions or other possible complications before using any product.</p>
+    <p><a href="https://buyorigins.com/terms-conditions" target="_blank">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="https://buyorigins.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
