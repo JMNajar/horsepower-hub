@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storefront Naming Deep Dive — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+    .page-head { background:var(--navy); padding:3rem 2rem 2.5rem; text-align:center; }
+    .page-label { display:inline-block; background:var(--red); color:#fff; font-family:'Oswald',sans-serif; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem; }
+    .page-head h1 { font-family:'Oswald',sans-serif; font-size:2.1rem; font-weight:700; color:#fff; line-height:1.2; max-width:720px; margin:0 auto .7rem; }
+    .page-head p { color:rgba(255,255,255,.7); font-size:.95rem; max-width:620px; margin:0 auto; line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
+    h2 { font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
+    h2:first-of-type { margin-top:0; }
+    p { font-size:.93rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p strong, li strong { color:var(--navy); }
+    ul { margin:0 0 1.25rem 1.2rem; }
+    li { font-size:.9rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.86rem; background:#fff; }
+    th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.7rem; text-align:left; padding:.6rem .8rem; }
+    td { padding:.65rem .8rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td strong { color:var(--navy); }
+    tr:nth-child(even) td { background:#faf7ec; }
+    .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+    .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
+    .table-scroll { overflow-x:auto; }
+    .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.88rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
+    .back-btn:hover { opacity:.88; }
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+    @media (max-width:600px){ .page-head h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Deep Dive 01</span>
+  <a class="nav-home" href="index.html">← Back to Brief</a>
+</nav>
+
+<div class="page-head">
+  <div class="page-label">Deep Dive · Category 01</div>
+  <h1>Storefront Naming</h1>
+  <p>How the masthead brand was chosen: three rounds, eight lanes, one seal, and the full candidate table.</p>
+</div>
+
+<main>
+
+  <h2>The Strategic Ground Rules</h2>
+  <div class="callout">
+    <p><strong>1. The formulator's name stays off the masthead.</strong> "Rhodes"-based names were eliminated: an established pharmaceutical company already operates under the Rhodes name (trademark collision risk in adjacent classes), and naming the whole store after one person creates key-man risk. Instead, <strong>"Formulated by Mark Rhodes" becomes a seal</strong> — a clickable trust badge on every product page, linking to the About Mark story. The credibility survives; the risk doesn't.</p>
+    <p><strong>2. The technology stays one click deep.</strong> DeeperGreen is a proof point, not a storefront name. The store owns the explanation of the technology on its own Science page so a curious customer never has to search for it.</p>
+    <p><strong>3. Lifestyle-first, not clinic-first.</strong> The first warm audiences — motorcycle lifestyle, cannabis-adjacent consumers, pet rescue communities — shop by feel and identity, not by lab coat. Early medical/clinical name lanes were deprioritized for this reason.</p>
+  </div>
+
+  <h2>The Full Candidate Table</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Lane</th><th>Name</th><th>Angle</th><th>Watch-out</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Supply Co. / American craft</strong></td><td><strong>Open Road Supply Co.</strong></td><td>Freedom + journey; native to the biker/lifestyle warm lists; multi-brand frame built in</td><td>Generic enough that variants exist — trademark class check needed</td></tr>
+      <tr><td>Supply Co.</td><td><strong>Foothill Supply Co.</strong></td><td>Sierra foothills = real place, warm, rugged</td><td>"Foothill(s)" used by misc. outdoor brands</td></tr>
+      <tr><td>Supply Co.</td><td>Good Batch Supply</td><td>Small-batch quality claim, said casually</td><td>"Batch" crowded in coffee/beer</td></tr>
+      <tr><td>Supply Co.</td><td>Long Haul Supply Co.</td><td>"In it for the long haul" = longevity + road Americana in one phrase</td><td>Post-COVID "long-hauler" echo — test with real people</td></tr>
+      <tr><td><strong>Gold-country heritage</strong></td><td><strong>Placer Supply Co.</strong></td><td>Auburn, CA is the Placer County seat; <em>placer</em> literally means gold-bearing ground</td><td>Pronunciation friction (PLASS-er)</td></tr>
+      <tr><td>Heritage</td><td>Motherlode Supply</td><td>The original strike; confident, fun</td><td>Cheeky; may undercut supplement trust</td></tr>
+      <tr><td>Heritage</td><td>North Fork Supply</td><td>North Fork of the American River runs by Auburn</td><td>NY wine-region brands share the name</td></tr>
+      <tr><td>Heritage</td><td>Auburn Labs</td><td>Clean geographic credibility</td><td>Auburn University adjacency; "Labs" drags back to the medical slant</td></tr>
+      <tr><td><strong>Outcome / feeling</strong></td><td><strong>Even Keel</strong></td><td>Consistency (the core science proof) translated into how it <em>feels</em> — steady energy, sleep, calm</td><td>One-word .com likely gone; needs a suffix (Even Keel Supply)</td></tr>
+      <tr><td>Outcome</td><td>Second Wind</td><td>Energy + longevity; lands hard with the 45+ buyer</td><td>Common phrase — expect existing users</td></tr>
+      <tr><td>Outcome</td><td>Well Kept</td><td>Double meaning: well-maintained + wellness; quiet confidence</td><td>Soft; may read spa/candle</td></tr>
+      <tr><td>Outcome</td><td>Daily State</td><td>The store sells states — focused, rested, calm — daily</td><td>Abstract until explained</td></tr>
+      <tr><td><strong>Craft / curator</strong></td><td><strong>Bench &amp; Bottle</strong></td><td>Lab bench → your bottle; elastic across pets and nootropics; B2B-ready</td><td>Slight bar/cocktail echo from "bottle"</td></tr>
+      <tr><td>Craft</td><td>Small Batch Labs</td><td>The small-batch thesis, verbatim</td><td>Crowded term + "Labs" = medical drift</td></tr>
+      <tr><td>Craft</td><td>The Maker's Formulary</td><td>Craft warmth + apothecary spine</td><td>"Formulary" reads as insurance jargon to older buyers</td></tr>
+      <tr><td><strong>Precision (kept for contrast)</strong></td><td>Measured</td><td>Exact doses as a calm one-word brand</td><td>The medical slant the strategy moved away from</td></tr>
+      <tr><td>Precision</td><td>The Consistent Co.</td><td>Mined from the technology's own language</td><td>Abstract; needs the backstory</td></tr>
+      <tr><td>Precision</td><td>SteadyState</td><td>Consistency in biohacker dialect</td><td>Points at a deprioritized audience</td></tr>
+      <tr><td><strong>Eliminated</strong></td><td>Rhodes Formulary / Rhodes Bench</td><td>—</td><td>Pharmaceutical trademark collision + key-man risk</td></tr>
+      <tr><td>Eliminated</td><td>DeeperGreen Direct</td><td>—</td><td>Technology name belongs one click deep, not on the masthead</td></tr>
+      <tr><td>Eliminated</td><td>TrueDose</td><td>—</td><td>Existing brand collision</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>The Shortlist, Ranked</h2>
+  <ul>
+    <li><strong>1. Open Road Supply Co.</strong> — best culture-fit to the actual first thousand customers; compatible with motorcycle-lifestyle partnerships if those revive.</li>
+    <li><strong>2. Even Keel (Supply)</strong> — the only name that carries the science claim <em>emotionally</em>; the strongest pure-brand idea on the board and the one to test head-to-head against Open Road.</li>
+    <li><strong>3. Bench &amp; Bottle</strong> — the bridge pick if leadership wants craft warmth <em>and</em> visible lab DNA.</li>
+    <li><strong>4. Placer Supply Co.</strong> — the most ownable story, if teaching pronunciation is acceptable.</li>
+    <li><strong>5. Foothill Supply Co.</strong> — the safe, solid regional pick.</li>
+  </ul>
+
+  <div class="callout">
+    <p><strong>Whichever name wins, two assets ride along unchanged:</strong> the "Formulated by Mark Rhodes" seal on every product page, and the consumer-facing Science page that owns the delivery-technology story.</p>
+    <p><strong>Next step before committing:</strong> live domain + social-handle availability checks and a USPTO knockout search on the top three.</p>
+  </div>
+
+  <a class="back-btn" href="index.html">← Back to the Working Brief</a>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+</footer>
+
+</body>
+</html>

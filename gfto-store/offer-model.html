@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offer Model Deep Dive — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+    .page-head { background:var(--navy); padding:3rem 2rem 2.5rem; text-align:center; }
+    .page-label { display:inline-block; background:var(--red); color:#fff; font-family:'Oswald',sans-serif; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem; }
+    .page-head h1 { font-family:'Oswald',sans-serif; font-size:2.1rem; font-weight:700; color:#fff; line-height:1.2; max-width:720px; margin:0 auto .7rem; }
+    .page-head p { color:rgba(255,255,255,.7); font-size:.95rem; max-width:620px; margin:0 auto; line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
+    h2 { font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
+    h2:first-of-type { margin-top:0; }
+    p { font-size:.93rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p strong, li strong { color:var(--navy); }
+    ul, ol { margin:0 0 1.25rem 1.2rem; }
+    li { font-size:.9rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.86rem; background:#fff; }
+    th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.7rem; text-align:left; padding:.6rem .8rem; }
+    td { padding:.65rem .8rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td strong { color:var(--navy); }
+    tr:nth-child(even) td { background:#faf7ec; }
+    .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+    .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
+    .table-scroll { overflow-x:auto; }
+    .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.88rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
+    .back-btn:hover { opacity:.88; }
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+    @media (max-width:600px){ .page-head h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Deep Dive 03</span>
+  <a class="nav-home" href="index.html">← Back to Brief</a>
+</nav>
+
+<div class="page-head">
+  <div class="page-label">Deep Dive · Category 03</div>
+  <h1>Offer Model — Hub &amp; Spoke</h1>
+  <p>The hub retains, the spokes acquire, and the cross-promotion engine is why twelve brands in one store beat twelve separate stores.</p>
+</div>
+
+<main>
+
+  <h2>The Hub — Where LTV Lives</h2>
+  <p>The hub's economics run on one conversion: <strong>one-time buyer → subscriber.</strong> Everything in the store design serves that switch.</p>
+  <ul>
+    <li><strong>Every consumable gets two prices, subscription listed first.</strong> The proven ladder: ~$44.95 one-time / ~$34.95 subscribe — roughly a 20–25% subscription discount applied across the catalog. The discount isn't generosity; it's buying predictable revenue.</li>
+    <li><strong>The math in one line:</strong> a $34.95 subscriber at a 5-month average retention is ~$175 of lifetime value versus $45 for the one-time buyer — <strong>4x LTV for a 22% discount.</strong></li>
+    <li><strong>Subscription framing by sector, not by product:</strong> "Never run out of sharp days." Consumables with a felt effect have a natural reorder emotion — the copy attaches the subscription to the <em>state</em>, not the bottle.</li>
+    <li><strong>Bundles:</strong> one per sector ("The Full Night") and one cross-sector flagship ("The 24-Hour Stack"). Bundles raise average order value 15–30% and pre-seed the cross-sector behavior the email engine exploits.</li>
+  </ul>
+
+  <h2>The Spokes — One Per Sector, Not Per Product</h2>
+  <p>Each spoke is a standalone free-sample / trial-size landing page: no navigation, one offer, one CTA, checkout dumping into the hub with the buyer tagged by sector. Three data-backed reasons it's per-sector:</p>
+  <ol>
+    <li><strong>Ad economics.</strong> Twelve product spokes means twelve testing cycles' worth of learning-phase ad spend. Four sector spokes concentrate budget so each page exits the ad platforms' learning phase months sooner.</li>
+    <li><strong>Warm audiences think in problems, not SKUs.</strong> The existing warm lists map cleanly to sectors — lifestyle audiences to Mind &amp; Energy, the same plus sleep-seekers to Rest &amp; Calm, pet communities to Pet Wellness. Nobody on those lists is searching for a brand name they've never heard.</li>
+    <li><strong>Maintenance.</strong> Spokes are disposable test surfaces the AI layer regenerates per campaign. Four templates is a sustainable regeneration loop; twelve is not.</li>
+  </ol>
+  <div class="callout">
+    <p><strong>The sample offer is really list acquisition with a qualifier.</strong> Someone who pays $4.95 shipping for a free sample is worth more than ten email subscribers who paid nothing — they've demonstrated purchase intent, an address, and a working card.</p>
+  </div>
+
+  <h2>The Cross-Promotion Engine</h2>
+  <p><strong>The math that justifies the whole architecture:</strong> acquiring a customer costs $20–50 in paid channels; emailing an existing customer costs approximately zero. The second-sector purchase is nearly pure margin — but only if all twelve brands share one customer list, one purchase history, and one email system. Twelve separate stores physically can't do this.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Bought From</th><th>Days 0–21</th><th>Day ~30</th><th>Day ~45 if no bite</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Rest &amp; Calm</strong></td><td>Onboarding: how to use, what to expect, review ask</td><td>"Sleeping better? Here's what better mornings look like" → <strong>Mind &amp; Energy</strong> sample offer</td><td>Pet door: "Someone else in your house sleeps 14 hours a day…"</td></tr>
+      <tr><td><strong>Mind &amp; Energy</strong></td><td>Same onboarding spine</td><td>"Focus is only half the equation" → <strong>Rest &amp; Calm</strong></td><td>Bundle offer (24-Hour Stack upgrade)</td></tr>
+      <tr><td><strong>Pet Wellness</strong></td><td>Onboarding + dog photo / review ask</td><td>"You take this good care of your dog — what about you?" → quiz routes to either human sector</td><td>Subscription push on the treats themselves</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li><strong>Sequencing rule:</strong> subscription conversion first (day 15–25), cross-sector second (day 30+). Locking in the reorder beats chasing the second category — the flows must not compete.</li>
+    <li><strong>The KPI that proves the engine:</strong> cross-sector purchase rate at 60 days. Multi-line D2C benchmarks run 10–15%; every point is revenue at near-zero acquisition cost. This number goes on the automated Monday scoreboard.</li>
+  </ul>
+
+  <a class="back-btn" href="index.html">← Back to the Working Brief</a>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+</footer>
+
+</body>
+</html>

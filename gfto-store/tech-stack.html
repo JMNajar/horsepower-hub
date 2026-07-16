@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Stack Deep Dive — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+    .page-head { background:var(--navy); padding:3rem 2rem 2.5rem; text-align:center; }
+    .page-label { display:inline-block; background:var(--red); color:#fff; font-family:'Oswald',sans-serif; font-size:.7rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem; }
+    .page-head h1 { font-family:'Oswald',sans-serif; font-size:2.1rem; font-weight:700; color:#fff; line-height:1.2; max-width:720px; margin:0 auto .7rem; }
+    .page-head p { color:rgba(255,255,255,.7); font-size:.95rem; max-width:620px; margin:0 auto; line-height:1.6; }
+    main { max-width:960px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
+    h2 { font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
+    h2:first-of-type { margin-top:0; }
+    p { font-size:.93rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p strong, li strong { color:var(--navy); }
+    ul, ol { margin:0 0 1.25rem 1.2rem; }
+    li { font-size:.9rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.82rem; background:#fff; }
+    th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.68rem; text-align:left; padding:.6rem .7rem; }
+    td { padding:.65rem .7rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td strong { color:var(--navy); }
+    tr:nth-child(even) td { background:#faf7ec; }
+    .score { font-family:'Oswald',sans-serif; font-weight:700; color:var(--red); white-space:nowrap; }
+    .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+    .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
+    .table-scroll { overflow-x:auto; }
+    .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.88rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
+    .back-btn:hover { opacity:.88; }
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+    @media (max-width:600px){ .page-head h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Deep Dive 05</span>
+  <a class="nav-home" href="index.html">← Back to Brief</a>
+</nav>
+
+<div class="page-head">
+  <div class="page-label">Deep Dive · Category 05</div>
+  <h1>Tech Stack</h1>
+  <p>Every platform scored against this build's real requirements — not generic feature lists. Pricing verified July 2026.</p>
+</div>
+
+<main>
+
+  <h2>Ecommerce Platform — Scored</h2>
+  <p>Weighted toward what's non-negotiable here: native subscriptions, 12-brand templating, supplement-friendly payments, API depth for the AI layer, and an 8-week launch window.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Platform</th><th>Real Monthly Cost</th><th>Subscriptions</th><th>House-of-Brands Templating</th><th>Supplement / Kava Payments</th><th>API / AI Automation</th><th>Score</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Shopify (Basic)</strong></td><td>$29–39 + apps ($0–30)</td><td>Native free Subscriptions app</td><td>Excellent — one template + metafields per brand</td><td>Supplements fine; kava gray-zone on Shopify Payments; 3rd-party gateway = +2% penalty on Basic</td><td>Best-in-class Admin API; every AI commerce tool integrates Shopify-first</td><td class="score">8.6</td></tr>
+      <tr><td><strong>BigCommerce (Standard)</strong></td><td>$29–39 + sub app ($25–50)</td><td>Third-party only</td><td>Good</td><td><strong>No penalty fee on any gateway</strong> — best raw fit for high-risk processing</td><td>Good API, smaller ecosystem</td><td class="score">7.2</td></tr>
+      <tr><td><strong>WooCommerce</strong></td><td>~$25 hosting + $199/yr plugin + maintenance time</td><td>Solid plugin</td><td>Unlimited (it's code)</td><td>Any gateway, no penalty</td><td>Fully open — but every integration is a build</td><td class="score">6.4</td></tr>
+      <tr><td><strong>Squarespace Commerce</strong></td><td>$27–49</td><td>Built-in (Advanced)</td><td>Weak — fights a 12-brand store</td><td>Stripe/PayPal only — kava likely blocked, no workaround</td><td>Thin API — fails the AI requirement outright</td><td class="score">4.5</td></tr>
+      <tr><td><strong>Wix Business</strong></td><td>$27–36</td><td>Basic</td><td>Weak</td><td>Limited gateways</td><td>Thin API</td><td class="score">4.2</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout">
+    <p><strong>Why Shopify wins — honestly:</strong> it does <em>not</em> win on sticker price (BigCommerce matches it), and it carries one real flag: if kava fails Shopify Payments' acceptable-use review, a third-party high-risk gateway adds a 2% penalty on the Basic plan. Quantified: at $10K/month of kava revenue that's $200/month — annoying, not architecture-changing, and it applies only to what routes through the alternate gateway.</p>
+    <p>Shopify wins on the three things that decide <em>this</em> project: the AI/API ecosystem (the dashboard, the cross-sell selector, and the Klaviyo integration are all built Shopify-first), 12 brands in 8 weeks as a configuration job rather than a dev job, and free native subscriptions — the LTV lever at zero added stack cost.</p>
+    <p><strong>Decision rule:</strong> Shopify, contingent on the kava processor check already underway. If kava is hard-blocked, the fallback is launching Rest &amp; Calm with one product — not switching platforms. Eleven of twelve SKUs have zero payment issues.</p>
+  </div>
+
+  <h2>Email Platform — Scored</h2>
+  <p>Rated against the job: run the cross-promotion ladders, segment by sector from day one, and let the AI layer write and inject content. List assumption: ~2,000 warm contacts growing to 3,000–5,000 in the first quarter.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Platform</th><th>Cost @ ~3K Profiles</th><th>Shopify Data Depth</th><th>Flow Builder</th><th>Segmentation &amp; Predictive</th><th>AI / API Openness</th><th>Score</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Klaviyo</strong></td><td>~$70/mo</td><td><strong>Deepest in the industry</strong> — full order history, product-level triggers; "bought sector X, hasn't bought Y" is a native segment</td><td>Best-in-class; branches on purchase behavior</td><td>Predicted next-order date, churn risk, CLV — built in</td><td>Full API — AI-written campaigns injectable</td><td class="score">9.0</td></tr>
+      <tr><td><strong>Omnisend</strong></td><td>~$46/mo</td><td>Good, not product-graph deep</td><td>Good; simpler branching</td><td>Basic; little predictive</td><td>Decent API</td><td class="score">7.3</td></tr>
+      <tr><td><strong>ActiveCampaign</strong></td><td>~$79/mo</td><td>Via connector — shallower</td><td>Powerful but CRM-oriented</td><td>Strong logic, weak commerce predictive</td><td>Good API</td><td class="score">6.8</td></tr>
+      <tr><td><strong>Mailchimp (Standard)</strong></td><td>~$60/mo</td><td>Weak — third-party-grade connector</td><td>Mediocre; commerce triggers limited</td><td>Basic</td><td>Middling</td><td class="score">5.0</td></tr>
+      <tr><td><strong>Sendlane</strong></td><td>~$100/mo</td><td>Good</td><td>Good</td><td>Decent</td><td>Good</td><td class="score">6.2</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout">
+    <p><strong>Why Klaviyo wins — and where it loses:</strong> it loses on price — Omnisend does 80% of the job at 65% of the cost. It wins because the cross-promotion engine is literally a Klaviyo-native feature set: sector purchase segments, product-triggered flows, and predicted next-order dates that turn "day ~30 cross-sell" from a guess into a per-customer timed send. The premium over Omnisend is ~$24/month; one incremental cross-sector order per month pays it.</p>
+  </div>
+
+  <h2>Customer Intelligence — OuterSignal</h2>
+  <p><strong>OuterSignal: See Who's Buying</strong> (Shopify App Store, Built-for-Shopify badge) turns every order into a full customer profile from publicly available data — demographics, personas, and automatic flagging of celebrities, executives, and influencers in the order stream. Integrates with Klaviyo, Meta, Slack, Recharge, Yotpo, and more. <strong>Rating: 5.0 across 17 reviews (100% five-star).</strong></p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Plan</th><th>Price</th><th>What You Get</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Free</strong></td><td>$0 — up to 100 customers/mo</td><td>Real-time customer search, live notifications (Slack/email), notable-customer flagging</td></tr>
+      <tr><td><strong>Starter</strong></td><td>$49/mo + 3¢ per unique customer (up to 1,000/mo)</td><td>Adds persona analytics, full demographic data, unlimited playbooks + integrations, signal tuning</td></tr>
+      <tr><td><strong>Pro</strong></td><td>$199/mo + 3¢ per unique customer</td><td>Adds historical search across past orders; for stores under 30K orders/mo</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li><strong>Two jobs in this build:</strong> (1) Market — same-day detection when a customer with reach buys, turning the order stream into an influencer-seeding pipeline; (2) Evaluate — enriched demographics feed Klaviyo segments so sector personas are built from who's actually buying, not who was predicted to.</li>
+    <li><strong>Rollout plan:</strong> start Free at launch (100 customers/month covers early volume), upgrade to Starter when volume crosses it — ~$79/month effective at 1,000 customers.</li>
+    <li><strong>Note:</strong> the app requests broad data scopes (customer PII, geolocation, order editing) — reflect it in the store's privacy policy.</li>
+  </ul>
+
+  <h2>The Full Stack, Priced</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Layer</th><th>Tool</th><th>Monthly</th></tr></thead>
+    <tbody>
+      <tr><td>Store</td><td>Shopify Basic + native Subscriptions</td><td>$29–39</td></tr>
+      <tr><td>Email / flows</td><td>Klaviyo</td><td>~$70 at 3K profiles</td></tr>
+      <tr><td>Customer intelligence</td><td>OuterSignal</td><td>$0 at launch → ~$79 at scale</td></tr>
+      <tr><td>AI content engine</td><td>AI API + scheduler</td><td>≤$45</td></tr>
+      <tr><td>KPI dashboard + Monday summary</td><td>Vercel + AI API</td><td>~$1–5</td></tr>
+      <tr><td colspan="2"><strong>Total before ad spend</strong></td><td><strong>~$150–160 at launch; ~$240 at scale</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <a class="back-btn" href="index.html">← Back to the Working Brief</a>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+</footer>
+
+</body>
+</html>
