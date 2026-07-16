@@ -126,11 +126,24 @@
     <p><strong>Compliance note:</strong> The Science page is where FDA claims risk concentrates (methylene blue and kava especially). Structure/function language only, disclaimer present, and this page goes through the claims-review gate before launch — it's the page a regulator or an ad-platform reviewer reads first.</p>
   </div>
 
+  <h2>Beyond the Sector Doors (New in v2)</h2>
+  <p>Sector doors are the default path, not the only path. Some customers shop by outcome, ingredient, format, or search — v2 gives each of them a way in:</p>
+  <ul>
+    <li><strong>Site search</strong> — prominent, with product-type and ingredient synonyms configured ("MB," "methylene blue," "focus drink" all land correctly).</li>
+    <li><strong>Shop by outcome</strong> — tag-driven collections: Focus · Sleep · Calm · Energy · Recovery. Same products, different entrance.</li>
+    <li><strong>Shop by format</strong> — drink, gum, tear pack, treat: the low-cost form factors are impulse-friendly, and format is how convenience buyers think.</li>
+    <li><strong>Comparison guides</strong> — "which one is for you" pages inside each sector, doing honest triage between the store's own products. These double as SEO assets.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>The wholesale wing (gated, new in v2):</strong> a protected B2B portal — login-gated tiered pricing, case quantities, and reorder tooling for smoke shops, convenience stores, truck stops, and specialty retailers. It shares the product catalog but not the consumer pricing. Built when the wholesale gate opens (D2C unit economics proven), at which point a CRM (HubSpot Free) enters the stack for pipeline management. Designing the store with this wing in mind now costs nothing; retrofitting it later costs a re-architecture.</p>
+  </div>
+
   <h2>Decisions This Architecture Forces</h2>
   <ol>
     <li><strong>The flex sector can't be named until the final SKU list lands.</strong> Recovery products → "Body &amp; Recovery"; general daily-health → "Daily Foundations." A wrong door confuses the whole nav — don't invent it in advance.</li>
     <li><strong>Existing brand domains become marketing fronts, not separate stores.</strong> Recommendation: <strong>one checkout hub.</strong> Brand domains keep their story pages, but every "Buy" button routes into this store. One inventory, one analytics stream, one Klaviyo — the AI evaluation requirement effectively demands it.</li>
     <li><strong>Kava placement is fault-tolerant.</strong> If payment processing for kava comes back restricted, Rest &amp; Calm launches with Trypt.co alone and kava slots in later — no page rework needed. Sector-first design absorbs the hit.</li>
+    <li><strong>Launch narrow, architect wide.</strong> Phase 1 opens with ~6 SKUs in 2–3 sectors, but the nav, templates, and wholesale wing are designed for the full catalog — adding Phase 2 products is data entry, not redesign.</li>
   </ol>
 
   <h2>Where the AI Layer Plugs In</h2>
@@ -146,7 +159,7 @@
 </main>
 
 <footer>
-  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
 </footer>
 
 </body>

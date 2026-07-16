@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timeline &amp; Dependencies Deep Dive — GFTO D2C Store</title>
+  <title>Gates, Timeline &amp; Launch Readiness Deep Dive — GFTO D2C Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     .page-head p { color:rgba(255,255,255,.7); font-size:.95rem; max-width:620px; margin:0 auto; line-height:1.6; }
     main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
     h2 { font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
-    h2:first-of-type { margin-top:0; }
+    h3 { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); letter-spacing:.03em; margin:1.5rem 0 .6rem; }
     p { font-size:.93rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
     p strong, li strong { color:var(--navy); }
     ul, ol { margin:0 0 1.25rem 1.2rem; }
@@ -34,6 +34,7 @@
     tr:nth-child(even) td { background:#faf7ec; }
     .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
     .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
+    .check { color:var(--red); font-weight:700; margin-right:.35rem; }
     .table-scroll { overflow-x:auto; }
     .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.88rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
     .back-btn:hover { opacity:.88; }
@@ -53,53 +54,129 @@
 
 <div class="page-head">
   <div class="page-label">Deep Dive · Category 06</div>
-  <h1>Timeline &amp; Dependencies</h1>
-  <p>Eight weeks, all ~12 products at launch, automation installed before opening day — and the critical-path items that decide whether the clock starts.</p>
+  <h1>Gates, Timeline &amp; Launch Readiness</h1>
+  <p>The calendar estimates; the gates decide. Eight weeks is the floor — valid only if the inputs are substantially complete before the clock starts.</p>
 </div>
 
 <main>
 
   <div style="margin:0 0 2rem;"><a class="back-btn" href="index.html" style="margin:0;">← Back to the Working Brief</a></div>
 
-  <h2>The 8-Week Build</h2>
+  <h2>The Five Decision Gates</h2>
+  <p>Dates predict; gates authorize. Nothing advances on schedule pressure — it advances when the gate's criteria are met, in writing.</p>
   <div class="table-scroll">
   <table>
-    <thead><tr><th>Phase</th><th>Work</th><th>Exit Criteria</th></tr></thead>
+    <thead><tr><th>Gate</th><th>Passes When</th><th>Authorizes</th></tr></thead>
     <tbody>
-      <tr><td><strong>Weeks 1–2<br>Foundation</strong></td><td>Shopify store setup; storefront name locked (domain + handle checks, trademark knockout); brand voice files (×12); Klaviyo account + core flows built; sector structure and product templates</td><td>Store skeleton live on a password page; flows tested with seed data</td></tr>
-      <tr><td><strong>Weeks 3–4<br>Content &amp; Pages</strong></td><td>All 12 product pages in brand skins; 4 sector pages; About Mark + The Science pages; AI content engine v1 running on the pre-launch list; home-page quiz live</td><td>Every SKU purchasable end-to-end in test mode; first weekly content batch approved and sent</td></tr>
-      <tr><td><strong>Weeks 5–6<br>Spokes &amp; Dashboard</strong></td><td>4 sector spoke landing pages with sample offers; KPI dashboard pulling live Shopify/Klaviyo test data; OuterSignal installed (Free plan); Monday summary emailing on schedule</td><td>A test purchase flows through: order → enrichment → segment → dashboard → Monday summary</td></tr>
-      <tr><td><strong>Week 7<br>Gate Week</strong></td><td>Compliance claims review of every page and every flow email (methylene blue and kava scrutiny especially); payment processing verified per SKU; load/QA pass; subscription lifecycle tested (signup, skip, cancel)</td><td>Claims sign-off; real card transactions succeed on every SKU cleared to launch</td></tr>
-      <tr><td><strong>Week 8<br>Launch</strong></td><td>Warm lists first — sector-matched email drops over 5 days; spoke pages take paid traffic only after warm-list conversion data seeds the dashboard</td><td>Store public; first cohort in the post-purchase flows; week-one scoreboard delivered</td></tr>
+      <tr><td><strong>G0 — Start</strong></td><td>Launch SKUs named (~6, already packaged or nearly complete) · retail + subscription pricing · COGS per SKU · packaging status per SKU · product data sheets (ingredients, dosing, warnings, COAs) · photography in hand or shoot scheduled · formulator bio + headshot delivered</td><td>The build clock. <strong>Until G0 passes, the 8-week timeline hasn't started</strong>, whatever the calendar says.</td></tr>
+      <tr><td><strong>G1 — Build</strong></td><td>Storefront name locked (domain, handles, trademark knockout) · the full payments checklist below answered in writing · fulfillment owner signed (in-house or 3PL) · build + acquisition-test budgets approved</td><td>Full page production and app-stack configuration.</td></tr>
+      <tr><td><strong>G2 — Content</strong></td><td>Claims sign-off on every page and every flow email · support system live (owner named, SLA set, refund policy written, adverse-reaction protocol documented) · consent management configured</td><td>Anything becoming public.</td></tr>
+      <tr><td><strong>G3 — Soft Launch</strong></td><td>Real-card transactions succeed on every launch SKU · subscription lifecycle tested (signup, skip, cancel, refund) · dashboard reporting live data</td><td>Warm-list launch (~2,000 contacts, sector-matched drops over 5 days). <strong>Advance threshold: ≥1.5% list-to-purchase and &lt;2% refund rate over 14 days.</strong></td></tr>
+      <tr><td><strong>G4 — Paid Traffic</strong></td><td>G3 thresholds met · CAC ceiling computed from real margin data · creative batch ready</td><td>Paid testing: <strong>one sector first</strong>, 3–5 creatives, fixed daily budget, 14 days. <strong>Scale</strong> when CAC beats the ceiling two consecutive weeks. <strong>Pause</strong> when CAC exceeds 1.5× ceiling for 7 days, or chargebacks approach the processor's threshold. The second sector gets budget only after the first proves.</td></tr>
     </tbody>
   </table>
   </div>
   <div class="callout">
-    <p><strong>Why warm lists before paid:</strong> the warm audiences convert at list-quality rates and cost nothing, which seeds real conversion data into the dashboard and the ad accounts' learning phase — so the first paid dollar is spent against evidence, not guesses.</p>
+    <p><strong>Later gates (post-launch):</strong> the <strong>Phase 2 gate</strong> (remaining owned SKUs + fourth sector) opens on sustained repeat-purchase and cross-sector data; the <strong>wholesale gate</strong> (B2B portal + CRM enters the stack) opens on D2C unit economics proving out; the <strong>marketplace gate</strong> (third-party brands, revenue-share) opens last, and only with a signed agreement template ready.</p>
   </div>
 
-  <h2>Critical-Path Dependencies</h2>
-  <p>The 8-week clock starts when the first three items below land — page production cannot begin without them.</p>
+  <h2>The 8-Week Floor (Once G0 Passes)</h2>
   <div class="table-scroll">
   <table>
-    <thead><tr><th>#</th><th>Item</th><th>Blocks</th><th>Status</th></tr></thead>
+    <thead><tr><th>Phase</th><th>Work</th><th>Exit</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td><strong>Final SKU list + pricing</strong> (~12 products confirmed)</td><td>Everything — sector assignment, flex-sector naming, page production</td><td>Open</td></tr>
-      <tr><td>2</td><td><strong>Product photography</strong> (or budget/plan to shoot it)</td><td>Product pages, sector pages, all content</td><td>Open</td></tr>
-      <tr><td>3</td><td><strong>Mark Rhodes bio + headshot</strong></td><td>About Mark page, the Rhodes seal, home-page formulator strip</td><td>Open</td></tr>
-      <tr><td>4</td><td><strong>Kava payment-processor confirmation</strong></td><td>Kava SKU only — architecture absorbs a bad answer (Rest &amp; Calm launches with one product)</td><td>In progress</td></tr>
-      <tr><td>5</td><td><strong>Pet-brand partnership terms</strong> (consignment / wholesale / revenue share)</td><td>Pet Wellness sector economics</td><td>In discussion</td></tr>
-      <tr><td>6</td><td><strong>Claims review sign-off</strong> (structure/function compliance)</td><td>Launch — this is a hard gate, not a formality</td><td>Scheduled week 7</td></tr>
-      <tr><td>7</td><td><strong>Storefront name decision</strong> (top 5 on the table)</td><td>Domain, handles, logo, all brand assets</td><td>Shortlist ready</td></tr>
+      <tr><td><strong>Weeks 1–2</strong></td><td>Shopify setup; name assets; brand voice files; Klaviyo core flows; full app stack installed and keyed for AI access</td><td>G1 evidence assembled</td></tr>
+      <tr><td><strong>Weeks 3–4</strong></td><td>Launch-SKU product pages in brand skins; active sector pages; About Mark + Science pages; content engine v1 on the pre-launch list; home quiz live</td><td>Every launch SKU purchasable in test mode</td></tr>
+      <tr><td><strong>Weeks 5–6</strong></td><td>Sector spoke pages with sample offers; KPI dashboard on live test data; enrichment installed; Monday summary emailing</td><td>Test order flows end-to-end: order → enrichment → segment → dashboard → summary</td></tr>
+      <tr><td><strong>Week 7</strong></td><td><strong>Gate week — G2:</strong> claims review of everything; payment tests per SKU; subscription lifecycle QA</td><td>G2 + G3 criteria signed</td></tr>
+      <tr><td><strong>Week 8</strong></td><td>Warm-list launch (G3); paid traffic only after G4 criteria are met — which may be later than week 8, and that's the system working, not failing</td><td>Week-one scoreboard delivered</td></tr>
     </tbody>
   </table>
   </div>
 
-  <h2>Risk Register (Short Version)</h2>
+  <h2>The Payments Checklist (Expanded — Per SKU, Not Per Store)</h2>
+  <p>"Processor confirmed" is too narrow for this catalog. Seven answers, in writing, before G1:</p>
+  <ol>
+    <li><strong>Product eligibility per SKU</strong> — kava AND every cannabinoid product ruled on explicitly by the processor, not assumed.</li>
+    <li><strong>Reserve terms</strong> — will the processor hold a rolling reserve, and how much of revenue does it trap?</li>
+    <li><strong>Chargeback rules</strong> — what rate triggers review or termination, and what's the dispute process?</li>
+    <li><strong>Subscription processing</strong> — recurring billing on these product categories explicitly permitted.</li>
+    <li><strong>State-by-state restrictions</strong> — which SKUs cannot sell or ship into which states (kava, cannabinoids, methylene blue).</li>
+    <li><strong>Shipping limitations</strong> — carrier rules for hemp/cannabinoid products; confirmed lanes per SKU.</li>
+    <li><strong>Backup processor</strong> — a second option signed up before launch, not shopped for after a shutdown notice.</li>
+  </ol>
+
+  <h2>The Support System (Required Before G2)</h2>
+  <p>Wellness products require a defined response system — this is a launch gate, not a nice-to-have.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Scenario</th><th>Response Path</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Product questions</strong> (dosing, ingredients, interactions)</td><td>Macro library written from the product data sheets; anything beyond the macros escalates to the formulator — support never improvises answers about ingestibles</td></tr>
+      <tr><td><strong>Subscription changes</strong> (skip, swap, pause, cancel)</td><td>Self-serve first in the customer portal; ticket fallback with same-day handling — subscription friction is churn</td></tr>
+      <tr><td><strong>Refunds</strong></td><td>Written policy incl. opened-consumable rule; support empowered to refund up to a set amount without approval</td></tr>
+      <tr><td><strong>Adverse reactions</strong></td><td>Documented protocol: intake script → immediate acknowledgment → escalation to the formulator → written record per incident → refund + follow-up. Never handled casually, never left in an inbox overnight</td></tr>
+      <tr><td><strong>Shipping problems</strong></td><td>Tracking-based macros; reship-vs-refund rule by order value</td></tr>
+      <tr><td><strong>Escalation</strong></td><td>One named owner, one SLA (business-day response &lt; 24h), one weekly support-themes line feeding the Monday summary</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>The Launch-Readiness Hit List (32 Items)</h2>
+  <p>Owner-level checkboxes. An item is checked when its "done when" condition is met — not when it's been discussed.</p>
+  <h3>A. Product &amp; Scope</h3>
   <ul>
-    <li><strong>Claims risk (highest):</strong> methylene blue and kava both draw FDA/FTC attention and complicate paid-ad approval. Mitigation: the claims guardrail file, week-7 gate, and channel strategy that leans on email, organic, and the warm lists — not just paid social.</li>
-    <li><strong>Key-person dependency:</strong> the store's credibility story runs through one formulator. Mitigation: the seal + Science page make the <em>method</em> the asset, and the masthead brand stands on its own.</li>
-    <li><strong>Scope creep:</strong> twelve SKUs at launch is already ambitious. Rule: no thirteenth product, no fifth sector, no feature additions until the week-one scoreboard exists.</li>
+    <li><span class="check">☐</span>The launch six named, in writing</li>
+    <li><span class="check">☐</span>Retail + subscription price per SKU</li>
+    <li><span class="check">☐</span>Landed COGS per SKU (margin computable)</li>
+    <li><span class="check">☐</span>Packaging status per SKU: ready / dated / blocked</li>
+    <li><span class="check">☐</span>Product data sheets complete per launch SKU</li>
+    <li><span class="check">☐</span>Photography in hand, or budget + shoot date approved</li>
+    <li><span class="check">☐</span>Formulator bio + headshot delivered</li>
+  </ul>
+  <h3>B. Money</h3>
+  <ul>
+    <li><span class="check">☐</span>Build budget approved (site, apps, photography, legal review)</li>
+    <li><span class="check">☐</span>Customer-acquisition test budget approved</li>
+    <li><span class="check">☐</span>CAC ceiling set (derived from pricing + COGS)</li>
+    <li><span class="check">☐</span>Margin floor set — below it, a SKU doesn't launch</li>
+  </ul>
+  <h3>C. Payments</h3>
+  <ul>
+    <li><span class="check">☐</span>Seven payments-checklist answers in writing (above)</li>
+  </ul>
+  <h3>D. Operations &amp; Support</h3>
+  <ul>
+    <li><span class="check">☐</span>Fulfillment owner signed — in-house or named 3PL</li>
+    <li><span class="check">☐</span>Returns/refund policy written</li>
+    <li><span class="check">☐</span>Support owner named, hours + SLA set</li>
+    <li><span class="check">☐</span>Adverse-reaction protocol documented</li>
+  </ul>
+  <h3>E. Legal</h3>
+  <ul>
+    <li><span class="check">☐</span>Selling entity (merchant of record) confirmed</li>
+    <li><span class="check">☐</span>Product liability insurance confirmed for these categories</li>
+    <li><span class="check">☐</span>Claims-review owner named — signs every page and email</li>
+    <li><span class="check">☐</span>Third-party brand agreement template drafted (before the first outside brand, including the pet line's terms)</li>
+  </ul>
+  <h3>F. Brand &amp; Positioning</h3>
+  <ul>
+    <li><span class="check">☐</span>Storefront name picked from the top five (domain/handle/trademark checks run same day)</li>
+    <li><span class="check">☐</span>Primary customer defined in one sentence — who, what problem, what feeling</li>
+    <li><span class="check">☐</span>Parent-store promise approved — why buy here instead of from each brand directly</li>
+  </ul>
+  <h3>G. Launch Authority</h3>
+  <ul>
+    <li><span class="check">☐</span>Gate model adopted — launch on criteria, not dates</li>
+    <li><span class="check">☐</span>Pause/scale authority assigned — who can halt paid spend or approve scaling without a meeting</li>
+  </ul>
+
+  <h2>Risk Register</h2>
+  <ul>
+    <li><strong>Overexpansion (the named #1 risk):</strong> no seventh SKU, no new sector, no outside brand until the current phase's validation thresholds are met. The gates exist to enforce this.</li>
+    <li><strong>Claims risk:</strong> methylene blue, kava, and cannabinoids all draw FDA/FTC attention and complicate ad approval. Mitigation: the claims guardrail file, the G2 gate, and an acquisition ladder that leans on email, affiliates, and organic before paid.</li>
+    <li><strong>Payment fragility:</strong> the category invites processor trouble. Mitigation: the seven-answer checklist + a live backup processor.</li>
+    <li><strong>Key-person dependency:</strong> the credibility story runs through one formulator. Mitigation: the seal + Science page make the <em>method</em> the asset; the masthead brand stands on its own.</li>
   </ul>
 
   <a class="back-btn" href="index.html">← Back to the Working Brief</a>
@@ -107,7 +184,7 @@
 </main>
 
 <footer>
-  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
 </footer>
 
 </body>

@@ -118,6 +118,27 @@
     <li><strong>Note:</strong> the app requests broad data scopes (customer PII, geolocation, order editing) — reflect it in the store's privacy policy.</li>
   </ul>
 
+  <h2>The Rest of the Stack (New in v2)</h2>
+  <p>Core commerce and email were scored above. V2 defines every remaining layer — with one selection rule applied throughout: <strong>no tool enters the stack unless the AI layer can drive it through an API.</strong></p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Function</th><th>Tool</th><th>Cost/mo</th><th>Why This One</th><th>AI Access</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Subscriptions</strong></td><td>Shopify Subscriptions (native) → Appstle if skip/swap/pause needed</td><td>$0 → $10</td><td>Free covers launch; heavier apps are overkill under 500 subscribers</td><td>✅ Admin API subscription contracts</td></tr>
+      <tr><td><strong>Reviews</strong></td><td>Judge.me</td><td>$15</td><td>Photo reviews, Klaviyo triggers, Google rich snippets — the premium tool's job at a fraction of the price</td><td>✅ REST API</td></tr>
+      <tr><td><strong>Support</strong></td><td>Gorgias Starter</td><td>$10–60</td><td>Shopify-native ticketing; macro library carries the adverse-reaction protocol; scales with volume</td><td>✅ REST API — AI can triage and draft</td></tr>
+      <tr><td><strong>Attribution</strong></td><td>UTM discipline + GA4 + Shopify attribution; Triple Whale only past $5K/mo ad spend</td><td>$0 → $129</td><td>Don't buy attribution software before there's spend to attribute</td><td>✅ GA4 Data API</td></tr>
+      <tr><td><strong>Reporting</strong></td><td>Custom KPI dashboard + AI Monday summary</td><td>~$5</td><td>Already designed — this IS the reporting layer</td><td>✅ Ours end-to-end</td></tr>
+      <tr><td><strong>Inventory</strong></td><td>Shopify native + reorder-point sheet; 3PL WMS sync if 3PL chosen</td><td>$0</td><td>Six to twelve SKUs doesn't justify an inventory system</td><td>✅ Admin API</td></tr>
+      <tr><td><strong>Affiliate tracking</strong></td><td>GoAffPro</td><td>$0–30</td><td>Carries the existing associate-commission model; open API decided the tiebreak over UpPromote</td><td>✅ REST API</td></tr>
+      <tr><td><strong>Consent management</strong></td><td>Shopify Customer Privacy + Consentmo banner; Klaviyo double opt-in</td><td>$0</td><td>GDPR/CCPA/TCPA covered at this scale</td><td>— set-and-forget</td></tr>
+      <tr><td><strong>Customer data</strong></td><td>Shopify = system of record · Klaviyo = working CDP · OuterSignal = enrichment</td><td>(counted above)</td><td>No standalone CDP until multi-store — Klaviyo segments are the CDP at this size</td><td>✅ via Shopify + Klaviyo APIs</td></tr>
+      <tr><td><strong>Social scheduling</strong></td><td>Meta Graph API direct (or Zapier route)</td><td>$0–30</td><td>Buffer's API is closed to new apps — post through the platform APIs the AI can actually reach</td><td>✅ Graph API</td></tr>
+      <tr><td><strong>CRM</strong></td><td><strong>None at D2C launch — deliberate.</strong> HubSpot Free enters at the wholesale gate</td><td>$0</td><td>Consumers don't have pipeline stages; Shopify + Klaviyo + OuterSignal cover the D2C relationship. Wholesale (named accounts, quotes, reorder cadences) and marketplace recruitment are pipeline sales — that's when a CRM earns its place</td><td>✅ HubSpot open API</td></tr>
+    </tbody>
+  </table>
+  </div>
+
   <h2>The Full Stack, Priced</h2>
   <div class="table-scroll">
   <table>
@@ -126,11 +147,15 @@
       <tr><td>Store</td><td>Shopify Basic + native Subscriptions</td><td>$29–39</td></tr>
       <tr><td>Email / flows</td><td>Klaviyo</td><td>~$70 at 3K profiles</td></tr>
       <tr><td>Customer intelligence</td><td>OuterSignal</td><td>$0 at launch → ~$79 at scale</td></tr>
-      <tr><td>AI content engine</td><td>AI API + scheduler</td><td>≤$45</td></tr>
+      <tr><td>Reviews + support + affiliates</td><td>Judge.me + Gorgias + GoAffPro</td><td>~$25–105</td></tr>
+      <tr><td>AI content engine</td><td>AI API + Meta Graph/Zapier</td><td>≤$45</td></tr>
       <tr><td>KPI dashboard + Monday summary</td><td>Vercel + AI API</td><td>~$1–5</td></tr>
-      <tr><td colspan="2"><strong>Total before ad spend</strong></td><td><strong>~$150–160 at launch; ~$240 at scale</strong></td></tr>
+      <tr><td colspan="2"><strong>Total before ad spend</strong></td><td><strong>~$170–260/mo fully loaded; CRM $0 when it enters</strong></td></tr>
     </tbody>
   </table>
+  </div>
+  <div class="callout">
+    <p><strong>Setup-day credentials checklist (for the AI layer):</strong> Shopify custom-app token · Klaviyo private key · Judge.me token · Gorgias API key · GA4 service account · GoAffPro token · Meta app credentials. Collected once, stored securely — from that point the engine reads and acts on every layer of the store.</p>
   </div>
 
   <a class="back-btn" href="index.html">← Back to the Working Brief</a>
@@ -138,7 +163,7 @@
 </main>
 
 <footer>
-  <p>GFTO Multi-Product D2C Store — Working Brief v1 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
 </footer>
 
 </body>
