@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    :root { --red:#9E1B1B; --navy:#101F3C; --cream:#FAF7EE; --white:#fff; --border:#E0D9C8; --muted:#6E7686; }
     body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
     nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
     nav img { height:40px; object-fit:contain; }
@@ -22,15 +22,15 @@
     .page-head p { color:rgba(255,255,255,.7); font-size:1.05rem; max-width:620px; margin:0 auto; line-height:1.6; }
     main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
     h2 { font-family:'Oswald',sans-serif; font-size:1.35rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
-    p { font-size:1.02rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p { font-size:1.02rem; color:#3E4653; line-height:1.75; margin-bottom:1rem; }
     p strong, li strong { color:var(--navy); }
     ul, ol { margin:0 0 1.25rem 1.2rem; }
-    li { font-size:1rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    li { font-size:1rem; color:#3E4653; line-height:1.7; margin-bottom:.5rem; }
     table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.95rem; background:#fff; }
     th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.85rem; text-align:left; padding:.6rem .8rem; }
-    td { padding:.65rem .8rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td { padding:.65rem .8rem; border-bottom:1px solid #E8E2D2; color:#3E4653; line-height:1.5; vertical-align:top; }
     td strong { color:var(--navy); }
-    tr:nth-child(even) td { background:#faf7ec; }
+    tr:nth-child(even) td { background:#F5F0E1; }
     .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
     .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
     pre.diagram { background:var(--navy); color:#e8ecf5; border-radius:10px; padding:1.5rem; font-size:.85rem; line-height:1.6; overflow-x:auto; margin-bottom:1.5rem; font-family:ui-monospace,Consolas,monospace; }
@@ -64,9 +64,38 @@
   <div style="margin:0 0 2rem;"><a class="back-btn" href="index.html" style="margin:0;">← Back to the Working Brief</a></div>
 
   <h2>The Loop</h2>
-  <pre class="diagram">AUDIENCE ──→ CONTENT ──→ DISTRIBUTION ──→ LEARNING ──┐
-   ↑                                                 │
-   └────────── next week's content brief ←───────────┘</pre>
+  <div class="table-scroll" style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1.5rem;">
+  <svg viewBox="0 0 860 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The marketing engine loop" style="width:100%;height:auto;font-family:Inter,sans-serif;">
+    <defs>
+      <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#101F3C"/>
+      </marker>
+      <marker id="arwR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#9E1B1B"/>
+      </marker>
+    </defs>
+    <rect x="20" y="55" width="185" height="70" rx="4" fill="#101F3C"/>
+    <text x="112" y="85" text-anchor="middle" fill="#fff" font-size="14.5" font-weight="700">AUDIENCE</text>
+    <text x="112" y="105" text-anchor="middle" fill="#B9C2D6" font-size="10">quiz + enrichment segment everyone</text>
+    <rect x="235" y="55" width="185" height="70" rx="4" fill="#101F3C"/>
+    <text x="327" y="85" text-anchor="middle" fill="#fff" font-size="14.5" font-weight="700">CONTENT</text>
+    <text x="327" y="105" text-anchor="middle" fill="#B9C2D6" font-size="10">1 hero piece → ~12 assets</text>
+    <rect x="450" y="55" width="185" height="70" rx="4" fill="#101F3C"/>
+    <text x="542" y="85" text-anchor="middle" fill="#fff" font-size="14.5" font-weight="700">DISTRIBUTION</text>
+    <text x="542" y="105" text-anchor="middle" fill="#B9C2D6" font-size="10">owned first · paid last</text>
+    <rect x="665" y="55" width="180" height="70" rx="4" fill="#101F3C"/>
+    <text x="755" y="85" text-anchor="middle" fill="#fff" font-size="14.5" font-weight="700">LEARNING</text>
+    <text x="755" y="105" text-anchor="middle" fill="#B9C2D6" font-size="10">Monday scoreboard + summary</text>
+    <line x1="205" y1="90" x2="231" y2="90" stroke="#101F3C" stroke-width="2.5" marker-end="url(#arw2)"/>
+    <line x1="420" y1="90" x2="446" y2="90" stroke="#101F3C" stroke-width="2.5" marker-end="url(#arw2)"/>
+    <line x1="635" y1="90" x2="661" y2="90" stroke="#101F3C" stroke-width="2.5" marker-end="url(#arw2)"/>
+    <!-- feedback loop -->
+    <path d="M 755 125 L 755 195 L 327 195 L 327 133" fill="none" stroke="#9E1B1B" stroke-width="2.5" marker-end="url(#arwR)"/>
+    <rect x="395" y="180" width="290" height="30" rx="15" fill="#FAF7EE" stroke="#9E1B1B"/>
+    <text x="540" y="199" text-anchor="middle" fill="#9E1B1B" font-size="11.5" font-weight="700">last week's numbers write next week's brief</text>
+    <text x="430" y="242" text-anchor="middle" fill="#6E7686" font-size="10.5">the loop runs every week, forever — and gets smarter each cycle</text>
+  </svg>
+  </div>
   <p>Marketing here isn't a list of tactics — it's one loop that runs every week, forever, and gets smarter each cycle because last week's results are an <em>input</em> to next week's content.</p>
 
   <h2>Subsystem 1 — Audience: Who Gets What</h2>

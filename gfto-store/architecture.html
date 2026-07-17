@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    :root { --red:#9E1B1B; --navy:#101F3C; --cream:#FAF7EE; --white:#fff; --border:#E0D9C8; --muted:#6E7686; }
     body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
     nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
     nav img { height:40px; object-fit:contain; }
@@ -23,15 +23,15 @@
     main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
     h2 { font-family:'Oswald',sans-serif; font-size:1.35rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
     h2:first-of-type { margin-top:0; }
-    p { font-size:1.02rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p { font-size:1.02rem; color:#3E4653; line-height:1.75; margin-bottom:1rem; }
     p strong, li strong { color:var(--navy); }
     ul, ol { margin:0 0 1.25rem 1.2rem; }
-    li { font-size:1rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    li { font-size:1rem; color:#3E4653; line-height:1.7; margin-bottom:.5rem; }
     table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.95rem; background:#fff; }
     th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.85rem; text-align:left; padding:.6rem .8rem; }
-    td { padding:.65rem .8rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td { padding:.65rem .8rem; border-bottom:1px solid #E8E2D2; color:#3E4653; line-height:1.5; vertical-align:top; }
     td strong { color:var(--navy); }
-    tr:nth-child(even) td { background:#faf7ec; }
+    tr:nth-child(even) td { background:#F5F0E1; }
     .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
     .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
     pre.sitemap { background:var(--navy); color:#e8ecf5; border-radius:10px; padding:1.5rem; font-size:.85rem; line-height:1.6; overflow-x:auto; margin-bottom:1.5rem; font-family:ui-monospace,Consolas,monospace; }
@@ -63,20 +63,64 @@
   <div style="margin:0 0 2rem;"><a class="back-btn" href="index.html" style="margin:0;">← Back to the Working Brief</a></div>
 
   <h2>The Sitemap</h2>
-  <pre class="sitemap">HOME (the storefront brand)
-│  Job: convert "who are these guys?" into "pick a door"
-│
-├── SECTOR: Mind &amp; Energy ──── LEUCO MB Fizz · MB-C · MB-CL
-├── SECTOR: Rest &amp; Calm ────── Trypt.co · Kava product
-├── SECTOR: Pet Wellness ───── Premium dog treats (+ future pet SKUs)
-├── SECTOR: [Flex] ─────────── remaining SKUs (named once the final list lands)
-│         │
-│         └── PRODUCT / BRAND PAGES (×12) — each in its own brand skin,
-│             all carrying the "Formulated by Mark Rhodes" seal
-│
-├── ABOUT MARK — the human story (bench-to-bottle bio)
-├── THE SCIENCE — the delivery technology rewritten for consumers
-└── (utility: FAQ, COAs, shipping, contact)</pre>
+  <div class="table-scroll" style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:1.5rem;">
+  <svg viewBox="0 0 860 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Site architecture diagram" style="width:100%;height:auto;font-family:Inter,sans-serif;">
+    <defs>
+      <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#101F3C"/>
+      </marker>
+    </defs>
+    <!-- HOME -->
+    <rect x="320" y="12" width="220" height="56" rx="4" fill="#9E1B1B"/>
+    <text x="430" y="36" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">HOME</text>
+    <text x="430" y="55" text-anchor="middle" fill="#F5D9D9" font-size="10.5">trust story → pick a door by effect</text>
+    <!-- connectors home to sectors -->
+    <line x1="430" y1="68" x2="117" y2="112" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="430" y1="68" x2="327" y2="112" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="430" y1="68" x2="537" y2="112" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="430" y1="68" x2="747" y2="112" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <!-- sectors -->
+    <rect x="20" y="116" width="195" height="62" rx="4" fill="#101F3C"/>
+    <text x="117" y="142" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">MIND &amp; ENERGY</text>
+    <text x="117" y="160" text-anchor="middle" fill="#B9C2D6" font-size="10">LEUCO MB Fizz · MB-C · MB-CL</text>
+    <rect x="230" y="116" width="195" height="62" rx="4" fill="#101F3C"/>
+    <text x="327" y="142" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">REST &amp; CALM</text>
+    <text x="327" y="160" text-anchor="middle" fill="#B9C2D6" font-size="10">Trypt.co · Kava product</text>
+    <rect x="440" y="116" width="195" height="62" rx="4" fill="#101F3C"/>
+    <text x="537" y="142" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">PET WELLNESS</text>
+    <text x="537" y="160" text-anchor="middle" fill="#B9C2D6" font-size="10">Premium dog treats + future pet SKUs</text>
+    <rect x="650" y="116" width="195" height="62" rx="4" fill="none" stroke="#101F3C" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="747" y="142" text-anchor="middle" fill="#101F3C" font-size="13" font-weight="700">[ FLEX SECTOR ]</text>
+    <text x="747" y="160" text-anchor="middle" fill="#6E7686" font-size="10">named when the final SKU list lands</text>
+    <!-- connectors sectors to product bar -->
+    <line x1="117" y1="178" x2="240" y2="222" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="327" y1="178" x2="370" y2="222" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="537" y1="178" x2="500" y2="222" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="747" y1="178" x2="630" y2="222" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <!-- product bar -->
+    <rect x="20" y="226" width="825" height="58" rx="4" fill="#fff" stroke="#101F3C" stroke-width="2"/>
+    <text x="432" y="250" text-anchor="middle" fill="#101F3C" font-size="13.5" font-weight="700">PRODUCT / BRAND PAGES (×12) — fixed frame, swappable brand skin</text>
+    <text x="432" y="270" text-anchor="middle" fill="#9E1B1B" font-size="11" font-weight="600">every page carries the "Formulated by Mark Rhodes" seal</text>
+    <!-- connectors product bar to trust layer -->
+    <line x1="200" y1="284" x2="150" y2="330" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="432" y1="284" x2="432" y2="330" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <line x1="660" y1="284" x2="712" y2="330" stroke="#101F3C" stroke-width="1.6" marker-end="url(#arw)"/>
+    <!-- trust layer -->
+    <rect x="20" y="334" width="260" height="56" rx="4" fill="#F5F0E1" stroke="#E0D9C8"/>
+    <text x="150" y="357" text-anchor="middle" fill="#101F3C" font-size="12.5" font-weight="700">ABOUT MARK</text>
+    <text x="150" y="375" text-anchor="middle" fill="#6E7686" font-size="10">the human story — every seal lands here</text>
+    <rect x="300" y="334" width="260" height="56" rx="4" fill="#F5F0E1" stroke="#E0D9C8"/>
+    <text x="430" y="357" text-anchor="middle" fill="#101F3C" font-size="12.5" font-weight="700">THE SCIENCE</text>
+    <text x="430" y="375" text-anchor="middle" fill="#6E7686" font-size="10">delivery tech for consumers — one click deep</text>
+    <rect x="580" y="334" width="265" height="56" rx="4" fill="#F5F0E1" stroke="#E0D9C8"/>
+    <text x="712" y="357" text-anchor="middle" fill="#101F3C" font-size="12.5" font-weight="700">UTILITY</text>
+    <text x="712" y="375" text-anchor="middle" fill="#6E7686" font-size="10">FAQ · COAs · shipping · contact</text>
+    <!-- wholesale wing -->
+    <rect x="20" y="414" width="825" height="52" rx="4" fill="none" stroke="#9E1B1B" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="432" y="436" text-anchor="middle" fill="#9E1B1B" font-size="12.5" font-weight="700">WHOLESALE WING — GATED</text>
+    <text x="432" y="454" text-anchor="middle" fill="#6E7686" font-size="10">protected B2B portal · tiered pricing · opens at the wholesale revenue gate</text>
+  </svg>
+  </div>
 
   <h2>Layer 1 — Home</h2>
   <p>The mistake to avoid: making Home a product grid. With a house of brands, a grid of 12 unrelated-looking labels reads like a flea market. Home's only job is to answer <em>"why should I buy supplements from a company I've never heard of?"</em> and route people by problem, not by brand.</p>

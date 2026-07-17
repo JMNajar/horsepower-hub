@@ -11,12 +11,12 @@
     html { scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --red:    #CC2929;
-      --navy:   #1A2B4A;
-      --cream:  #F8F2CC;
+      --red:    #9E1B1B;
+      --navy:   #101F3C;
+      --cream:  #FAF7EE;
       --white:  #fff;
-      --border: #cfc5b5;
-      --muted:  #6b7a99;
+      --border: #E0D9C8;
+      --muted:  #6E7686;
     }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
 
@@ -56,14 +56,14 @@
     .thesis p:last-child { margin-bottom: 0; }
     .thesis strong { color: #fff; }
     .promise {
-      background: rgba(204,41,41,.18); border: 1px solid rgba(204,41,41,.45); border-radius: 8px;
+      background: rgba(158,27,27,.18); border: 1px solid rgba(158,27,27,.45); border-radius: 8px;
       padding: 1rem 1.25rem; margin-top: 1.1rem;
     }
     .promise p { color: rgba(255,255,255,.9); font-style: italic; margin: 0; }
 
     .cat {
       background: var(--white); border: 1px solid var(--border); border-radius: 12px;
-      border-top: 4px solid var(--red); padding: 2rem 2.25rem; margin-bottom: 2rem;
+      border-top: 4px solid var(--navy); padding: 2rem 2.25rem; margin-bottom: 2rem;
     }
     .cat-num {
       font-family: 'Oswald', sans-serif; font-size:.85rem; font-weight: 700; color: var(--red);
@@ -73,9 +73,9 @@
       font-family: 'Oswald', sans-serif; font-size: 1.45rem; font-weight: 700; color: var(--navy);
       letter-spacing: .02em; margin-bottom: 1rem;
     }
-    .cat p.lead { font-size:1.05rem; color: #4a5570; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cat p.lead { font-size:1.05rem; color: #3E4653; line-height: 1.7; margin-bottom: 1.25rem; }
     .cat ul { margin: 0 0 1.25rem 1.2rem; }
-    .cat li { font-size:1rem; color: #4a5570; line-height: 1.7; margin-bottom: .5rem; }
+    .cat li { font-size:1rem; color: #3E4653; line-height: 1.7; margin-bottom: .5rem; }
     .cat li strong { color: var(--navy); }
 
     table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; font-size:.98rem; }
@@ -83,20 +83,61 @@
       background: var(--navy); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600;
       letter-spacing: .05em; text-transform: uppercase; font-size: .72rem; text-align: left; padding: .6rem .8rem;
     }
-    td { padding: .7rem .8rem; border-bottom: 1px solid #e8e2d4; color: #4a5570; line-height: 1.55; vertical-align: top; }
+    td { padding: .7rem .8rem; border-bottom: 1px solid #E8E2D2; color: #3E4653; line-height: 1.55; vertical-align: top; }
     td strong { color: var(--navy); }
-    tr:nth-child(even) td { background: #faf7ec; }
+    tr:nth-child(even) td { background: #F5F0E1; }
     .rank {
-      display: inline-block; width: 24px; height: 24px; background: var(--red); color: #fff;
+      display: inline-block; width: 24px; height: 24px; background: var(--navy); color: #fff;
       border-radius: 50%; text-align: center; line-height: 24px; font-weight: 700; font-size:.85rem;
     }
 
     .dive-btn {
       display: inline-block; background: var(--red); color: #fff; font-family: 'Inter', sans-serif;
-      font-size:.95rem; font-weight: 600; padding: .75rem 1.7rem; border-radius: 6px;
+      font-size: 1.05rem; font-weight: 600; padding: .9rem 2.1rem; border-radius: 6px;
       text-decoration: none; letter-spacing: .02em; transition: opacity .15s, transform .15s;
     }
     .dive-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+    .masthead {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      text-align: center; padding: .65rem 1rem;
+      font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .masthead strong { color: var(--navy); font-weight: 600; }
+
+    .stat-band {
+      background: var(--navy); border-radius: 12px; padding: 1.6rem 2rem; margin-bottom: 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem;
+    }
+    .stat { text-align: center; }
+    .stat-value { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.1; }
+    .stat-value span { color: #D8A4A4; }
+    .stat-label { font-size: .75rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-top: .35rem; }
+
+    .toc {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem 2.25rem; margin-bottom: 3rem;
+    }
+    .toc h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--navy);
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem;
+      padding-bottom: .5rem; border-bottom: 3px solid var(--red); display: inline-block;
+    }
+    .toc ol { list-style: none; columns: 2; column-gap: 2.5rem; }
+    .toc li { margin-bottom: .55rem; break-inside: avoid; }
+    .toc a { text-decoration: none; color: #3E4653; font-size: 1rem; display: flex; gap: .6rem; align-items: baseline; }
+    .toc a:hover { color: var(--red); }
+    .toc .n { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--red); font-size: .9rem; min-width: 1.6rem; }
+    @media (max-width: 600px) { .toc ol { columns: 1; } }
+
+    .totop {
+      position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 50;
+      background: var(--navy); color: #fff; font-size: .8rem; font-weight: 600;
+      padding: .55rem 1rem; border-radius: 20px; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(16,31,60,.3); opacity: 0; pointer-events: none; transition: opacity .25s;
+    }
+    .totop.show { opacity: 1; pointer-events: auto; }
+    .totop:hover { background: var(--red); }
 
     footer {
       background: var(--navy); border-top: 3px solid var(--red);
@@ -127,7 +168,17 @@
   <p>One store, launched narrow and built to scale: six proven SKUs first, a house of brands behind one trust story — every product formulated by Mark Rhodes — governed by decision gates, powered by an AI engine that markets, promotes, and evaluates itself.</p>
 </div>
 
+<div class="masthead">Prepared by <strong>Horsepower AI</strong> &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; <strong>Version 2.0</strong> &nbsp;·&nbsp; Prepared for <strong>GF Tech One</strong></div>
+
 <main>
+
+  <!-- STAT BAND -->
+  <div class="stat-band">
+    <div class="stat"><div class="stat-value">~$100<span>/mo</span></div><div class="stat-label">Gate 0 Tool Stack</div></div>
+    <div class="stat"><div class="stat-value">1 hr<span>/wk</span></div><div class="stat-label">Human Time to Run It</div></div>
+    <div class="stat"><div class="stat-value">&lt;1%</div><div class="stat-label">Of Revenue at Scale</div></div>
+    <div class="stat"><div class="stat-value">6 SKUs</div><div class="stat-label">Deliberately Narrow Launch</div></div>
+  </div>
 
   <!-- THESIS -->
   <div class="thesis">
@@ -139,6 +190,21 @@
     <div class="promise">
       <p>The customer promise: "For people who want to feel a specific way — sharper, calmer, better-rested — and are done gambling on internet supplements: every product here does one job, at a verified dose, from one formulator you can look in the eye."</p>
     </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc" id="toc">
+    <h2>In This Brief</h2>
+    <ol>
+      <li><a href="#naming"><span class="n">01</span> Storefront Naming</a></li>
+      <li><a href="#architecture"><span class="n">02</span> Site Architecture</a></li>
+      <li><a href="#offer-model"><span class="n">03</span> Offer Model — Hub &amp; Spoke, Phased</a></li>
+      <li><a href="#ai-layer"><span class="n">04</span> AI Automation Layer</a></li>
+      <li><a href="#tech-stack"><span class="n">05</span> Tech Stack — Revenue-Gated</a></li>
+      <li><a href="#timeline"><span class="n">06</span> Gates, Timeline &amp; Launch Readiness</a></li>
+      <li><a href="#marketing-engine"><span class="n">07</span> The Marketing Engine</a></li>
+      <li><a href="#punch-lists"><span class="n">08</span> Punch Lists</a></li>
+    </ol>
   </div>
 
   <!-- CATEGORY 1 -->
@@ -267,6 +333,16 @@
 <footer>
   <p>GFTO Multi-Product D2C Store — Working Brief v2 &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
 </footer>
+
+<a class="totop" id="totop" href="#toc">↑ Contents</a>
+<script>
+  (function(){
+    var chip = document.getElementById('totop');
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 900) { chip.classList.add('show'); } else { chip.classList.remove('show'); }
+    }, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
