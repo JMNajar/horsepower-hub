@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Engine Deep Dive — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+    .page-head { background:var(--navy); padding:3rem 2rem 2.5rem; text-align:center; }
+    .page-label { display:inline-block; background:var(--red); color:#fff; font-family:'Oswald',sans-serif; font-size:.85rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem; }
+    .page-head h1 { font-family:'Oswald',sans-serif; font-size:2.1rem; font-weight:700; color:#fff; line-height:1.2; max-width:720px; margin:0 auto .7rem; }
+    .page-head p { color:rgba(255,255,255,.7); font-size:1.05rem; max-width:620px; margin:0 auto; line-height:1.6; }
+    main { max-width:920px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
+    h2 { font-family:'Oswald',sans-serif; font-size:1.35rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin:2.25rem 0 1rem; padding-bottom:.4rem; border-bottom:3px solid var(--red); display:inline-block; }
+    p { font-size:1.02rem; color:#4a5570; line-height:1.75; margin-bottom:1rem; }
+    p strong, li strong { color:var(--navy); }
+    ul, ol { margin:0 0 1.25rem 1.2rem; }
+    li { font-size:1rem; color:#4a5570; line-height:1.7; margin-bottom:.5rem; }
+    table { width:100%; border-collapse:collapse; margin-bottom:1.5rem; font-size:.95rem; background:#fff; }
+    th { background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:.05em; text-transform:uppercase; font-size:.85rem; text-align:left; padding:.6rem .8rem; }
+    td { padding:.65rem .8rem; border-bottom:1px solid #e8e2d4; color:#4a5570; line-height:1.5; vertical-align:top; }
+    td strong { color:var(--navy); }
+    tr:nth-child(even) td { background:#faf7ec; }
+    .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+    .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
+    pre.diagram { background:var(--navy); color:#e8ecf5; border-radius:10px; padding:1.5rem; font-size:.85rem; line-height:1.6; overflow-x:auto; margin-bottom:1.5rem; font-family:ui-monospace,Consolas,monospace; }
+    .table-scroll { overflow-x:auto; }
+    .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.95rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
+    .back-btn:hover { opacity:.88; }
+    a.inline { color:var(--red); font-weight:600; text-decoration:none; }
+    a.inline:hover { text-decoration:underline; }
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+    @media (max-width:600px){ .page-head h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Deep Dive 07</span>
+  <a class="nav-home" href="index.html">← Back to Brief</a>
+</nav>
+
+<div class="page-head">
+  <div class="page-label">Deep Dive · Category 07</div>
+  <h1>The Marketing Engine</h1>
+  <p>Four subsystems, one weekly loop: AI does the volume, data picks the winners, a human guards the claims — about one hour of human time a week.</p>
+</div>
+
+<main>
+
+  <div style="margin:0 0 2rem;"><a class="back-btn" href="index.html" style="margin:0;">← Back to the Working Brief</a></div>
+
+  <h2>The Loop</h2>
+  <pre class="diagram">AUDIENCE ──→ CONTENT ──→ DISTRIBUTION ──→ LEARNING ──┐
+   ↑                                                 │
+   └────────── next week's content brief ←───────────┘</pre>
+  <p>Marketing here isn't a list of tactics — it's one loop that runs every week, forever, and gets smarter each cycle because last week's results are an <em>input</em> to next week's content.</p>
+
+  <h2>Subsystem 1 — Audience: Who Gets What</h2>
+  <ul>
+    <li><strong>The home-page quiz</strong> tags every subscriber by the state they're chasing — sharper, calmer, better-rested, or "for my dog" — at the moment of capture.</li>
+    <li><strong>Enrichment (OuterSignal → Klaviyo)</strong> turns buyers into real profiles, so segments are built from who's actually buying, not guesses.</li>
+    <li><strong>Purchase history</strong> moves people through lifecycle stages automatically: prospect → first-time buyer → subscriber → cross-sector customer.</li>
+    <li><strong>The messaging lane</strong> (SMS-clean vs. push-only) is a property on every product — compliance is structural, not remembered.</li>
+  </ul>
+  <p><strong>AI's job:</strong> maintain all of it. <strong>The human's job:</strong> nothing after setup.</p>
+
+  <h2>Subsystem 2 — Content: The Efficiency Multiplier</h2>
+  <div class="callout">
+    <p><strong>The core move: one hero piece per sector per week, cascaded into ~12 assets.</strong> AI drafts one strong piece — a customer story, a "why you crash at 2pm" explainer, a ritual demo — then derives everything from it: the sector email, 3–4 social posts, the push notification, a YouTube script, the blog post, a review-request variant, a landing-page headline test. One approved idea = twelve approved assets.</p>
+  </div>
+  <ul>
+    <li><strong>Brand voice files</strong> (a half-page per brand) keep the house of brands from collapsing into one AI-flavored voice.</li>
+    <li><strong>The claims guardrail</strong> screens every draft against allowed structure/function language <em>before</em> a human ever sees it — for this catalog, the difference between an automation asset and a liability generator.</li>
+    <li><strong>Reviews are fuel:</strong> photo reviews get woven into the next week's content — customers write the best copy.</li>
+  </ul>
+
+  <h2>Subsystem 3 — Distribution: Owned First, Paid Last</h2>
+  <p>Every channel play, with AI's role attached, lives in the <a class="inline" href="tech-stack.html">Marketing Channel Map on the Tech Stack page</a> — email and push as the engine room, SMS on the clean lane, Facebook/Instagram organic plus community participation, YouTube and SEO as the compounding assets, affiliates and influencer seeding, podcast guesting for the formulator, and paid ads as the last rung.</p>
+  <div class="callout">
+    <p><strong>The strategic spine:</strong> for this product category, owned and earned channels aren't the warm-up — they're the engine. Ad platforms will always restrict half the catalog, so paid traffic is a multiplier added to something already converting, never the foundation. The store's <a class="inline" href="tech-stack.html">AI Search Visibility (AEO) checklist</a> extends the same logic to the newest discovery surface: being the source AI engines quote.</p>
+  </div>
+
+  <h2>Subsystem 4 — Learning: What Makes It Effective, Not Just Efficient</h2>
+  <ul>
+    <li><strong>Sunday night:</strong> the dashboard pulls everything; the scoreboard is computed.</li>
+    <li><strong>Monday 6am:</strong> the summary lands — revenue, repeat rate, best cross-sell path per sector, one decision flagged when one is needed.</li>
+    <li><strong>The closed loop:</strong> last week's numbers shape this week's content batch automatically — "morning-themed sleep subject lines doubled click-through" becomes next Monday's brief without a meeting.</li>
+    <li><strong>Monthly:</strong> the winning cross-sell path gets promoted from email into on-site placement and bundles.</li>
+    <li><strong>Quarterly:</strong> AI drafts challenger variants for the two weakest flow emails; A/B; keep winners.</li>
+  </ul>
+
+  <h2>The Weekly Operating Rhythm</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>When</th><th>What Happens</th><th>Who</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sunday 11pm</strong></td><td>Data pull, scoreboard computed, content batch generated + claims-checked</td><td>AI</td></tr>
+      <tr><td><strong>Monday 6am</strong></td><td>Summary in leadership's inbox; content batch in the approval doc</td><td>AI</td></tr>
+      <tr><td><strong>Tuesday · 30 min</strong></td><td>Approve / edit / kill; approved items auto-schedule</td><td><strong>Human</strong></td></tr>
+      <tr><td><strong>All week</strong></td><td>Emails, posts, pushes ship; flows run; affiliates tracked; influencers flagged</td><td>AI</td></tr>
+      <tr><td><strong>Monday · 60 sec</strong></td><td>Ad-spend cell updated</td><td><strong>Human</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout">
+    <p><strong>Total human time: ~1 hour per week</strong> to run marketing for the full brand portfolio. The human never writes — they edit. And the 30 minutes of editing is the one step that should never be automated away for a supplements catalog.</p>
+  </div>
+
+  <h2>The Pre-Launch Play</h2>
+  <p><strong>The engine starts 4 weeks before the store opens.</strong> The quiz, the sector lead magnets, the content cascade, and the affiliate kit all work without a checkout — so opening day arrives with a segmented list, warmed-up social accounts, and content muscle memory instead of a cold start. The engine doesn't need a store; it needs an audience. That's also the cheapest customer acquisition the store will ever get.</p>
+
+  <a class="back-btn" href="index.html">← Back to the Working Brief</a>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+</footer>
+
+</body>
+</html>
