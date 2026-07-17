@@ -36,6 +36,14 @@
     .callout { background:#fff; border:1px solid var(--border); border-left:4px solid var(--red); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
     .callout p { margin-bottom:.5rem; } .callout p:last-child { margin-bottom:0; }
     .table-scroll { overflow-x:auto; }
+    .badge-new { background:var(--red); color:#fff; font-size:.68rem; font-weight:700; padding:.12rem .5rem; border-radius:8px; letter-spacing:.06em; white-space:nowrap; }
+    .badge-up { background:var(--navy); color:#fff; font-size:.68rem; font-weight:700; padding:.12rem .5rem; border-radius:8px; letter-spacing:.06em; white-space:nowrap; }
+    tr.sect td { background:var(--navy) !important; color:#fff; font-family:'Oswald',sans-serif; font-size:.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+    .gate-kicker { font-family:'Oswald',sans-serif; font-size:.85rem; font-weight:700; color:var(--red); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.2rem; }
+    .exec-brief { background:var(--navy); border-radius:12px; padding:1.75rem 2rem; margin-bottom:2rem; }
+    .exec-brief h2 { color:#fff; border-bottom-color:var(--red); margin-top:0; }
+    .exec-brief p { color:rgba(255,255,255,.82); }
+    .exec-brief strong { color:#fff; }
     .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.95rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
     .back-btn:hover { opacity:.88; }
     footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
@@ -61,6 +69,141 @@
 <main>
 
   <div style="margin:0 0 2rem;"><a class="back-btn" href="index.html" style="margin:0;">← Back to the Working Brief</a></div>
+
+  <div class="exec-brief">
+    <h2>Executive Brief — Claude as the Gate 0 Operating Interface</h2>
+    <p>Claude connects to every Gate 0 tool through its API — Shopify (orders, products, customers, subscriptions), Klaviyo (email flows, segments, campaigns), Judge.me (reviews), GoAffPro (affiliates), and GA4 (traffic) — using one set of credentials collected at setup. OuterSignal's enrichment is read through Klaviyo profiles.</p>
+    <p>From that position, Claude runs the store's three functions. <strong>Market:</strong> every Monday it drafts the week's sector emails and social posts, checks them against the claims guardrail, and schedules approved items directly through the Klaviyo API. <strong>Promote:</strong> it builds and tunes the automated flows — welcome, abandoned cart, post-purchase, cross-sell. <strong>Evaluate:</strong> each Sunday night it pulls Shopify, Klaviyo, and GA4 data, computes the per-sector scoreboard, and emails leadership a plain-English Monday summary with one flagged decision.</p>
+    <p>Day to day, the operator simply asks: "Yesterday's orders?" "Which sector converts best?" One human approval session weekly; Claude operates everything else.</p>
+  </div>
+
+  <h2>The Revenue-Gated Stack</h2>
+  <p>Tools enter at <strong>revenue gates, not at launch</strong>. Guardrail: the stack should never exceed ~1.5–3% of monthly revenue. Each gate below shows the <em>entire</em> stack at that stage — <span class="badge-new">NEW</span> marks tools entering, <span class="badge-up">UPGRADED</span> marks tools stepping up a tier.</p>
+
+  <div class="gate-kicker">Gate 0 — Kickoff · $0 revenue</div>
+  <h2 style="margin-top:.25rem;">Total: ~$95–105/mo</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th><th>$/mo</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge-new">NEW</span> <strong>Shopify Basic + Dawn theme</strong></td><td>Store, checkout, native subscriptions, inventory</td><td>$29–39</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Klaviyo</strong></td><td>All email flows from day one; cross-sector ladders pre-built; full API for the AI content loop</td><td>~$60</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Judge.me Free</strong></td><td>Reviews, photo reviews, request emails</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Shopify Inbox + shared inbox</strong></td><td>Support; adverse-reaction protocol as a documented playbook</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>GoAffPro Free</strong></td><td>Affiliate codes + tracking for the associate network</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>OuterSignal Free</strong></td><td>Enrichment + VIP flagging (to 100 customers/mo), piped into Klaviyo</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Consentmo</strong></td><td>Consent banner + Google Consent Mode; SMS consent checkbox ON at checkout from day one — build the list before sending</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Claude + Shopify Sidekick/Magic</strong></td><td>Content engine (existing subscription) + Shopify's free native AI for product copy and admin queries</td><td>$0</td></tr>
+      <tr class="sect"><td colspan="3">Analytics &amp; Measurement — four layers, three free from day one</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Shopify Analytics</strong> (built-in)</td><td><strong>The commerce truth:</strong> orders, revenue, AOV, conversion rate, top products. The source of record for money</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>GA4</strong> (installed day one via Shopify's official Google &amp; YouTube app)</td><td><strong>The traffic and behavior truth:</strong> where visitors come from, which channels and campaigns convert, how people move through sector pages, where they drop out of the funnel. This is what makes the acquisition ladder measurable — without it you can't tell an affiliate click from an organic one</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Custom KPI dashboard + Monday summary</strong></td><td><strong>The decision layer:</strong> pulls from both, computes the per-sector scoreboard (cross-sector rate, subscription take rate, CAC), and writes the summary leadership actually reads</td><td>~$5</td></tr>
+      <tr><td><strong>Triple Whale</strong></td><td><strong>Paid-ads attribution</strong> — planned, enters Gate 3 when ad spend is big enough that GA4's post-iOS14 blind spots start costing real money</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout"><p><strong>One-time build line (not in the monthly number):</strong> the scheduled runtime that lets the AI act on its own — the Sunday-night data pull, Monday summary sender, and credentials glue. Days of build, not weeks; named here so the $95/month figure survives scrutiny.</p></div>
+
+  <div class="gate-kicker">Gate 1 — $5K/mo revenue (~3.5% of revenue)</div>
+  <h2 style="margin-top:.25rem;">Total: ~$170–185/mo</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th><th>$/mo</th></tr></thead>
+    <tbody>
+      <tr><td>Shopify Basic + Dawn</td><td>Store core</td><td>$29–39</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Klaviyo (tier growth)</strong></td><td>List ~2,500–3,000; cross-sector ladders now firing on real 30-day-old customers</td><td>~$70</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Judge.me → Awesome</strong></td><td>Automated review flows, Google rich snippets — reviews compounding</td><td>$15</td></tr>
+      <tr><td>Shopify Inbox + shared inbox</td><td>Support (volume still low)</td><td>$0</td></tr>
+      <tr><td>GoAffPro Free</td><td>Affiliates</td><td>$0</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>OuterSignal → Starter</strong></td><td>Past 100 customers/mo — personas + full demographics into Klaviyo segments</td><td>$49</td></tr>
+      <tr><td>Consentmo</td><td>Consent + SMS list building</td><td>$0</td></tr>
+      <tr><td>Claude + Sidekick</td><td>Content engine</td><td>$0</td></tr>
+      <tr class="sect"><td colspan="3">Analytics &amp; Measurement</td></tr>
+      <tr><td>Shopify Analytics</td><td>The commerce truth — source of record for money</td><td>$0</td></tr>
+      <tr><td>GA4</td><td>The traffic and behavior truth — channel/campaign conversion, sector-page paths, funnel drop-off</td><td>$0</td></tr>
+      <tr><td>Custom KPI dashboard + Monday summary</td><td>The decision layer — scoreboard + leadership summary</td><td>~$5</td></tr>
+      <tr><td>Triple Whale</td><td>Planned — enters Gate 3</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="gate-kicker">Gate 2 — $15K/mo revenue (~2% of revenue)</div>
+  <h2 style="margin-top:.25rem;">Total: ~$285–350/mo</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th><th>$/mo</th></tr></thead>
+    <tbody>
+      <tr><td>Shopify Basic + Dawn</td><td>Store core</td><td>$29–39</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Klaviyo</strong> + <span class="badge-new">NEW</span> <strong>Klaviyo SMS</strong></td><td>List ~4–5K; SMS live for CLEAN SKUs only (carrier rules bar cannabinoid promotion) — replenishment + winback on subscribers</td><td>~$90–120</td></tr>
+      <tr><td>Judge.me Awesome</td><td>Reviews</td><td>$15</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Gorgias Starter</strong></td><td>Ticket volume outgrows the inbox; macros carry the adverse-reaction protocol; AI triage</td><td>$10–30</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Appstle</strong></td><td>Skip/swap/pause/gift — subscriber base justifies churn-fighting tools</td><td>$10</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Quiz app paid tier</strong></td><td>Home-page quiz past free limits; answers drive Klaviyo segments</td><td>~$39</td></tr>
+      <tr><td>GoAffPro Free</td><td>Affiliates</td><td>$0</td></tr>
+      <tr><td>OuterSignal Starter</td><td>Enrichment</td><td>$49</td></tr>
+      <tr><td>Consentmo · Claude + Sidekick</td><td>Consent · content engine</td><td>$0</td></tr>
+      <tr class="sect"><td colspan="3">Analytics &amp; Measurement</td></tr>
+      <tr><td>Shopify Analytics</td><td>The commerce truth — source of record for money</td><td>$0</td></tr>
+      <tr><td>GA4</td><td>The traffic and behavior truth — attribution for a now-multi-channel acquisition ladder</td><td>$0</td></tr>
+      <tr><td>Custom KPI dashboard + Monday summary</td><td>The decision layer — scoreboard + leadership summary</td><td>~$5</td></tr>
+      <tr><td>Triple Whale</td><td>Planned — enters Gate 3</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="gate-kicker">Gate 3 — $40K/mo revenue (~1.3% of revenue)</div>
+  <h2 style="margin-top:.25rem;">Total: ~$490–530/mo</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th><th>$/mo</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Shopify Basic → Grow</strong></td><td>2.7% vs 2.9% processing saves ~$80/mo at this volume — the upgrade pays for itself past ~$25K/mo</td><td>$79</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Klaviyo + SMS (tier growth)</strong></td><td>List ~6–8K</td><td>~$130–160</td></tr>
+      <tr><td>Judge.me Awesome</td><td>Reviews</td><td>$15</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Gorgias (tier up)</strong></td><td>Support volume scales</td><td>~$60</td></tr>
+      <tr><td>Appstle · Quiz app</td><td>Subscriptions, segmentation</td><td>~$49</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>GoAffPro → paid</strong></td><td>Affiliate count + payout complexity</td><td>~$29</td></tr>
+      <tr><td>OuterSignal Starter</td><td>Enrichment</td><td>$49</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>HubSpot Free CRM</strong></td><td>The wholesale gate opens: named accounts, quotes, reorder pipelines for smoke shops, c-stores, truck stops</td><td>$0</td></tr>
+      <tr><td>Consentmo · Claude + Sidekick</td><td>Consent · content engine</td><td>$0</td></tr>
+      <tr class="sect"><td colspan="3">Analytics &amp; Measurement</td></tr>
+      <tr><td>Shopify Analytics</td><td>The commerce truth — source of record for money</td><td>$0</td></tr>
+      <tr><td>GA4</td><td>The traffic and behavior truth — still the free backbone</td><td>$0</td></tr>
+      <tr><td>Custom KPI dashboard + Monday summary</td><td>The decision layer — now includes wholesale pipeline status from HubSpot</td><td>~$5</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Triple Whale</strong></td><td><strong>Enters now:</strong> paid-ads attribution — ad spend is big enough that GA4's post-iOS14 blind spots start costing real money</td><td>$129</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="gate-kicker">Gate 4 — $100K/mo revenue (~0.9% of revenue)</div>
+  <h2 style="margin-top:.25rem;">Total: ~$750–950/mo</h2>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th><th>$/mo</th></tr></thead>
+    <tbody>
+      <tr><td>Shopify Grow</td><td>Store core (Advanced breaks even ~$120K/mo — hold)</td><td>$79</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>Klaviyo + SMS (scale)</strong></td><td>10K+ profiles; SMS a full channel on clean SKUs</td><td>~$250–350</td></tr>
+      <tr><td>Judge.me Awesome</td><td>Reviews</td><td>$15</td></tr>
+      <tr><td>Gorgias</td><td>Support</td><td>~$60</td></tr>
+      <tr><td>Appstle · Quiz · GoAffPro</td><td>Subscriptions, segmentation, affiliates</td><td>~$80</td></tr>
+      <tr><td><span class="badge-up">UPGRADED</span> <strong>OuterSignal (volume)</strong></td><td>Enrichment at scale</td><td>~$79+</td></tr>
+      <tr><td>HubSpot Free CRM</td><td>Wholesale pipeline</td><td>$0</td></tr>
+      <tr><td><span class="badge-new">NEW</span> <strong>Wholesale app</strong> (Wholesale Club or similar)</td><td>The protected B2B portal — tiered pricing, case quantities, net terms</td><td>~$40</td></tr>
+      <tr><td>Consentmo · Claude + Sidekick</td><td>Consent · content engine</td><td>$0</td></tr>
+      <tr class="sect"><td colspan="3">Analytics &amp; Measurement</td></tr>
+      <tr><td>Shopify Analytics</td><td>The commerce truth — source of record for money</td><td>$0</td></tr>
+      <tr><td>GA4</td><td>The traffic and behavior truth</td><td>$0</td></tr>
+      <tr><td>Custom KPI dashboard + Monday summary</td><td>The decision layer — D2C + wholesale + marketplace in one scoreboard</td><td>~$5</td></tr>
+      <tr><td>Triple Whale</td><td>Paid-ads attribution at full spend</td><td>$129</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout">
+    <p><strong>The arc:</strong> $100 → $180 → $320 → $510 → $850/month while revenue runs $0 → $5K → $15K → $40K → $100K — the stack <em>falls</em> from launch cost to 0.9% of revenue. The dashboard's headline number is revenue, so the Monday summary itself announces when the next gate unlocks.</p>
+  </div>
+
+  <h2>The Scoring Behind These Picks</h2>
+  <p>The platform decisions above weren't taste — they were scored. The analysis follows.</p>
 
   <h2>Ecommerce Platform — Scored</h2>
   <p>Weighted toward what's non-negotiable here: native subscriptions, 12-brand templating, supplement-friendly payments, API depth for the AI layer, and an 8-week launch window.</p>
