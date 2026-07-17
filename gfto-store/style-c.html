@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style C — Crisp Corporate (white + navy + cream accent)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:    #C22D2D;
+      --navy:   #16294D;
+      --cream:  #FBFBF9;
+      --white:  #fff;
+      --border: #DCE0E6;
+      --muted:  #5D6B84;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
+
+    nav {
+      background: var(--white); border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-sub {
+      font-size: .72rem; font-weight: 500; color: var(--muted); letter-spacing: .08em;
+      text-transform: uppercase; margin-left: .6rem; border-left: 1px solid #ccc; padding-left: .6rem;
+    }
+    nav .nav-home { margin-left: auto; font-size: .8rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    nav .nav-home:hover { color: var(--red); }
+
+    .hero { background: var(--navy); padding: 4rem 2rem 3.25rem; text-align: center; }
+    .hero-label {
+      display: inline-block; background: var(--red); color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 20px; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; color: #fff;
+      line-height: 1.15; margin-bottom: .9rem; max-width: 760px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero > p { color: rgba(255,255,255,.7); font-size: 1.1rem; max-width: 660px; margin: 0 auto; line-height: 1.65; }
+
+    main { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    .thesis { background: var(--navy); border-radius: 12px; padding: 2rem 2.25rem; margin-bottom: 3rem; }
+    .thesis h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff;
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .thesis p { color: rgba(255,255,255,.78); font-size:1.05rem; line-height: 1.7; margin-bottom: .85rem; }
+    .thesis p:last-child { margin-bottom: 0; }
+    .thesis strong { color: #fff; }
+    .promise {
+      background: rgba(194,45,45,.18); border: 1px solid rgba(194,45,45,.45); border-radius: 8px;
+      padding: 1rem 1.25rem; margin-top: 1.1rem;
+    }
+    .promise p { color: rgba(255,255,255,.9); font-style: italic; margin: 0; }
+
+    .cat {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      border-top: 4px solid var(--red); padding: 2rem 2.25rem; margin-bottom: 2rem;
+    }
+    .cat-num {
+      font-family: 'Oswald', sans-serif; font-size:.85rem; font-weight: 700; color: var(--red);
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: .35rem;
+    }
+    .cat h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.45rem; font-weight: 700; color: var(--navy);
+      letter-spacing: .02em; margin-bottom: 1rem;
+    }
+    .cat p.lead { font-size:1.05rem; color: #3D4757; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cat ul { margin: 0 0 1.25rem 1.2rem; }
+    .cat li { font-size:1rem; color: #3D4757; line-height: 1.7; margin-bottom: .5rem; }
+    .cat li strong { color: var(--navy); }
+
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; font-size:.98rem; }
+    th {
+      background: var(--navy); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase; font-size: .72rem; text-align: left; padding: .6rem .8rem;
+    }
+    td { padding: .7rem .8rem; border-bottom: 1px solid #E6E9EE; color: #3D4757; line-height: 1.55; vertical-align: top; }
+    td strong { color: var(--navy); }
+    tr:nth-child(even) td { background: #FBF7E8; }
+    .rank {
+      display: inline-block; width: 24px; height: 24px; background: var(--red); color: #fff;
+      border-radius: 50%; text-align: center; line-height: 24px; font-weight: 700; font-size:.85rem;
+    }
+
+    .dive-btn {
+      display: inline-block; background: var(--red); color: #fff; font-family: 'Inter', sans-serif;
+      font-size:.95rem; font-weight: 600; padding: .75rem 1.7rem; border-radius: 6px;
+      text-decoration: none; letter-spacing: .02em; transition: opacity .15s, transform .15s;
+    }
+    .dive-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+    footer {
+      background: var(--navy); border-top: 3px solid var(--red);
+      padding: 1.75rem 2rem; text-align: center;
+    }
+    footer p { font-size: .8rem; color: rgba(255,255,255,.5); }
+    footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .cat { padding: 1.5rem 1.25rem; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Strategy Brief</span>
+  <a class="nav-home" href="/">← Horsepower Hub</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Working Brief · v2</div>
+  <h1>GFTO Multi-Product <span>D2C Store</span></h1>
+  <p>One store, launched narrow and built to scale: six proven SKUs first, a house of brands behind one trust story — every product formulated by Mark Rhodes — governed by decision gates, powered by an AI engine that markets, promotes, and evaluates itself.</p>
+</div>
+
+<main>
+
+  <!-- THESIS -->
+  <div class="thesis">
+    <h2>The Thesis (v2)</h2>
+    <p>GF Tech One holds a portfolio of formulated, ready-to-sell wellness products — methylene blue, tryptophan, kava, premium pet treats, and low-cost effect-driven form factors like infused sugar, tear packs, and gum — sharing one common denominator: <strong>every product was formulated by Mark Rhodes</strong>, most on a delivery technology with lab-verified dosing precision.</p>
+    <p>The v2 model is <strong>margin-first and deliberately narrow</strong>: launch approximately <strong>six sellable SKUs</strong> that are already packaged or nearly complete, on one Shopify storefront organized by the effect the customer wants. Validate demand, repeat purchase, compliance, and unit economics — <em>then</em> expand: remaining SKUs in Phase 2, a protected <strong>wholesale portal</strong> (smoke shops, convenience, truck stops, specialty retail) at its own revenue gate, and a <strong>marketplace phase</strong> adding third-party brands under revenue-share once the platform proves it can sell.</p>
+    <p><strong>Why one store beats many:</strong> acquiring a customer costs $20–50 in paid channels; emailing an existing customer costs ~$0. A shared customer list, shared purchase history, and cross-sector email ladders make the second purchase nearly pure margin. Separate stores physically can't do this. That's the moat — and the named enemy of this plan is <strong>overexpansion</strong>.</p>
+    <p><strong>The operating model is the edge:</strong> the entire program — content, campaigns, cross-sell, and the weekly scoreboard — runs on an AI engine with one 30-minute human approval session per week. The tool stack starts at roughly $100/month and unlocks new spending only at revenue milestones, falling to under 1% of revenue at scale. Every Monday at 6am, the store reports its own numbers — revenue, repeat rate, best cross-sell path per sector — with one decision flagged when one is needed. And the engine starts four weeks <em>before</em> the store opens, so day one arrives with a segmented audience instead of a cold start.</p>
+    <div class="promise">
+      <p>The customer promise: "For people who want to feel a specific way — sharper, calmer, better-rested — and are done gambling on internet supplements: every product here does one job, at a verified dose, from one formulator you can look in the eye."</p>
+    </div>
+  </div>
+
+  <!-- CATEGORY 1 -->
+  <div class="cat" id="naming">
+    <div class="cat-num">Category 01</div>
+    <h2>Storefront Naming</h2>
+    <p class="lead">The store needs its own masthead brand — one that holds every product brand underneath it without competing with them. The naming work ran three rounds across eight lanes; the formulator's name stays off the masthead (trademark exposure + key-man risk) and instead becomes a <strong>"Formulated by Mark Rhodes" seal</strong> carried on every product page. The five finalists:</p>
+    <table>
+      <thead><tr><th></th><th>Name</th><th>Why It Made the Cut</th></tr></thead>
+      <tbody>
+        <tr><td><span class="rank">1</span></td><td><strong>Open Road Supply Co.</strong></td><td>Freedom and journey language, native to the motorcycle and lifestyle audiences that make up the first warm lists. The "Supply Co." frame is built to hold multiple brands — a supply company naturally carries many labels.</td></tr>
+        <tr><td><span class="rank">2</span></td><td><strong>Even Keel</strong></td><td>The only finalist that translates the science claim into a feeling. The technology's proof point is dosing consistency — Even Keel says what consistency <em>feels like</em>: steady energy, steady sleep, steady calm. Strongest pure brand idea on the board.</td></tr>
+        <tr><td><span class="rank">3</span></td><td><strong>Bench &amp; Bottle</strong></td><td>Lab bench to your bottle — craft warmth with visible lab DNA. Elastic across human and pet products, and pre-built for the wholesale and marketplace phases ("our bench, your brand").</td></tr>
+        <tr><td><span class="rank">4</span></td><td><strong>Placer Supply Co.</strong></td><td>The most ownable story: the products are formulated in Auburn, CA — seat of Placer County, where <em>placer</em> literally means gold-bearing ground. "We mine the good stuff" without saying it. The trade-off: it requires teaching pronunciation (PLASS-er).</td></tr>
+        <tr><td><span class="rank">5</span></td><td><strong>Foothill Supply Co.</strong></td><td>The safe, solid regional pick — Sierra foothills geography that's real, warm, and rugged. Lowest risk, lowest ceiling of the five.</td></tr>
+      </tbody>
+    </table>
+    <a class="dive-btn" href="naming.html">Storefront Naming Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 2 -->
+  <div class="cat" id="architecture">
+    <div class="cat-num">Category 02</div>
+    <h2>Site Architecture</h2>
+    <p class="lead">Four layers, four different jobs: <strong>Home sells trust, sectors sell the problem, product pages sell the product, and the Science/Formulator pages close the skeptic.</strong> V2 adds the paths beyond the sector doors and the wholesale wing.</p>
+    <ul>
+      <li><strong>Home</strong> — the Mark Rhodes story compressed into one breath, then problem-labeled sector doors. Home routes by the effect the customer wants, never by brand.</li>
+      <li><strong>Sector pages</strong> — Mind &amp; Energy · Rest &amp; Calm · Pet Wellness · one flex sector (named when the final SKU list lands). Problem-first education, product cards, and a cross-sector ribbon that starts the cross-promotion loop.</li>
+      <li><strong>Beyond the doors (new in v2):</strong> site search, shop-by-outcome, shop-by-format (drink, gum, tear pack, treat), and comparison guides — because not every customer thinks in sectors.</li>
+      <li><strong>Product/brand pages</strong> — a fixed frame with a swappable skin: constant layout, COA links, subscribe-and-save, and the Rhodes seal; variable brand look per product.</li>
+      <li><strong>About Mark / The Science</strong> — two pages for two skeptics: "who made this?" and "does it actually work?" — kept one click deep, effect-first.</li>
+      <li><strong>Wholesale wing (gated, new in v2)</strong> — a protected B2B portal with tiered pricing for smoke shops, convenience stores, truck stops, and specialty retail. Built when the wholesale gate opens, not at launch.</li>
+    </ul>
+    <a class="dive-btn" href="architecture.html">Site Architecture Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 3 -->
+  <div class="cat" id="offer-model">
+    <div class="cat-num">Category 03</div>
+    <h2>Offer Model — Hub &amp; Spoke, Phased</h2>
+    <p class="lead">The hub retains; the spokes acquire; the email engine multiplies — and v2 sequences it in phases with a channel-by-channel acquisition ladder.</p>
+    <ul>
+      <li><strong>Phase 1 (launch):</strong> ~6 SKUs across 2–3 sectors. Straight retail + subscribe-and-save on every consumable (~22% subscription discount ≈ 4x lifetime value). Sampling offers on each active sector's spoke page.</li>
+      <li><strong>Phase 2:</strong> remaining owned SKUs + the fourth sector — unlocked by Phase 1 hitting its validation thresholds, not by the calendar.</li>
+      <li><strong>Phase 3:</strong> wholesale portal, then third-party brands under revenue-share — the store becomes a distribution asset.</li>
+      <li><strong>Acquisition ladder (in order):</strong> warm lists → affiliates (the existing associate-commission network) → organic social + influencer seeding → paid traffic last, each channel with its own budget and success threshold.</li>
+      <li><strong>Cross-promotion engine:</strong> post-purchase email ladders route buyers across sectors. The KPI that proves the architecture: <strong>cross-sector purchase rate at 60 days.</strong></li>
+    </ul>
+    <a class="dive-btn" href="offer-model.html">Offer Model Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 4 -->
+  <div class="cat" id="ai-layer">
+    <div class="cat-num">Category 04</div>
+    <h2>AI Automation Layer</h2>
+    <p class="lead">The hard requirement: the program must <strong>market, promote, and evaluate itself in an automated fashion.</strong> Three functions, unequal builds — Market is a weekly loop, Promote is build-once, Evaluate is built like software.</p>
+    <ul>
+      <li><strong>Market:</strong> an AI content engine batches every week's sector emails and social drafts by Monday 9am — claims-checked before a human ever sees them, approved in one ~30-minute session, then scheduled automatically.</li>
+      <li><strong>Promote:</strong> Klaviyo flows — welcome, abandoned cart, post-purchase subscription conversion, cross-sector ladders, predictive winback — built once, running forever.</li>
+      <li><strong>Evaluate:</strong> a Sunday-night cron pulls Shopify, Klaviyo, and enrichment data into a live KPI dashboard, and an AI-written Monday summary lands in leadership's inbox at 6am — revenue, CAC, repeat rate, best cross-sell path per sector, one decision flagged when one is needed.</li>
+      <li><strong>The v2 standing rule:</strong> <em>no tool enters the stack unless the AI can drive it through an API.</em> Every layer of the store is wired so the engine can read it and act on it.</li>
+    </ul>
+    <a class="dive-btn" href="ai-layer.html">AI Automation Layer Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 5 -->
+  <div class="cat" id="tech-stack">
+    <div class="cat-num">Category 05</div>
+    <h2>Tech Stack — The Full Stack</h2>
+    <p class="lead">V2 defines every layer, not just the store and the email platform — each tool scored against this build's real requirements and the AI-operable rule.</p>
+    <ul>
+      <li><strong>Core:</strong> Shopify Basic (8.6/10) + Klaviyo (9.0/10) + OuterSignal customer intelligence (Free → $49 Starter).</li>
+      <li><strong>Defined in v2:</strong> subscriptions (Shopify native), reviews (Judge.me), support (Gorgias), attribution (GA4 + UTM discipline → Triple Whale only past $5K/mo ad spend), reporting (custom dashboard + Monday summary), inventory (Shopify native + reorder points), affiliate tracking (GoAffPro — open API decided the tiebreak), consent management (Shopify Customer Privacy + Consentmo), customer data (Shopify = record, Klaviyo = working CDP, OuterSignal = enrichment).</li>
+      <li><strong>CRM:</strong> deliberately none at D2C launch — Shopify + Klaviyo + OuterSignal cover the consumer relationship. <strong>HubSpot Free enters at the wholesale gate</strong> for B2B pipeline (named accounts, quotes, reorder cadences).</li>
+      <li><strong>Revenue-gated pricing: ~$100/month at kickoff → under 1% of revenue at scale</strong> ($95–105 at Gate 0, unlocking to ~$770–990 only at $100K/mo revenue). Tools enter at revenue milestones, never on enthusiasm.</li>
+      <li><strong>Also on the page:</strong> the full Marketing Channel Map (11 channels + 3 deliberate skips) and the AI Search Visibility (AEO) program with its build punch list.</li>
+    </ul>
+    <a class="dive-btn" href="tech-stack.html">Tech Stack Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 6 -->
+  <div class="cat" id="timeline">
+    <div class="cat-num">Category 06</div>
+    <h2>Gates, Timeline &amp; Launch Readiness</h2>
+    <p class="lead">Eight weeks is the <em>floor</em>, and it's only real if packaging, claims, photography, inventory, processor approval, fulfillment, and product data are substantially complete before the clock starts. <strong>V2 replaces date-authority with five decision gates</strong> — the calendar estimates; the gates decide.</p>
+    <ul>
+      <li><strong>G0 — Start gate:</strong> launch SKUs named, pricing + COGS, packaging status, product data sheets, photography, formulator bio in hand. Until G0 passes, the build clock hasn't started.</li>
+      <li><strong>G1 — Build gate:</strong> name locked; the <em>full</em> payments checklist answered in writing (per-SKU eligibility, reserves, chargeback rules, subscription billing, state restrictions, shipping lanes, backup processor); fulfillment owner signed.</li>
+      <li><strong>G2 — Content gate:</strong> claims sign-off on every page and flow email; the support system live — owner, SLA, refund policy, and an adverse-reaction protocol. Wellness products require a defined response system before anything publishes.</li>
+      <li><strong>G3 — Soft launch:</strong> warm lists only. Advance threshold: ≥1.5% list-to-purchase and &lt;2% refund rate over 14 days.</li>
+      <li><strong>G4 — Paid traffic:</strong> one sector, 3–5 creatives, defined daily budget, 14 days. Scale when CAC beats the ceiling two weeks running; pause when CAC exceeds 1.5× ceiling for 7 days.</li>
+      <li><strong>The readiness hit list:</strong> 32 owner-level checkboxes across product, money, payments, operations, legal, brand, and launch authority — the deep dive carries the full list.</li>
+    </ul>
+    <a class="dive-btn" href="timeline.html">Gates &amp; Readiness Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 7 -->
+  <div class="cat" id="marketing-engine">
+    <div class="cat-num">Category 07</div>
+    <h2>The Marketing Engine</h2>
+    <p class="lead">Marketing isn't a list of tactics — it's one weekly loop: <strong>AI does the volume, data picks the winners, a human guards the claims.</strong> About one hour of human time a week runs the whole portfolio.</p>
+    <ul>
+      <li><strong>Four subsystems:</strong> Audience (quiz + enrichment segments everyone automatically) → Content (one hero piece per sector cascades into ~12 assets) → Distribution (owned and earned channels first, paid last) → Learning (last week's numbers write next week's brief).</li>
+      <li><strong>The weekly rhythm:</strong> Sunday-night generation → Monday 6am scoreboard → one 30-minute Tuesday approval → everything ships automatically all week.</li>
+      <li><strong>Channel map + AI search visibility (AEO)</strong> live on the Tech Stack page — email/push engine room, clean-lane SMS, YouTube and SEO as compounding assets, formulator podcast circuit, paid Meta last.</li>
+      <li><strong>The pre-launch play:</strong> the engine starts 4 weeks before the store opens — day one arrives with a segmented list, not a cold start.</li>
+    </ul>
+    <a class="dive-btn" href="marketing-engine.html">Marketing Engine Deep Dive →</a>
+  </div>
+
+  <!-- CATEGORY 8 -->
+  <div class="cat" id="punch-lists">
+    <div class="cat-num">Category 08</div>
+    <h2>Punch Lists</h2>
+    <p class="lead">The working checklists that govern the build — downloadable, printable, checkable. Snapshots live here; the evolving versions stay inside the brief's pages.</p>
+    <ul>
+      <li><strong>Launch Punch List (53 items)</strong> — everything needed to start the business: 29 items from this brief not yet done plus 24 items the plan was missing entirely, with owners, gates, and four flagged <em>Existential</em> (the per-SKU hemp-ban ruling, methylene blue's dietary-supplement status, the launch six, the payments checklist).</li>
+      <li><strong>AEO Punch List (22 items)</strong> — the AI-search visibility build in five phases, from crawler access to monthly citation checks. Two human decisions; the rest is AI-layer work.</li>
+      <li><strong>Drop-folder workflow:</strong> any punch-list PDF placed in the library folder appears on the library page at the next publish.</li>
+    </ul>
+    <a class="dive-btn" href="punch-lists/">Open the Punch List Library →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+</body>
+</html>
