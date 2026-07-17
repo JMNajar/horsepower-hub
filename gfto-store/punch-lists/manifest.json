@@ -7,6 +7,20 @@
     "size": "97 KB"
   },
   {
+    "file": "GFTO_Compliance_Launch_Matrix_Punch_List.pdf",
+    "title": "Compliance Launch Matrix Punch List — 19 Items",
+    "desc": "A per-SKU compliance database: ten required answers (classification, approved & prohibited claims, evidence, processor eligibility, shipping restrictions, subscription approval, advertising restrictions, COA status, label status) plus design, upkeep, and build scope. Governing rule: no SKU enters Shopify until its matrix row is 10-for-10 complete. Build deferred — this list defines it.",
+    "date": "Compiled July 17, 2026",
+    "size": "74 KB"
+  },
+  {
+    "file": "GFTO_SKU_Economics_Punch_List.pdf",
+    "title": "SKU Contribution-Margin Model Punch List — 18 Items",
+    "desc": "The per-SKU economics database: nine cost inputs (product, packaging, fulfillment, postage subsidy, processing, discounts, affiliate commissions, returns) → contribution margin at one-time and subscription pricing → LTV and CAC ceiling → margin floor decisions. Build deferred — this list defines it.",
+    "date": "Compiled July 17, 2026",
+    "size": "95 KB"
+  },
+  {
     "file": "GFTO_AEO_Punch_List.pdf",
     "title": "AEO Punch List — 22 Items",
     "desc": "Making the store the source AI search engines quote (ChatGPT, Perplexity, Google AI Overviews, Claude). Five phases from crawler access to monthly citation checks. Two human decisions; everything else is AI-layer work. Critical path: the name decision.",
