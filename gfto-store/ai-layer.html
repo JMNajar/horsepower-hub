@@ -104,7 +104,8 @@
   <pre class="diagram">Sunday 11pm cron (Vercel)
   ├─ Shopify Admin API → orders, customers, subscriptions, product pairs
   ├─ Klaviyo API      → flow &amp; campaign revenue, list growth by segment
-  ├─ OuterSignal      → enriched customer demographics &amp; personas
+  ├─ OuterSignal      → VIP flagging at Gate 0; full demographics
+  │                     &amp; personas from the Gate 1 Starter upgrade
   ├─ Ad spend         → v1: a shared spreadsheet, updated weekly (60 seconds)
   ↓
   compute per sector + store total
@@ -136,6 +137,16 @@
   <div class="callout">
     <p><strong>Total AI-layer stack cost: ~$50/month</strong> — a number worth holding next to what a part-time marketing hire costs. A full brand portfolio, thirty minutes of human time a week.</p>
   </div>
+
+  <h2>What the AI Layer Gains at Each Revenue Gate</h2>
+  <p>The three functions run in full from Gate 0 — Klaviyo's day-one presence is what makes that true. As the revenue-gated stack unlocks (see the Tech Stack deep dive), the AI layer's reach grows without redesign:</p>
+  <ul>
+    <li><strong>Gate 0:</strong> full Market/Promote/Evaluate loop live — Shopify, Klaviyo, GA4, dashboard, OuterSignal VIP flagging.</li>
+    <li><strong>Gate 1:</strong> OuterSignal Starter feeds real personas and demographics into Klaviyo segments — the Monday summary's sector personas switch from inference to data.</li>
+    <li><strong>Gate 2:</strong> Gorgias arrives — AI ticket triage and drafted support replies join the loop; Klaviyo SMS adds a second automated channel (clean SKUs only).</li>
+    <li><strong>Gate 3:</strong> Triple Whale's attribution data flows into the Monday summary (real CAC per channel replaces the spreadsheet cell); HubSpot adds wholesale pipeline status to the scoreboard.</li>
+    <li><strong>Gate 4:</strong> the same engine reports D2C, wholesale, and marketplace in one summary — no new architecture, just more inputs.</li>
+  </ul>
 
   <h2>The AI-Operable Rule (New in v2)</h2>
   <p>The standing selection rule for the entire stack: <strong>no tool enters unless the AI layer can drive it through an API.</strong> Every layer has been audited — Shopify (Admin API), Klaviyo (full REST), Judge.me, Gorgias, GA4, GoAffPro, and the dashboard are all directly drivable; OuterSignal's enrichment is read through Klaviyo profile properties; social posting runs through the Meta Graph API rather than closed schedulers. At setup, one credentials checklist is collected — from that day, the engine reads and acts on every layer of the store. This is what makes "market, promote, and evaluate in an automated fashion" literal instead of aspirational.</p>
