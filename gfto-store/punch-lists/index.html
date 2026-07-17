@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punch List Library — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --red:#CC2929; --navy:#1A2B4A; --cream:#F8F2CC; --white:#fff; --border:#cfc5b5; --muted:#6b7a99; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); min-height:100vh; }
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+    .page-head { background:var(--navy); padding:3rem 2rem 2.5rem; text-align:center; }
+    .page-label { display:inline-block; background:var(--red); color:#fff; font-family:'Oswald',sans-serif; font-size:.85rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem; }
+    .page-head h1 { font-family:'Oswald',sans-serif; font-size:2.1rem; font-weight:700; color:#fff; line-height:1.2; max-width:720px; margin:0 auto .7rem; }
+    .page-head p { color:rgba(255,255,255,.7); font-size:1.05rem; max-width:620px; margin:0 auto; line-height:1.6; }
+    main { max-width:820px; margin:0 auto; padding:2.75rem 1.5rem 4rem; }
+    .doc {
+      background:var(--white); border:1px solid var(--border); border-left:5px solid var(--red);
+      border-radius:10px; padding:1.4rem 1.6rem; margin-bottom:1.25rem;
+      display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap;
+    }
+    .doc-icon { font-size:2rem; }
+    .doc-info { flex:1; min-width:220px; }
+    .doc-info h3 { font-family:'Oswald',sans-serif; font-size:1.15rem; font-weight:600; color:var(--navy); margin-bottom:.2rem; }
+    .doc-info p { font-size:.88rem; color:#4a5570; line-height:1.5; }
+    .doc-meta { font-size:.75rem; color:var(--muted); margin-top:.3rem; }
+    .doc a.dl {
+      background:var(--red); color:#fff; font-size:.9rem; font-weight:600;
+      padding:.7rem 1.5rem; border-radius:6px; text-decoration:none; white-space:nowrap;
+    }
+    .doc a.dl:hover { opacity:.88; }
+    .empty { text-align:center; color:var(--muted); padding:2rem; font-size:.95rem; }
+    .how { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.25rem 1.5rem; margin-top:2rem; }
+    .how h2 { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.05em; margin-bottom:.5rem; }
+    .how p { font-size:.9rem; color:#4a5570; line-height:1.65; }
+    .how code { background:#f6f2e6; padding:.1rem .4rem; border-radius:4px; font-size:.82rem; }
+    .back-btn { display:inline-block; background:var(--navy); color:#fff; font-size:.95rem; font-weight:600; padding:.75rem 1.7rem; border-radius:6px; text-decoration:none; margin-top:1.5rem; }
+    .back-btn:hover { opacity:.88; }
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+    @media (max-width:600px){ .page-head h1{font-size:1.5rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Punch List Library</span>
+  <a class="nav-home" href="../index.html">← Back to Brief</a>
+</nav>
+
+<div class="page-head">
+  <div class="page-label">Category 08</div>
+  <h1>Punch List Library</h1>
+  <p>The working checklists that govern the build — downloadable, printable, checkable. Every document dropped into this library appears here.</p>
+</div>
+
+<main>
+
+  <div id="docs"><div class="empty">Loading documents…</div></div>
+
+  <div class="how">
+    <h2>How this library works</h2>
+    <p>Drop any punch-list PDF into the local folder <code>horsepower-hub\gfto-store\punch-lists\</code> on the working machine, then redeploy — it appears on this page automatically at the next publish. These are point-in-time snapshots; the live, evolving versions of each list stay inside the Working Brief's pages.</p>
+  </div>
+
+  <a class="back-btn" href="../index.html">← Back to the Working Brief</a>
+
+</main>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Working Brief v2 · Prepared by <a href="/">Horsepower AI</a> · &copy; 2026</p>
+</footer>
+
+<script>
+  fetch('manifest.json')
+    .then(function(r){ return r.json(); })
+    .then(function(files){
+      var wrap = document.getElementById('docs');
+      if (!files.length) { wrap.innerHTML = '<div class="empty">No documents yet — drop PDFs into the punch-lists folder and redeploy.</div>'; return; }
+      wrap.innerHTML = files.map(function(f){
+        return '<div class="doc">' +
+          '<div class="doc-icon">📋</div>' +
+          '<div class="doc-info"><h3>' + f.title + '</h3><p>' + (f.desc || '') + '</p>' +
+          '<div class="doc-meta">' + (f.date || '') + (f.size ? ' · ' + f.size : '') + '</div></div>' +
+          '<a class="dl" href="' + f.file + '" download>Download PDF ↓</a>' +
+        '</div>';
+      }).join('');
+    })
+    .catch(function(){
+      document.getElementById('docs').innerHTML = '<div class="empty">Could not load the document list.</div>';
+    });
+</script>
+
+</body>
+</html>
