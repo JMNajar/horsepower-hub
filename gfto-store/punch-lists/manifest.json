@@ -12,5 +12,12 @@
     "desc": "Making the store the source AI search engines quote (ChatGPT, Perplexity, Google AI Overviews, Claude). Five phases from crawler access to monthly citation checks. Two human decisions; everything else is AI-layer work. Critical path: the name decision.",
     "date": "Compiled July 17, 2026",
     "size": "80 KB"
+  },
+  {
+    "file": "gfto_product_business_punch_list.xlsx",
+    "title": "Product & Business Facts Workbook (Excel — fill-in)",
+    "desc": "The editable companion to the punch lists: Sheet 1 captures per-SKU product facts (working name, sector, form factor, active ingredients, dose, and more) for the launch candidates; Sheet 2 captures every business and finance fact the plan runs on — entity, ownership, budgets, unit economics — with a Your Answer column per line. Fill this in and most of the Launch Punch List's open items close.",
+    "date": "Added July 17, 2026",
+    "size": "19 KB"
   }
 ]
