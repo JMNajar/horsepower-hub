@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Executive Review — GFTO D2C Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:#9E1B1B; --navy:#101F3C; --cream:#FAF7EE; --white:#fff;
+      --border:#E0D9C8; --muted:#6E7686; --body:#3E4653; --stripe:#F5F0E1;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy); }
+
+    nav { background:var(--white); border-bottom:3px solid var(--red); padding:.75rem 2rem; display:flex; align-items:center; gap:1rem; }
+    nav img { height:40px; object-fit:contain; }
+    .nav-sub { font-size:.72rem; font-weight:500; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-left:.6rem; border-left:1px solid #ccc; padding-left:.6rem; }
+    nav .nav-home { margin-left:auto; font-size:.8rem; font-weight:600; color:var(--navy); text-decoration:none; }
+    nav .nav-home:hover { color:var(--red); }
+
+    .doc-wrap { max-width:840px; margin:2.5rem auto 4rem; padding:0 1.5rem; }
+
+    .letterhead {
+      background:var(--navy); border-radius:10px 10px 0 0; padding:2.75rem 3rem 2.25rem;
+      position:relative; overflow:hidden;
+    }
+    .letterhead::after {
+      content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px;
+      border:14px solid rgba(255,255,255,.05); border-radius:50%;
+    }
+    .seal-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.75rem; position:relative; z-index:1; }
+    .seal-label {
+      font-family:'Oswald',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(255,255,255,.55);
+    }
+    .seal-mark {
+      font-family:'Oswald',sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.1em;
+      text-transform:uppercase; color:#fff; border:1px solid rgba(255,255,255,.35);
+      border-radius:20px; padding:.3rem 1rem;
+    }
+    .letterhead h1 {
+      font-family:'Source Serif 4', serif; font-size:2.15rem; font-weight:600; color:#fff;
+      line-height:1.25; max-width:600px; position:relative; z-index:1;
+    }
+    .letterhead .sub {
+      font-family:'Oswald',sans-serif; color:var(--red); font-size:.95rem; font-weight:600;
+      letter-spacing:.1em; text-transform:uppercase; margin-top:.6rem; position:relative; z-index:1;
+    }
+    .letterhead .meta {
+      color:rgba(255,255,255,.55); font-size:.85rem; margin-top:1.4rem; position:relative; z-index:1;
+      display:flex; flex-wrap:wrap; gap:.4rem 1.5rem;
+    }
+    .letterhead .meta strong { color:rgba(255,255,255,.85); font-weight:600; }
+
+    .living-strip {
+      background:var(--stripe); border-left:4px solid var(--red); border-bottom:1px solid var(--border);
+      padding:.9rem 3rem; font-size:.88rem; color:var(--body); line-height:1.6;
+    }
+    .living-strip strong { color:var(--navy); }
+
+    .doc-body { background:var(--white); border:1px solid var(--border); border-top:none; border-radius:0 0 10px 10px; padding:2.75rem 3rem 3.25rem; }
+
+    .qsec { margin-bottom:2.4rem; }
+    .qsec:last-child { margin-bottom:0; }
+    .qsec-head { display:flex; align-items:baseline; gap:.9rem; margin-bottom:.85rem; }
+    .qsec-num {
+      font-family:'Oswald',sans-serif; font-size:.85rem; font-weight:700; color:#fff;
+      background:var(--navy); width:1.9rem; height:1.9rem; min-width:1.9rem; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; line-height:1;
+    }
+    .qsec-head h2 {
+      font-family:'Oswald',sans-serif; font-size:1.15rem; font-weight:700; color:var(--navy);
+      letter-spacing:.02em; text-transform:uppercase;
+    }
+    .qsec-body { padding-left:2.8rem; }
+    .qsec-body p { font-size:1.02rem; color:var(--body); line-height:1.75; margin-bottom:.85rem; }
+    .qsec-body p:last-child { margin-bottom:0; }
+    .qsec-body strong { color:var(--navy); }
+    .qsec-body ul { margin:0 0 .85rem 1.15rem; }
+    .qsec-body li { font-size:.99rem; color:var(--body); line-height:1.7; margin-bottom:.5rem; }
+    .qsec-body li:last-child { margin-bottom:0; }
+    .qsec-body li strong { color:var(--navy); }
+    .divider { border:none; border-top:1px solid var(--border); margin:2.4rem 0; }
+
+    .flag { background:var(--stripe); border:1px solid var(--border); border-left:4px solid var(--red); border-radius:6px; padding:.9rem 1.15rem; margin-top:.9rem; }
+    .flag p { margin:0 !important; font-size:.94rem !important; }
+
+    .acct-table { width:100%; border-collapse:collapse; margin-top:.5rem; }
+    .acct-table th {
+      background:var(--navy); color:#fff; font-family:'Oswald',sans-serif; font-weight:600;
+      letter-spacing:.05em; text-transform:uppercase; font-size:.72rem; text-align:left; padding:.6rem .8rem;
+    }
+    .acct-table td { padding:.7rem .8rem; border-bottom:1px solid #E8E2D2; color:var(--body); font-size:.95rem; line-height:1.55; vertical-align:top; }
+    .acct-table td strong { color:var(--navy); }
+    .acct-table tr:nth-child(even) td { background:var(--stripe); }
+
+    .doc-footer { text-align:center; padding:1.75rem 1rem 0; }
+    .back-link { display:inline-block; color:var(--navy); font-size:.92rem; font-weight:600; text-decoration:none; }
+    .back-link:hover { color:var(--red); }
+
+    footer { background:var(--navy); border-top:3px solid var(--red); padding:1.75rem 2rem; text-align:center; margin-top:2.5rem; }
+    footer p { font-size:.8rem; color:rgba(255,255,255,.5); margin:0; }
+    footer a { color:rgba(255,255,255,.7); text-decoration:none; }
+
+    @media print {
+      nav, .doc-footer, footer { display:none; }
+      body { background:#fff; }
+      .doc-wrap { max-width:100%; margin:0; padding:0; }
+      .letterhead, .doc-body { border-radius:0; }
+    }
+    @media (max-width:640px) {
+      .letterhead, .living-strip, .doc-body { padding-left:1.5rem; padding-right:1.5rem; }
+      .letterhead h1 { font-size:1.6rem; }
+      .qsec-body { padding-left:0; margin-top:.5rem; }
+    }
+  </style>
+</head>
+<body>
+<script src="gate.js"></script>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Executive Review</span>
+  <a class="nav-home" href="index.html">← Back to Brief</a>
+</nav>
+
+<div class="doc-wrap">
+
+  <div class="letterhead">
+    <div class="seal-row">
+      <span class="seal-label">GF Tech One</span>
+      <span class="seal-mark">Executive Review</span>
+    </div>
+    <h1>GFTO Multi-Product D2C Store</h1>
+    <div class="sub">The Eight Questions a Leadership Decision Requires</div>
+    <div class="meta">
+      <span><strong>Last Updated:</strong> July 20, 2026</span>
+      <span><strong>Prepared by:</strong> Horsepower AI</span>
+      <span><strong>Status:</strong> Pre-Launch — Awaiting Gate 0</span>
+    </div>
+  </div>
+
+  <div class="living-strip">
+    <strong>This is a living document.</strong> It reflects the plan as it stands today and will be revised as decisions land, numbers firm up, and circumstances change — treat it as the current state of record, not a fixed proposal frozen in time.
+  </div>
+
+  <div class="doc-body">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">1</span><h2>What Is Being Proposed</h2></div>
+      <div class="qsec-body">
+        <p>A direct-to-consumer Shopify storefront selling GF Tech One's own formulated product portfolio, organized as a <strong>house of brands</strong> — each product (Trypt.co, LEUCO Fizz, Purely Elevated Paws, and others) keeps its own identity rather than sitting under one umbrella consumer brand. Launch scope is deliberately narrow: <strong>~6 sellable SKUs</strong> already packaged or nearly complete, not the full catalog. Mark Rhodes stands as the public formulator/credibility story across the site. An AI-run marketing engine handles content, distribution, and performance evaluation from day one.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">2</span><h2>Why GFTO Should Do It</h2></div>
+      <div class="qsec-body">
+        <p>This is the direct execution of GFTO's own DTC thesis — find 1,000 customers, product costs $1–3, sell at $10–30, own the infrastructure — applied to formulations Mark has already built that have never been sold at scale. It creates a revenue channel that doesn't depend on any single outside partner, unlike the Easyriders licensing deal, which has stalled for months. It also positions GFTO as a live case study for AI-run direct-to-consumer marketing, at no incremental cost to the company.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">3</span><h2>How It Makes Money</h2></div>
+      <div class="qsec-body">
+        <p>Direct sales across the launch SKUs, structured as a ladder: one-time purchase → subscription (the recurring-revenue engine) → a protected wholesale portal for smoke shops, convenience, and specialty retail → third-party products under revenue-share once the platform is proven. Three built-in guarantees (money-back, verified-dose, feel-it-or-free) lower first-purchase friction without requiring a finished brand story first.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">4</span><h2>What Approval Is Being Requested</h2></div>
+      <div class="qsec-body">
+        <ul>
+          <li>Green light to move from working brief to active build (Shopify + Gate 0 tool stack live)</li>
+          <li><strong>Real budget dollars for inventory, packaging, and fulfillment</strong> — not yet provided, currently the single largest open item</li>
+          <li>Resolution on two compliance-critical questions before any SKU can go live: the per-SKU hemp-derived cannabinoid ruling (0.4mg total THC/container cap, effective Nov 12, 2026) and methylene blue's dietary-supplement status relative to the FDCA drug-exclusion rule</li>
+          <li>Final sign-off on SKU list, pricing, and per-unit COGS from product development — the input the rest of the plan is waiting on</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">5</span><h2>How Much It Will Cost</h2></div>
+      <div class="qsec-body">
+        <p>Tooling is revenue-gated: <strong>~$100/month at $0 revenue</strong>, rising only as the store earns — roughly $200 → $340 → $545 → $880/month across the $5K / $15K / $40K / $100K monthly-revenue gates, always under ~1.5–3% of revenue. That figure covers software only.</p>
+        <div class="flag"><p><strong>Not yet sized:</strong> initial inventory/COGS, packaging, and a fulfillment plan. This is the real-dollar figure leadership still needs to supply.</p></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">6</span><h2>How Long It Will Take</h2></div>
+      <div class="qsec-body">
+        <p><strong>1–2 months</strong> from full build to launch-ready, starting from the day final SKU/COGS data lands. The clock does not start until the pre-launch gates close: budget confirmed, legal review cleared, fulfillment process set, and every launch SKU's compliance matrix at 10-for-10. None of those gates are closed as of this writing.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">7</span><h2>What Could Go Wrong</h2></div>
+      <div class="qsec-body">
+        <ul>
+          <li><strong>Overexpansion</strong> — the named top risk: adding SKUs or categories before repeat-purchase behavior and unit economics are proven</li>
+          <li><strong>An adverse legal ruling</strong> on either open compliance question could remove SKUs from the launch list entirely</li>
+          <li><strong>Payment-processor restrictions</strong> on kava and cannabinoid-adjacent SKUs, a documented issue on standard processors</li>
+          <li><strong>Carrier restrictions</strong> — U.S. wireless carriers prohibit SMS marketing for cannabis-adjacent products, closing the primary retention channel for roughly half the catalog (web push is a partial workaround, not a full substitute)</li>
+          <li><strong>Liability exposure</strong> if the verified-dose guarantee is marketed before it's backed by real compliance data</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="qsec">
+      <div class="qsec-head"><span class="qsec-num">8</span><h2>Who Will Be Accountable</h2></div>
+      <div class="qsec-body">
+        <table class="acct-table">
+          <thead><tr><th>Owner</th><th>Accountable For</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Jeff Najar</strong></td><td>Build, marketing infrastructure, AI engine, execution</td></tr>
+            <tr><td><strong>Mark Rhodes</strong></td><td>Per-SKU COGS, compliance-matrix data, formulator-facing content</td></tr>
+            <tr><td><strong>Kyle Layton</strong></td><td>Customer support</td></tr>
+            <tr><td><strong>Kent Rhodes</strong></td><td>Budget release, final approval, resolution on the two open legal rulings</td></tr>
+            <tr><td><strong>Horsepower AI</strong></td><td>Vendor of record for the build and the ongoing marketing engine</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <a class="back-link" href="index.html">← Back to the Working Brief</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>GFTO Multi-Product D2C Store — Executive Review &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+</body>
+</html>
