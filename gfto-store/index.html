@@ -118,13 +118,24 @@
     .stat-value { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.1; }
     .stat-value span { color: #D8A4A4; }
     .stat-label { font-size: .75rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-top: .35rem; }
-    .stat-band-cta { text-align: center; margin-bottom: 2rem; }
-    .stat-band-cta a {
-      display: inline-block; font-family: 'Oswald', sans-serif; font-size: .85rem; font-weight: 600;
-      letter-spacing: .06em; text-transform: uppercase; color: var(--red); text-decoration: none;
-      border-bottom: 2px solid var(--red); padding-bottom: .15rem;
+    .exec-panel {
+      display: block; background: #1B2E52; border-radius: 12px; padding: 1.75rem 2rem;
+      margin-bottom: 2rem; text-align: center; text-decoration: none;
+      transition: opacity .15s, transform .15s;
     }
-    .stat-band-cta a:hover { color: var(--navy); border-color: var(--navy); }
+    .exec-panel:hover { opacity: .92; transform: translateY(-1px); }
+    .exec-panel-label {
+      font-family: 'Oswald', sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: #D8A4A4; margin-bottom: .6rem;
+    }
+    .exec-panel-copy {
+      color: rgba(255,255,255,.75); font-size: 1rem; line-height: 1.65;
+      max-width: 640px; margin: 0 auto 1rem;
+    }
+    .exec-panel-cta {
+      font-family: 'Oswald', sans-serif; font-size: .85rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase; color: #fff;
+    }
 
     .toc {
       background: var(--white); border: 1px solid var(--border); border-radius: 12px;
@@ -191,7 +202,13 @@
     <div class="stat"><div class="stat-value">&lt;1%</div><div class="stat-label">Tool Cost vs. Revenue at Scale</div></div>
     <div class="stat"><div class="stat-value">6 SKUs</div><div class="stat-label">Deliberately Narrow Launch</div></div>
   </a>
-  <div class="stat-band-cta"><a href="executive-review.html">Executive Review →</a></div>
+
+  <!-- EXECUTIVE REVIEW PANEL -->
+  <a class="exec-panel" href="executive-review.html">
+    <div class="exec-panel-label">Executive Review</div>
+    <div class="exec-panel-copy">What's proposed, why it makes sense, how it makes money, what it costs, how long it takes, what could go wrong, and who's accountable — one page for leadership, updated as circumstances change.</div>
+    <div class="exec-panel-cta">Open the Executive Review →</div>
+  </a>
 
   <!-- THESIS -->
   <div class="thesis">
