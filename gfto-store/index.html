@@ -109,13 +109,22 @@
     .masthead a:hover { text-decoration: underline; }
 
     .stat-band {
-      background: var(--navy); border-radius: 12px; padding: 1.6rem 2rem; margin-bottom: 2rem;
+      background: var(--navy); border-radius: 12px; padding: 1.6rem 2rem;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem;
+      text-decoration: none; transition: opacity .15s, transform .15s; cursor: pointer;
     }
+    .stat-band:hover { opacity: .92; transform: translateY(-1px); }
     .stat { text-align: center; }
     .stat-value { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1.1; }
     .stat-value span { color: #D8A4A4; }
     .stat-label { font-size: .75rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-top: .35rem; }
+    .stat-band-cta { text-align: center; margin-bottom: 2rem; }
+    .stat-band-cta a {
+      display: inline-block; font-family: 'Oswald', sans-serif; font-size: .85rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--red); text-decoration: none;
+      border-bottom: 2px solid var(--red); padding-bottom: .15rem;
+    }
+    .stat-band-cta a:hover { color: var(--navy); border-color: var(--navy); }
 
     .toc {
       background: var(--white); border: 1px solid var(--border); border-radius: 12px;
@@ -172,16 +181,17 @@
   <p>One store, launched narrow and built to scale: six proven SKUs first, a house of brands behind one trust story — every product formulated by Mark Rhodes — governed by decision gates, powered by an AI engine that markets, promotes, and evaluates itself.</p>
 </div>
 
-<div class="masthead">Prepared by <strong>Horsepower AI</strong> &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; <strong>Version 2.0</strong> &nbsp;·&nbsp; Prepared for <strong>GF Tech One</strong> &nbsp;·&nbsp; <a href="executive-review.html">Executive Review →</a></div>
+<div class="masthead">Prepared by <strong>Horsepower AI</strong> &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; <strong>Version 2.0</strong> &nbsp;·&nbsp; Prepared for <strong>GF Tech One</strong></div>
 
 <main>
 
   <!-- STAT BAND -->
-  <div class="stat-band">
+  <a class="stat-band" href="executive-review.html">
     <div class="stat"><div class="stat-value">~$100<span>/mo</span></div><div class="stat-label">Gate 0 Tool Stack</div></div>
     <div class="stat"><div class="stat-value">&lt;1%</div><div class="stat-label">Tool Cost vs. Revenue at Scale</div></div>
     <div class="stat"><div class="stat-value">6 SKUs</div><div class="stat-label">Deliberately Narrow Launch</div></div>
-  </div>
+  </a>
+  <div class="stat-band-cta"><a href="executive-review.html">Executive Review →</a></div>
 
   <!-- THESIS -->
   <div class="thesis">
