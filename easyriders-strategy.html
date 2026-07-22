@@ -5,8 +5,8 @@
     --bg:#EAEAE4;
     --bg-elevated:#F5F5F0;
     --ink:#1C1B18;
-    --ink-soft:#4B4A44;
-    --ink-faint:#726F63;
+    --ink-soft:#2E2D28;
+    --ink-faint:#55534A;
     --rule:#CBC9BE;
     --rule-strong:#B3B1A4;
     --accent:#B5680E;
@@ -22,8 +22,8 @@
       --bg:#15181A;
       --bg-elevated:#1D2225;
       --ink:#ECEAE2;
-      --ink-soft:#AEABA0;
-      --ink-faint:#7C7A70;
+      --ink-soft:#C9C6BA;
+      --ink-faint:#9C9A8E;
       --rule:#33383B;
       --rule-strong:#454B4E;
       --accent:#E0912E;
@@ -36,12 +36,12 @@
     }
   }
   :root[data-theme="dark"]{
-    --bg:#15181A; --bg-elevated:#1D2225; --ink:#ECEAE2; --ink-soft:#AEABA0; --ink-faint:#7C7A70;
+    --bg:#15181A; --bg-elevated:#1D2225; --ink:#ECEAE2; --ink-soft:#C9C6BA; --ink-faint:#9C9A8E;
     --rule:#33383B; --rule-strong:#454B4E; --accent:#E0912E; --accent-ink:#1A1000; --accent-soft:#8A5A18;
     --steel:#8FB0C4; --steel-soft:#5C7B8C; --tag-bg:#262B2D; --shadow:0 1px 0 rgba(0,0,0,0.4);
   }
   :root[data-theme="light"]{
-    --bg:#EAEAE4; --bg-elevated:#F5F5F0; --ink:#1C1B18; --ink-soft:#4B4A44; --ink-faint:#726F63;
+    --bg:#EAEAE4; --bg-elevated:#F5F5F0; --ink:#1C1B18; --ink-soft:#2E2D28; --ink-faint:#55534A;
     --rule:#CBC9BE; --rule-strong:#B3B1A4; --accent:#B5680E; --accent-ink:#221600; --accent-soft:#E2A868;
     --steel:#3E5A6B; --steel-soft:#6E8998; --tag-bg:#DEDCCF; --shadow:0 1px 0 rgba(28,27,24,0.08);
   }
@@ -242,6 +242,32 @@
   @media (prefers-reduced-motion:reduce){
     .tocLink{transition:none;}
   }
+
+  /* ---------- Mobile contents menu ---------- */
+  .mobileToc{display:none;}
+  @media (max-width:900px){
+    .mobileToc{
+      display:block; margin:1.2rem 1.2rem 0; background:var(--bg-elevated);
+      border:1px solid var(--rule-strong); border-radius:2px;
+    }
+    .mobileToc summary{
+      cursor:pointer; list-style:none; padding:1rem 1.1rem;
+      font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      font-weight:800; text-transform:uppercase; letter-spacing:0.05em; font-size:0.9rem;
+      color:var(--ink); display:flex; justify-content:space-between; align-items:center;
+    }
+    .mobileToc summary::-webkit-details-marker{display:none;}
+    .mobileToc summary::after{content:"▾"; color:var(--accent); font-size:1.1rem;}
+    .mobileToc[open] summary::after{content:"▴";}
+    .mobileTocLinks{display:flex; flex-direction:column; padding:0 1.1rem 0.4rem; border-top:1px solid var(--rule);}
+    .mobileTocLinks a{
+      font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      font-size:1rem; color:var(--ink-soft); text-decoration:none;
+      padding:0.85rem 0; border-bottom:1px solid var(--rule);
+    }
+    .mobileTocLinks a:last-child{border-bottom:none;}
+    .mobileTocLinks a .n{color:var(--ink-faint); font-variant-numeric:tabular-nums; margin-right:0.6em;}
+  }
 </style>
 
 <header class="masthead">
@@ -256,6 +282,26 @@
     </div>
   </div>
 </header>
+
+<details class="mobileToc">
+  <summary>Contents</summary>
+  <div class="mobileTocLinks">
+    <a href="#summary">Executive Summary</a>
+    <a href="#s1"><span class="n">01</span>The Outlaw Club</a>
+    <a href="#s2"><span class="n">02</span>The Generational Landscape</a>
+    <a href="#s3"><span class="n">03</span>Content That Earns Attention</a>
+    <a href="#s4"><span class="n">04</span>Media Behavior &amp; Platforms</a>
+    <a href="#s5"><span class="n">05</span>Community &amp; Events</a>
+    <a href="#s6"><span class="n">06</span>Brand Presentation</a>
+    <a href="#s7"><span class="n">07</span>Competitive Advantage</a>
+    <a href="#s8"><span class="n">08</span>The Economics</a>
+    <a href="#s9"><span class="n">09</span>Protecting the Core</a>
+    <a href="#s10"><span class="n">10</span>The Giveaway Decision</a>
+    <a href="#roadmap">90-Day Roadmap</a>
+    <a href="#sources">Sources</a>
+    <a href="/easyriders-hagerty-model.html">↗ Companion: The Hagerty Model</a>
+  </div>
+</details>
 
 <div class="shell">
   <nav class="toc" aria-label="Report sections">
