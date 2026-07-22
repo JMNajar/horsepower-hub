@@ -1,0 +1,127 @@
+<title>The Hagerty Model — Companion Brief</title>
+<style>
+  :root{
+    --bg:#EAEAE4; --bg-elevated:#F5F5F0; --ink:#1C1B18; --ink-soft:#4B4A44; --ink-faint:#726F63;
+    --rule:#CBC9BE; --rule-strong:#B3B1A4; --accent:#B5680E; --accent-ink:#221600; --accent-soft:#E2A868;
+    --steel:#3E5A6B; --steel-soft:#6E8998; --tag-bg:#DEDCCF; --shadow:0 1px 0 rgba(28,27,24,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15181A; --bg-elevated:#1D2225; --ink:#ECEAE2; --ink-soft:#AEABA0; --ink-faint:#7C7A70;
+      --rule:#33383B; --rule-strong:#454B4E; --accent:#E0912E; --accent-ink:#1A1000; --accent-soft:#8A5A18;
+      --steel:#8FB0C4; --steel-soft:#5C7B8C; --tag-bg:#262B2D; --shadow:0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15181A; --bg-elevated:#1D2225; --ink:#ECEAE2; --ink-soft:#AEABA0; --ink-faint:#7C7A70;
+    --rule:#33383B; --rule-strong:#454B4E; --accent:#E0912E; --accent-ink:#1A1000; --accent-soft:#8A5A18;
+    --steel:#8FB0C4; --steel-soft:#5C7B8C; --tag-bg:#262B2D; --shadow:0 1px 0 rgba(0,0,0,0.4);
+  }
+  :root[data-theme="light"]{
+    --bg:#EAEAE4; --bg-elevated:#F5F5F0; --ink:#1C1B18; --ink-soft:#4B4A44; --ink-faint:#726F63;
+    --rule:#CBC9BE; --rule-strong:#B3B1A4; --accent:#B5680E; --accent-ink:#221600; --accent-soft:#E2A868;
+    --steel:#3E5A6B; --steel-soft:#6E8998; --tag-bg:#DEDCCF; --shadow:0 1px 0 rgba(28,27,24,0.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua",serif;line-height:1.6;font-size:16.5px;}
+  ::selection{background:var(--accent);color:var(--accent-ink);}
+  .disp{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;}
+  a{color:var(--steel);}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .masthead{border-bottom:3px solid var(--ink); padding:2.2rem 1.5rem 1.6rem;}
+  .mastheadInner{max-width:760px;margin:0 auto;}
+  .backlink{
+    display:inline-block; font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--ink-soft); text-decoration:none; margin-bottom:1.2rem;
+  }
+  .backlink:hover{color:var(--accent);}
+  .kicker{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:0.7rem;}
+  .title{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(1.9rem,5vw,3.2rem);letter-spacing:-0.01em;line-height:1.02;margin:0 0 0.9rem;text-wrap:balance;max-width:20ch;}
+  .deck{font-family:Georgia,serif;font-style:italic;color:var(--ink-soft);font-size:1.1rem;max-width:60ch;margin:0;}
+  main{max-width:760px;margin:0 auto;padding:2.4rem 1.5rem 4rem;}
+  .lede{font-size:1.08rem;color:var(--ink-soft);margin:0 0 1.6rem;}
+  p{margin:0 0 1.1rem;}
+  h3{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--ink);margin:2rem 0 0.6rem;padding-left:0.7rem;border-left:3px solid var(--accent);}
+  h3:first-of-type{margin-top:0.4rem;}
+  strong{color:var(--ink);}
+  em{color:var(--ink);}
+  .verdict{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg-elevated);border-left:3px solid var(--accent);padding:0.9rem 1.1rem;margin:1rem 0 1.4rem;font-size:0.92rem;color:var(--ink-soft);box-shadow:var(--shadow);}
+  .verdict b{color:var(--accent);text-transform:uppercase;letter-spacing:0.04em;font-size:0.76rem;display:block;margin-bottom:0.3rem;}
+  .plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.9rem;margin:1.4rem 0 1.8rem;}
+  .plate{background:var(--bg-elevated);border:1px solid var(--rule);border-radius:2px;padding:0.85rem 1rem;box-shadow:var(--shadow);}
+  .plate .val{font-family:"SF Mono","Cascadia Code",Consolas,"Roboto Mono",monospace;font-size:1.5rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.1;}
+  .plate .lbl{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-faint);margin-top:0.35rem;}
+  .tableWrap{overflow-x:auto;margin:1.2rem 0 1.8rem;border:1px solid var(--rule);border-radius:2px;}
+  table{border-collapse:collapse;width:100%;min-width:480px;font-size:0.88rem;}
+  thead th{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;font-size:0.68rem;letter-spacing:0.05em;background:var(--tag-bg);color:var(--ink-soft);text-align:left;padding:0.6rem 0.85rem;border-bottom:1px solid var(--rule-strong);}
+  tbody td{padding:0.65rem 0.85rem;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-soft);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+  footer{border-top:1px solid var(--rule);padding:2rem 1.5rem 3rem;}
+  .footerInner{max-width:760px;margin:0 auto;}
+  .tocLabel{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:0.6rem;font-weight:700;}
+  .srcList{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:0.8rem;color:var(--ink-faint);padding-left:1.2rem;}
+  .srcList li{margin-bottom:0.5rem;}
+  .srcList a{color:var(--ink-faint);}
+</style>
+
+<header class="masthead">
+  <div class="mastheadInner">
+    <a class="backlink" href="/easyriders-strategy.html">← Back to Easyriders — The Next Fifty-Five Years</a>
+    <div class="kicker">Companion Brief</div>
+    <h1 class="title">The Hagerty Model</h1>
+    <p class="deck">What Hagerty actually built, the conflict-of-interest critique aimed at it, and the fork in the road Easyriders should not copy.</p>
+  </div>
+</header>
+
+<main>
+  <p class="lede">Hagerty proved the core insight behind the Easyriders membership strategy — bundle media, perks, and belonging into one paid membership, and loyalty does the selling. But Hagerty's own growth path shows exactly where that model creates a real liability. Easyriders should take the insight and route around the liability.</p>
+
+  <h3>What Hagerty actually built</h3>
+  <p>Hagerty started as a Midwest, family-owned specialty insurer for classic and collector vehicles. Around 2017–2019, CEO McKeel Hagerty repositioned the whole company from "insurance provider" to membership organization: the <strong>Hagerty Drivers Club</strong> ($45/year) bundles the magazine, valuation tools, roadside assistance, event access, and discounts — and critically, removed the requirement to hold a Hagerty insurance policy to join at all. Anyone "of driving age" who's interested in cars can become a member.</p>
+
+  <div class="plates">
+    <div class="plate"><div class="val">$45</div><div class="lbl">Hagerty Drivers Club annual membership</div></div>
+    <div class="plate"><div class="val">6M</div><div class="lbl">Member target, from a standing base already the largest classic-car insurer</div></div>
+    <div class="plate"><div class="val">200K</div><div class="lbl">New customers added per year, largely word-of-mouth</div></div>
+    <div class="plate"><div class="val">100+</div><div class="lbl">Car shows attended annually to build fandom, not just sell policy</div></div>
+  </div>
+
+  <p>The data point that matters most for this strategy: <strong>Gen X and Millennials now out-query Boomers</strong> for Hagerty valuations and quotes — direct evidence the "younger generations don't care about cars" assumption is wrong for exactly the two generations the Easyriders playbook targets in <a href="/easyriders-strategy.html#s2">Section 02: The Generational Landscape</a>.</p>
+
+  <p>Since its 2021 NYSE listing (HGTY) gave it real acquisition capital, Hagerty has systematically bought the infrastructure around the hobby: event properties (Greenwich Concours, California Mille, the Concours d'Elegance of America, the Amelia Island Concours), grassroots registration software (MotorsportReg, later resold), youth-oriented car culture (Radwood), dealer and auction back-end technology (Speed Digital, which now powers 249+ sites including direct competitors), a controlling and then full stake in Broad Arrow Auctions, and — as of a $18.4M cash deal in September 2024 — its own insurance underwriter, Consolidated National Insurance Company. That last move closed a loop: Hagerty now sets the valuations, runs the auctions, owns the events, and underwrites the policy, all under one roof.</p>
+
+  <h3>The critique — and who's making it</h3>
+  <p>A competing marketplace founder (Rudy Samsel of GuysWithRides) has published a widely-discussed video essay arguing this amounts to an "oligarchy": the same company that sets classic-car values through its own price guide also runs the auctions that test those values, owns the events where the auctions happen, and now underwrites the insurance — a closed loop with no independent check. He cites an anonymous former Hagerty employee, reported by Bloomberg: <em>"They're setting the values, they're having the auctions, they have an online marketplace... they're telling people what to pay for stuff, telling people what to buy next."</em></p>
+  <div class="verdict"><b>Read this claim correctly</b>Samsel discloses upfront that he tried to build a competing online auction platform and reached out to Hagerty for advertising before being quoted a $30,000/year print-bundle requirement — months before Hagerty launched its own competing marketplace. That's a real, disclosed conflict of interest on the critic's side, not a neutral third party. The underlying acquisitions are documented, real transactions. The "oligarchy" framing is his editorial interpretation of what they add up to, not a regulatory or legal finding. Both things are true at once: the critique is self-interested, and the structural risk it describes is real.</div>
+
+  <h3>Why this matters for Easyriders — and where the fork is</h3>
+  <p>Easyriders is looking at the same underlying insight Hagerty proved — bundle media, perks, and belonging into one membership and let loyalty sell it — while standing at a real fork in the road:</p>
+  <div class="tableWrap">
+    <table>
+      <thead><tr><th>Path</th><th>What it looks like</th><th>The risk</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A — Copy the full stack</strong></td><td>Easyriders sets its own custom-bike valuation guide, runs its own auctions, owns regional bike shows, eventually underwrites its own insurance.</td><td>Imports a conflict-of-interest exposure Easyriders doesn't currently have, in a market that doesn't reward it the way investment-grade classic-car auctions do.</td></tr>
+        <tr><td><strong>B — Take the membership, skip the vertical integration</strong></td><td>Bundle media + events + community + a <em>partnered</em>, not owned, insurance/roadside perk.</td><td>Requires giving up some margin to a partner insurer — the trade-off for staying out of the "who's checking the checker" problem entirely.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="verdict"><b>Recommendation: Path B</b>Motorcycle culture — especially the outlaw/custom/chopper world Easyriders covers — isn't investment-grade the way concours-level classic cars are. There's no equivalent price-guide battle to win, so Easyriders doesn't carry Hagerty's biggest conflict-of-interest exposure to begin with, and manufacturing one (an "Easyriders Bike Value Guide") would import risk for a market that doesn't pay for it. Easyriders' real moat — established in <a href="/easyriders-strategy.html#s7">Section 07: Competitive Advantage</a> — is the 55-year archive and real relationships with builders, artists, and legends: culture and access, not financial infrastructure. <strong>The concrete move: partner, don't underwrite.</strong> License an Easyriders-branded insurance and roadside-assistance benefit through an existing specialty motorcycle insurer — the way Hagerty itself started, before it became its own underwriter — and get the membership glue without ever becoming the insurer, the appraiser, and the auction house at once.</div>
+
+  <a class="backlink" href="/easyriders-strategy.html">← Back to Easyriders — The Next Fifty-Five Years</a>
+</main>
+
+<footer>
+  <div class="footerInner">
+    <div class="tocLabel">Sources</div>
+    <ul class="srcList">
+      <li><a href="https://www.insurancebusinessmag.com/us/news/auto-motor/hagerty-goes-all-in-on-membership-model-for-car-fanatics-160609.aspx">Insurance Business Magazine — Hagerty Goes All In on Membership Model for Car Fanatics</a></li>
+      <li><a href="https://www.davidmeermanscott.com/blog/fandom-at-hagerty-insurance">David Meerman Scott — Fandom at Hagerty Insurance</a></li>
+      <li><a href="https://www.scca.com/articles/2018457-hagerty-literally-brings-the-party-and-discounts-and-insurance-and">SCCA — Hagerty Literally Brings the Party (and Discounts, and Insurance)</a></li>
+      <li><a href="https://blog.championcooling.com/2020/12/29/classic-car-insurance-why-champion-supports-hagerty/">Champion Cooling — Classic Car Insurance: Why Champion Supports Hagerty</a></li>
+      <li><a href="https://investor.hagerty.com/resources/investor-faqs">Hagerty Investor Relations — Investor FAQs</a></li>
+      <li>GuysWithRides (Rudy Samsel) — "How Hagerty Quietly Bought Your Hobby" (YouTube video essay; critique source, disclosed competitor)</li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,699 @@
+<title>Easyriders — The Next Fifty-Five Years</title>
+<style>
+  :root{
+    --bg:#EAEAE4;
+    --bg-elevated:#F5F5F0;
+    --ink:#1C1B18;
+    --ink-soft:#4B4A44;
+    --ink-faint:#726F63;
+    --rule:#CBC9BE;
+    --rule-strong:#B3B1A4;
+    --accent:#B5680E;
+    --accent-ink:#221600;
+    --accent-soft:#E2A868;
+    --steel:#3E5A6B;
+    --steel-soft:#6E8998;
+    --tag-bg:#DEDCCF;
+    --shadow:0 1px 0 rgba(28,27,24,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15181A;
+      --bg-elevated:#1D2225;
+      --ink:#ECEAE2;
+      --ink-soft:#AEABA0;
+      --ink-faint:#7C7A70;
+      --rule:#33383B;
+      --rule-strong:#454B4E;
+      --accent:#E0912E;
+      --accent-ink:#1A1000;
+      --accent-soft:#8A5A18;
+      --steel:#8FB0C4;
+      --steel-soft:#5C7B8C;
+      --tag-bg:#262B2D;
+      --shadow:0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15181A; --bg-elevated:#1D2225; --ink:#ECEAE2; --ink-soft:#AEABA0; --ink-faint:#7C7A70;
+    --rule:#33383B; --rule-strong:#454B4E; --accent:#E0912E; --accent-ink:#1A1000; --accent-soft:#8A5A18;
+    --steel:#8FB0C4; --steel-soft:#5C7B8C; --tag-bg:#262B2D; --shadow:0 1px 0 rgba(0,0,0,0.4);
+  }
+  :root[data-theme="light"]{
+    --bg:#EAEAE4; --bg-elevated:#F5F5F0; --ink:#1C1B18; --ink-soft:#4B4A44; --ink-faint:#726F63;
+    --rule:#CBC9BE; --rule-strong:#B3B1A4; --accent:#B5680E; --accent-ink:#221600; --accent-soft:#E2A868;
+    --steel:#3E5A6B; --steel-soft:#6E8998; --tag-bg:#DEDCCF; --shadow:0 1px 0 rgba(28,27,24,0.08);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Georgia,"Iowan Old Style","Palatino Linotype","Book Antiqua",serif;
+    line-height:1.6;
+    font-size:16.5px;
+  }
+  ::selection{background:var(--accent);color:var(--accent-ink);}
+
+  .disp{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .mono{font-family:"SF Mono","Cascadia Code",Consolas,"Roboto Mono",monospace;}
+
+  a{color:var(--steel);}
+  a:focus-visible, button:focus-visible, .tocLink:focus-visible{
+    outline:2px solid var(--accent); outline-offset:2px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding:2.6rem 1.5rem 1.6rem;
+  }
+  .mastheadInner{max-width:1180px;margin:0 auto;}
+  .kicker{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--accent); font-weight:800; margin-bottom:0.7rem;
+  }
+  .title{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight:900; text-transform:uppercase;
+    font-size:clamp(2.1rem,5.4vw,4rem);
+    letter-spacing:-0.01em; line-height:0.98; margin:0 0 0.9rem;
+    text-wrap:balance;
+    max-width:16ch;
+  }
+  .deck{
+    font-family:Georgia,serif; font-style:italic;
+    color:var(--ink-soft); font-size:1.15rem; max-width:56ch; margin:0 0 1.6rem;
+  }
+  .mastheadMeta{
+    display:flex; flex-wrap:wrap; gap:1.6rem 2.4rem;
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint);
+    border-top:1px solid var(--rule); padding-top:1rem;
+  }
+  .mastheadMeta b{display:block;color:var(--ink);font-size:0.92rem;letter-spacing:0.01em;margin-top:0.15rem;}
+
+  /* ---------- Page shell ---------- */
+  .shell{max-width:1180px;margin:0 auto;display:flex;gap:3rem;padding:0 1.5rem;align-items:flex-start;}
+  nav.toc{
+    position:sticky; top:1.5rem; flex:0 0 220px;
+    padding:1.6rem 0 3rem;
+    display:flex; flex-direction:column; gap:0.15rem;
+  }
+  .tocLabel{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint);
+    margin-bottom:0.6rem; font-weight:700;
+  }
+  .tocLink{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.82rem; text-decoration:none; color:var(--ink-soft);
+    padding:0.42rem 0; border-left:2px solid transparent; padding-left:0.8rem;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .tocLink .n{color:var(--ink-faint);font-variant-numeric:tabular-nums;margin-right:0.5em;}
+  .tocLink:hover{color:var(--ink);}
+  .tocLink.active{color:var(--accent); border-left-color:var(--accent); font-weight:700;}
+  .tocLink.active .n{color:var(--accent);}
+  .tocLink.external{margin-top:0.5rem; padding-top:0.6rem; border-top:1px dashed var(--rule);}
+
+  main{flex:1 1 auto; min-width:0; padding:2.4rem 0 5rem;}
+
+  /* ---------- Section framing ---------- */
+  section{margin-bottom:4.4rem; scroll-margin-top:1.5rem;}
+  .secHead{display:flex; gap:1.1rem; align-items:baseline; margin-bottom:1.3rem; border-bottom:2px solid var(--ink); padding-bottom:0.7rem;}
+  .secNum{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight:900; font-size:1.9rem; color:var(--accent); line-height:1;
+  }
+  .secTitle{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight:800; text-transform:uppercase; letter-spacing:0.01em;
+    font-size:clamp(1.3rem,2.6vw,1.8rem); line-height:1.05; margin:0; text-wrap:balance;
+  }
+  .lede{font-size:1.08rem; color:var(--ink-soft); max-width:66ch; margin:0 0 1.6rem;}
+  p{max-width:66ch;}
+  h3{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight:800; font-size:1rem; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--ink); margin:2rem 0 0.6rem; padding-left:0.7rem; border-left:3px solid var(--accent);
+  }
+  h3:first-of-type{margin-top:0.4rem;}
+  ul,ol{max-width:66ch; padding-left:1.2rem;}
+  li{margin-bottom:0.4rem;}
+  strong{color:var(--ink);}
+
+  .verdict{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg-elevated); border-left:3px solid var(--accent);
+    padding:0.9rem 1.1rem; margin:1rem 0 1.4rem; max-width:66ch;
+    font-size:0.92rem; color:var(--ink-soft); box-shadow:var(--shadow);
+  }
+  .verdict b{color:var(--accent); text-transform:uppercase; letter-spacing:0.04em; font-size:0.76rem; display:block; margin-bottom:0.3rem;}
+
+  /* spec plates */
+  .plates{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.9rem; margin:1.4rem 0 1.8rem; max-width:820px;}
+  .plate{
+    background:var(--bg-elevated); border:1px solid var(--rule); border-radius:2px;
+    padding:0.85rem 1rem; box-shadow:var(--shadow);
+  }
+  .plate .val{
+    font-family:"SF Mono","Cascadia Code",Consolas,"Roboto Mono",monospace;
+    font-size:1.5rem; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1.1;
+  }
+  .plate .lbl{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); margin-top:0.35rem;
+  }
+
+  .tableWrap{overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--rule); border-radius:2px;}
+  table{border-collapse:collapse; width:100%; min-width:560px; font-size:0.88rem;}
+  thead th{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    text-transform:uppercase; font-size:0.68rem; letter-spacing:0.05em;
+    background:var(--tag-bg); color:var(--ink-soft); text-align:left; padding:0.6rem 0.85rem;
+    border-bottom:1px solid var(--rule-strong); position:sticky; top:0;
+  }
+  tbody td{padding:0.65rem 0.85rem; border-bottom:1px solid var(--rule); vertical-align:top; color:var(--ink-soft);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink); font-weight:600;}
+  tbody tr:hover{background:var(--bg-elevated);}
+
+  .tag{
+    display:inline-block; font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.66rem; text-transform:uppercase; letter-spacing:0.05em; font-weight:700;
+    padding:0.15rem 0.5rem; border-radius:2px; background:var(--tag-bg); color:var(--ink-soft);
+  }
+  .tag.high{color:var(--accent-ink); background:var(--accent-soft);}
+  .tag.med{color:var(--ink); background:var(--tag-bg); border:1px solid var(--rule-strong);}
+  .tag.low{color:var(--ink-faint); background:transparent; border:1px solid var(--rule);}
+
+  blockquote{
+    margin:1.6rem 0; padding:0 0 0 1.3rem; border-left:3px solid var(--steel);
+    max-width:60ch; font-style:italic; font-size:1.15rem; color:var(--ink);
+  }
+  blockquote cite{display:block; margin-top:0.5rem; font-style:normal; font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint);}
+
+  .roadmapGrid{display:grid; gap:1rem; margin:1.4rem 0;}
+  .roadmapItem{
+    display:grid; grid-template-columns:2.6rem 1fr; gap:1rem;
+    background:var(--bg-elevated); border:1px solid var(--rule); border-radius:2px; padding:1rem 1.2rem; box-shadow:var(--shadow);
+  }
+  .roadmapItem .step{
+    font-family:"SF Mono","Cascadia Code",Consolas,monospace; color:var(--accent); font-weight:700; font-size:1rem; padding-top:0.1rem;
+  }
+  .roadmapItem h4{margin:0 0 0.3rem; font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; text-transform:uppercase; font-size:0.86rem; letter-spacing:0.02em;}
+  .roadmapItem p{margin:0; font-size:0.9rem; max-width:none;}
+
+  .companionCard{
+    display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;
+    background:var(--bg-elevated); border:1px solid var(--rule-strong); border-radius:2px;
+    padding:1rem 1.2rem; margin:1.2rem 0 1.6rem; box-shadow:var(--shadow);
+  }
+  .companionCard .txt{font-size:0.92rem; color:var(--ink-soft); max-width:52ch;}
+  .companionCard .txt strong{display:block; color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; text-transform:uppercase; font-size:0.78rem; letter-spacing:0.03em; margin-bottom:0.25rem;}
+  .companionCard a.go{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; font-weight:700; font-size:0.8rem;
+    text-transform:uppercase; letter-spacing:0.03em; color:var(--accent-ink); background:var(--accent-soft);
+    padding:0.5rem 0.9rem; border-radius:2px; text-decoration:none; white-space:nowrap;
+  }
+
+  footer{border-top:1px solid var(--rule); padding:2.2rem 1.5rem 3rem;}
+  .footerInner{max-width:1180px;margin:0 auto;}
+  .sources{
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:0.76rem; color:var(--ink-faint); columns:2 260px; gap:2rem;
+  }
+  .sources li{margin-bottom:0.5rem; break-inside:avoid;}
+  .sources a{color:var(--ink-faint);}
+
+  @media (max-width:900px){
+    nav.toc{display:none;}
+    .shell{padding:0 1.2rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .tocLink{transition:none;}
+  }
+</style>
+
+<header class="masthead">
+  <div class="mastheadInner">
+    <div class="kicker">Strategy Memorandum · Prepared for Keith Ball ("Bandit"), Owner &amp; CEO</div>
+    <h1 class="title">The Next Fifty-Five Years</h1>
+    <p class="deck">Easyriders didn't cover outlaw motorcycle culture — it built it. This is the case for how a 55-year print institution recruits Gen Z without losing the audience that made it one.</p>
+    <div class="mastheadMeta">
+      <div>Prepared by<b>Horsepower AI — Jeff Najar</b></div>
+      <div>Scope<b>Brand position · generational demographics · content · platforms · community · competitive position · economics</b></div>
+      <div>Status<b>Strategic framework — first pass</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Report sections">
+    <div class="tocLabel">Contents</div>
+    <a class="tocLink" href="#summary"><span class="n">—</span>Executive Summary</a>
+    <a class="tocLink" href="#s1"><span class="n">01</span>The Outlaw Club</a>
+    <a class="tocLink" href="#s2"><span class="n">02</span>The Generational Landscape</a>
+    <a class="tocLink" href="#s3"><span class="n">03</span>Content That Earns Attention</a>
+    <a class="tocLink" href="#s4"><span class="n">04</span>Media Behavior &amp; Platforms</a>
+    <a class="tocLink" href="#s5"><span class="n">05</span>Community &amp; Events</a>
+    <a class="tocLink" href="#s6"><span class="n">06</span>Brand Presentation</a>
+    <a class="tocLink" href="#s7"><span class="n">07</span>Competitive Advantage</a>
+    <a class="tocLink" href="#s8"><span class="n">08</span>The Economics</a>
+    <a class="tocLink" href="#s9"><span class="n">09</span>Protecting the Core</a>
+    <a class="tocLink" href="#s10"><span class="n">10</span>The Giveaway Decision</a>
+    <a class="tocLink" href="#roadmap"><span class="n">—</span>90-Day Roadmap</a>
+    <a class="tocLink" href="#sources"><span class="n">—</span>Sources</a>
+    <a class="tocLink external" href="/easyriders-hagerty-model.html"><span class="n">↗</span>Companion: The Hagerty Model</a>
+  </nav>
+
+  <main>
+
+    <section id="summary">
+      <div class="secHead"><span class="secTitle" style="font-size:1.5rem">Executive Summary</span></div>
+      <p class="lede">Everything in this strategy flows from one lens: Easyriders was built on sex, drugs, and rock and roll, interpreted for a modern membership. That's not a marketing bolt-on — it's the brand's actual reason for being, and Section 01 makes that case before anything else in this document.</p>
+      <p>The honest version of "go after Gen Z" is not "sell Gen Z a bagger." Gen Z's actual buying behavior skews toward cheap, light, used standard bikes — not the big-twin custom and cruiser world Easyriders has spent 55 years mythologizing — and a real share of them believe motorcycles are simply too dangerous to bother with. That is a demand-side reality no amount of content will reverse this year.</p>
+      <p>What Easyriders can actually do — and what the channel's own numbers already prove is working — is recruit Gen Z as <strong>audience and culture-carriers now</strong>, while the near-term commercial opportunity sits with Gen X and Millennial buyers who have the garage space and income for customs. That is not a consolation prize; it is the same playbook Hagerty ran turning an insurance company into an 800,000-member car club, and it is a playbook built almost entirely from things Easyriders already has: a 55-year archive nobody else owns, real relationships with the people who made the mythology (Barger's world, Dave Mann's art, working builder shops), and a channel where the single highest-converting video to date is Keith talking straight to camera about the brand changing.</p>
+      <p>The strategic bet in this document: Easyriders stops competing as a magazine and starts operating as a <strong>cultural membership organization with a media arm</strong> — print, video, events, and merchandise as channels, not the product. The archive is the moat. Personalities beat production value. And every recommendation below is checked against what the channel's own May–July 2026 data already shows, not generic social media theory.</p>
+    </section>
+
+    <section id="s1">
+      <div class="secHead"><span class="secNum disp">01</span><h2 class="secTitle">The Outlaw Club</h2></div>
+      <p class="lede">"Sex, drugs, and rock and roll" isn't a marketing gimmick bolted onto Easyriders — it's the lens the brand was built through from the start, and every recommendation in this document follows from it. Translated into real, legal, sellable membership benefits, it becomes <strong>The Easyriders Outlaw Club</strong>: three pillars, one membership, and the actual reason a 55-year-old motorcycle magazine still matters.</p>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Pillar</th><th>The interpretation</th><th>What members actually get</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Girls &amp; Glamour</strong><br><span class="tag">"Sex"</span></td><td>Easyriders' own pin-up and cover-girl tradition, treated as premium editorial rather than nostalgia alone.</td><td>Exclusive photo features pairing archive glamour with modern real women riders and builders — the fastest-growing ownership segment from Section 03, elevated rather than sidelined; meet-and-greets at flagship events.</td></tr>
+            <tr><td><strong>Spirits &amp; Indulgence</strong><br><span class="tag">"Drugs," reinterpreted legally</span></td><td>The outlaw feeling comes from indulgence and a rule-bending atmosphere — not contraband.</td><td>Whiskey and craft-distillery tours, VIP lounge and bar access at rally events, tasting experiences co-branded with spirits partners.</td></tr>
+            <tr><td><strong>Music &amp; Backstage</strong><br><span class="tag">"Rock and Roll"</span></td><td>Sturgis has always been part rally, part festival — lean into the festival half.</td><td>Backstage passes at Sturgis-adjacent concerts, band meet-and-greets, an Easyriders-branded stage or lounge at rally events.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The lens, not a checklist</h3>
+      <p>These three pillars aren't a fixed benefits package — they're the test every sponsor, partnership, and piece of content should be run through from here on. Nothing about the brand needs a fourth category invented to fit; it needs to be placed against Sex, Drugs, and Rock and Roll and scored on how tightly it fits. Some things are the pillar. Everything else supports it, tightly or loosely, and gets evaluated accordingly.</p>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Action / partner</th><th>Pillar it serves</th><th>Fit</th></tr></thead>
+          <tbody>
+            <tr><td>Jack Daniels — or any whiskey/spirits sponsor</td><td>Spirits &amp; Indulgence ("Drugs")</td><td><span class="tag high">Tight</span> — this is the pillar, not a support for it.</td></tr>
+            <tr><td>Band/concert partnership at Sturgis</td><td>Music &amp; Backstage ("Rock and Roll")</td><td><span class="tag high">Tight</span> — same logic, direct embodiment.</td></tr>
+            <tr><td>Pin-up / cover-girl editorial, archive or modern</td><td>Girls &amp; Glamour ("Sex")</td><td><span class="tag high">Tight</span> — the original Easyriders product.</td></tr>
+            <tr><td>Dave Mann art, Sonny Barger mythology</td><td>Girls &amp; Glamour + Rock and Roll</td><td><span class="tag high">Tight</span> — this is where the imagery and the mythology were both invented.</td></tr>
+            <tr><td>Roadside assistance / insurance partner</td><td>Supports all three at once</td><td><span class="tag med">Loose</span> — "good insurance means better partying": it removes real-world risk as a reason not to go all-in on any pillar, but it isn't itself one of them. Partnered, not owned — see the <a href="/easyriders-hagerty-model.html">companion Hagerty Model brief</a> for why.</td></tr>
+            <tr><td>Custom bike builder features</td><td>Rock and Roll, loosely</td><td><span class="tag med">Loose</span> — the bike is the instrument of the lifestyle, not the indulgence itself.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Demographic snapshot — who wants which pillar</h3>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Generation</th><th>Girls &amp; Glamour</th><th>Spirits &amp; Indulgence</th><th>Music &amp; Backstage</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Boomers</strong></td><td>Wants the original, vintage-era aesthetic — a callback, not new content.</td><td>Classic whiskey and biker-bar culture; little interest in newer angles like cannabis-friendly programming.</td><td>Real backstage access with the legacy acts they grew up on — proof they were there, not a new trend.</td></tr>
+            <tr><td><strong>Gen X</strong></td><td>Comfortable with the classic pin-up tradition, open to modern women-riders content alongside it.</td><td>Strongest fit — peak earning years align with craft-spirits culture and real bar/lounge access.</td><td>Core overlap generation; most likely to actually attend Sturgis and use real backstage passes with touring legacy acts.</td></tr>
+            <tr><td><strong>Millennials</strong></td><td>Wants a modernized, inclusive version — real builders and riders as the glamour content, shot for Instagram.</td><td>Craft cocktail and whiskey culture resonates strongly; genuine curiosity about legal cannabis-friendly experiences where available.</td><td>Festival-culture generation — wants a curated, shareable experience with newer or crossover artists, not just legacy acts.</td></tr>
+            <tr><td><strong>Gen Z</strong></td><td>Skeptical of the old-school format; drawn to authentic, diverse, personality-driven content instead.</td><td>Weakest fit — documented lower alcohol consumption trends; more curious about the culture than the indulgence itself.</td><td>Engages with the aesthetic and behind-the-scenes energy of backstage content far more than actual attendance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verdict"><b>Verdict</b>This is the line the rest of this strategy follows, not the other way around: Gen X converts hardest across all three pillars — money, time, and cultural fluency to actually use the full bundle. Millennials are the strongest secondary target, especially for Music &amp; Backstage and a modernized Glamour pillar, both built to be shared. Gen Z remains an audience for the content this club produces, not a membership buyer for it — a pattern this document holds consistently, all the way through the giveaway decision in Section 10.</div>
+    </section>
+
+    <section id="s2">
+      <div class="secHead"><span class="secNum disp">02</span><h2 class="secTitle">The Generational Landscape</h2></div>
+      <p class="lede">Four generations, four different relationships to the same machine. Easyriders was built by two of them and has to be understood by all four to know where the real opportunity sits.</p>
+
+      <div class="plates">
+        <div class="plate"><div class="val">50+</div><div class="lbl">Median U.S. rider age, up from 32 in 1990</div></div>
+        <div class="plate"><div class="val">6%</div><div class="lbl">Riders aged 18–24, down from 16% in 1990</div></div>
+        <div class="plate"><div class="val">19%</div><div class="lbl">Riders who are women — 26% among Millennials</div></div>
+        <div class="plate"><div class="val">-7.6%</div><div class="lbl">U.S. motorcycle sales, 2025 (486,468 units)</div></div>
+      </div>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Generation</th><th>Relationship to the brand</th><th>What they actually buy / do</th><th>Easyriders' real opportunity</th></tr></thead>
+          <tbody>
+            <tr><td>Boomers</td><td>The audience Easyriders was built for and by. Lived the mythology; don't need it explained.</td><td>Skew toward nostalgia and identity purchases — subscriptions, collectibles, big-twin cruisers and baggers already owned.</td><td>Protect, don't chase. Highest loyalty, highest willingness to pay for print and merch tied to the original era.</td></tr>
+            <tr><td>Gen X</td><td>Came up on Easyriders/chopper culture in its second act. Old enough to carry the mythology, young enough to be active online.</td><td>Peak custom-bike buying power — established income, own garages, actively building and buying.</td><td>The under-discussed near-term prize. Highest-value audience for customs, events, and membership spend right now.</td></tr>
+            <tr><td>Millennials</td><td>Built the modern custom-culture revival — café racers, the Instagram/Bike EXIF build aesthetic, Handbuilt-era craftsmanship shows.</td><td>Women are 26% of Millennial owners, well above the 19% average — the fastest-growing ownership segment.</td><td>The bridge generation. Already fluent in both the archive's aesthetic and the platforms Gen Z lives on.</td></tr>
+            <tr><td>Gen Z</td><td>Discovering outlaw/chopper aesthetics as culture (patches, vintage flash tattoos, "chopper-core") before — or instead of — discovering it as a vehicle category.</td><td>Affordable, light, used standard bikes (Ninja 400, MT-07-class) — not cruisers, baggers, or tourers.</td><td>A ten-year brand-loyalty play, not a quarterly sales play. Recruit as audience and community now; convert to riders and buyers as income and confidence grow.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verdict"><b>Verdict</b>Don't build the Gen Z strategy around selling motorcycles. Build it around owning the culture Gen Z is already borrowing aesthetically — the mythology, the art, the patch, the attitude — so Easyriders is the origin story they find when they go looking for where it came from.</div>
+    </section>
+
+    <section id="s3">
+      <div class="secHead"><span class="secNum disp">03</span><h2 class="secTitle">Content That Earns Attention</h2></div>
+      <p class="lede">The channel already ran the experiment. The data says personalities and stakes beat production value — every recommendation here extends what's already winning, rather than guessing at Gen Z theory from scratch.</p>
+
+      <h3>What already stopped the scroll</h3>
+      <p><strong>"Easyriders Is Changing: And Not Everyone Likes It"</strong> — unscripted, Keith talking straight to camera about real internal conflict — produced the channel's <strong>highest subscriber conversion</strong> of anything published to date. <strong>"I Bought Easyriders… We Found the Captain America Bike!"</strong> — legacy IP wrapped in a personal discovery story — produced the <strong>highest raw views</strong> (14K). The long-form Vault archival series gets fewer views but the strongest watch time, meaning it's doing a different job: deepening an already-hooked viewer, not acquiring a new one.</p>
+
+      <h3>Content ranked by stop-scroll power</h3>
+      <ol>
+        <li><strong>Personalities in conflict or transformation</strong> — a builder, an owner, Bandit himself, taking a real position. Proven top performer.</li>
+        <li><strong>Origin-story / mystery framing of a legendary object</strong> — a bike, a piece of art, a name, revealed like a discovery, not a spec sheet.</li>
+        <li><strong>Build documentation as character study</strong> — the build is the backdrop; the builder's decisions and stakes are the story.</li>
+        <li><strong>History reframed as "how today's look got invented"</strong> — the direct line from Dave Mann's art and 1970s outlaw runs to 2026 patch culture and chopper-core.</li>
+        <li><strong>Events as proof of culture</strong> — not b-roll, but evidence that a real community exists and shows up.</li>
+        <li><strong>Technical instruction</strong> — lowest priority. Oversaturated by OEM and enthusiast-retail channels, and it's not what wins on Easyriders' own numbers.</li>
+      </ol>
+      <p>Lifestyle content works as connective tissue and thumbnail material — it rarely wins standing on its own.</p>
+
+      <h3>The archive is repackagable, and almost nobody else has one</h3>
+      <p>Fifty-five years of Dave Mann art, Sonny Barger-era mythology, and outlaw-run photography is raw material for a serialized "how this became mainstream" documentary thread — a direct line from 1970s Easyriders pages to the chopper-core and vintage-flash-tattoo aesthetic already trending in custom culture today. This is a genuine moat: the content format can be copied by any new channel in months; the archive cannot.</p>
+
+      <h3>Legendary figures with real cross-generational pull</h3>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Name / IP</th><th>Why it crosses generations</th></tr></thead>
+          <tbody>
+            <tr><td>Sonny Barger</td><td>Proven engagement already ("The Man They Couldn't Cage"). Pure mythology — the thing no competitor can license or fake.</td></tr>
+            <tr><td>Dave Mann</td><td>The visual/art angle is largely untapped for Instagram and Pinterest crossover — his work already looks like what's trending.</td></tr>
+            <tr><td>Indian Larry</td><td>Already a YouTube-native legend cited across builder culture — a natural bridge name between old and new audiences.</td></tr>
+            <tr><td>Modern builder circuit</td><td>Roland Sands, Max Hazan, Alan Stulberg / Revival Cycles, and the Handbuilt Show roster — the names Millennial and Gen Z custom fans already follow.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Modern builders, women riders, and diverse communities</h3>
+      <p>This isn't a diversity checkbox — it's chasing the fastest-growing segment in the sport. Women are 19% of all U.S. owners and <strong>26% of Millennial owners</strong>, a meaningfully higher share than the overall average. Groups like The Litas (300+ chapters, open to women, trans women, and non-binary riders) and builders like Krystal Hess are already proving demand for this content. The recommendation is integration, not a separate vertical: feature builders and riders by merit in the same feed as Barger and Dave Mann, the way the channel already does — credibility comes from normalization, not a segregated bucket.</p>
+
+      <h3>The historical / current balance</h3>
+      <div class="plates">
+        <div class="plate"><div class="val">40%</div><div class="lbl">Archive reframed as story</div></div>
+        <div class="plate"><div class="val">40%</div><div class="lbl">Current builders &amp; personalities</div></div>
+        <div class="plate"><div class="val">20%</div><div class="lbl">Events &amp; lifestyle connective content</div></div>
+      </div>
+      <p>Revisit this mix quarterly against real performance data, the same way the May 2026 baseline is already being tracked.</p>
+
+      <h3>What's worth paying for when content is free</h3>
+      <p>Not the content — the channel's own numbers show 90.7% of traffic already arrives free, through YouTube's own algorithm. What's payable is <strong>access</strong>: physical and collectible objects tied to a 55-year archive nothing else has (Dave Mann prints, vault issues), real proximity to builders and events, and a membership identity — the same logic that turned Hagerty's magazine into one benefit among many inside an 800,000-member Drivers Club, rather than the product itself. See the <a href="/easyriders-hagerty-model.html">companion Hagerty Model brief</a> for the full mechanics — and where Easyriders should deliberately not follow Hagerty's lead.</p>
+
+      <h3>One feature, six outputs</h3>
+      <p>Easyriders is already doing an early version of this manually — Dave Nichols' Monday YouTube-to-email pipeline, and the newly greenlit QR-code-in-print-to-video loop. The recommendation is to formalize it: every commissioned print feature gets scoped at commission time for video, Shorts, social cutdowns, email, merch, and event tie-in — not retrofitted after the fact.</p>
+    </section>
+
+    <section id="s4">
+      <div class="secHead"><span class="secNum disp">04</span><h2 class="secTitle">Media Behavior &amp; Platforms</h2></div>
+      <p class="lede">Where they are, what length they'll watch, and what actually moves someone from viewer to email to buyer.</p>
+
+      <h3>Platform reality</h3>
+      <p>YouTube has the broadest daily engagement across all four generations — which validates the current channel investment directly. For Gen Z specifically, Instagram (58% daily) and TikTok (56% daily) run close behind, and TikTok has become a primary discovery and news source for that generation, ahead of traditional news apps. The right shape: <strong>TikTok and Reels for discovery</strong> ("did you know" archive-history cuts), <strong>YouTube for depth</strong> once someone's already curious.</p>
+
+      <h3>Long-form vs. short-form</h3>
+      <p>Gen Z defaults to short-form — north of 90% watch it daily, averaging two-plus hours. But that doesn't mean they reject long-form: Easyriders' own Vault series proves strong watch time once someone's already inside the funnel. The pattern to design around: <strong>short-form acquires, long-form retains.</strong></p>
+
+      <h3>Viewer → email → buyer</h3>
+      <p>Generic "sign up for our newsletter" won't convert this audience. "Unlock the next part of this story" will — which is exactly the mechanism behind the QR-code test already greenlit with Keith. The subscriber-to-buyer jump isn't won with a discount; it's won with <strong>identity and belonging</strong>. People join the Hagerty Drivers Club to belong to the world's largest paid car club, not to save money on a magazine.</p>
+
+      <h3>People, not mastheads</h3>
+      <p>Gen Z trusts creators and peers over brands — which the channel has already proven on its own: the single best-performing video is Keith, unscripted, speaking directly to camera. Bandit, Dave Nichols, and featured builders need to be the visible faces of every platform, not the Easyriders logo alone.</p>
+
+      <h3>Cadence</h3>
+      <p>Weekly long-form (the current Monday cadence with Dave Nichols) is right for YouTube. Short-form needs to run far more often — daily or near-daily — since it's nearly free to produce from existing footage and short-form platforms reward frequency directly.</p>
+
+      <h3>What drives saves, shares, and comments — not just views</h3>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Behavior</th><th>What triggers it</th></tr></thead>
+          <tbody>
+            <tr><td>Shares</td><td>Identity-affirming content — a legendary bike reveal, art, mythology someone shares because it says who they are.</td></tr>
+            <tr><td>Comments</td><td>Controversy and strong opinion, proven directly by "Easyriders Is Changing."</td></tr>
+            <tr><td>Saves</td><td>Craftsmanship and reveal moments — the payoff shot in a build story.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="s5">
+      <div class="secHead"><span class="secNum disp">05</span><h2 class="secTitle">Community &amp; Events</h2></div>
+      <p class="lede">Younger riders are showing up to events — just not the events the industry built for their parents.</p>
+      <p>The rally/attendance model is aging with its audience. What's actually growing is the <strong>maker-and-show scene</strong> — Handbuilt Show (Austin and Long Beach) and Wheels &amp; Waves are drawing real Millennial and Gen Z interest, amplified directly by Instagram and TikTok exposure of the builds themselves. The pull is proximity to the maker and the object, and something worth filming — a builder demonstration delivers both; a concert or a party delivers neither as reliably.</p>
+
+      <h3>Where community should actually live</h3>
+      <p>Digital-first, physical as the upsell. A lower-friction digital community (Discord-style — already gaining ground with younger audiences as community-driven space) should be the entry point; a physical Easyriders chapter is a deepening layer for the already-converted, not the front door.</p>
+
+      <h3>What makes them bring a friend</h3>
+      <p>Something filmable and postable, and access that confers status — backstage or builder proximity, not spectator seating.</p>
+
+      <div class="verdict"><b>Verdict</b>This is Easyriders' most defensible membership lever. Exclusive access to real builders, bikes, the archive, and Bandit himself is a real-world experience no individual creator or media brand can reproduce — 55 years of relationships aren't a content format, they're an asset.</div>
+    </section>
+
+    <section id="s6">
+      <div class="secHead"><span class="secNum disp">06</span><h2 class="secTitle">Brand Presentation</h2></div>
+      <p class="lede">The audience is already watching this transition happen in real time — the channel's own video titles ("Not Everyone Likes It") prove it. That attention shouldn't be wasted.</p>
+
+      <h3>Keep vs. modernize</h3>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Untouchable</th><th>Modernize</th></tr></thead>
+          <tbody>
+            <tr><td>The Easyriders wordmark and logo</td><td>Photography — higher production value, vertical-first shooting for social</td></tr>
+            <tr><td>Dave Mann-lineage art as visual signature</td><td>Pacing and editing — faster cuts, cold-open with action before history begins</td></tr>
+            <tr><td>The outlaw / rebellion tone of voice</td><td>Digital layout — mobile-first templates for web and social</td></tr>
+            <tr><td>Sonny Barger-era mythology</td><td>Distribution mechanics — QR-linked print-to-video, cross-posting cadence</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Authentic language, not "trying too hard"</h3>
+      <p>Let the real personalities speak in their own voice on camera instead of writing "youth" copy. Gen Z's radar for a legacy brand performing youth is highly tuned and punishes it fast — avoid slang, trend-chasing captions, and forced meme formats. The proof this works is already on the channel: the top performer is unscripted.</p>
+
+      <h3>New contributors without sanitizing the brand</h3>
+      <p>"Did Easyriders Find Its New Dave Mann?" is exactly the right instinct — introduce new talent as the next chapter of an existing lineage, not a replacement for it.</p>
+
+      <blockquote>"We didn't cover this culture — we built it. Everyone else is discovering outlaw motorcycle culture. We're the ones who were there."<cite>Working draft of the brand promise this strategy is built to support</cite></blockquote>
+    </section>
+
+    <section id="s7">
+      <div class="secHead"><span class="secNum disp">07</span><h2 class="secTitle">Competitive Advantage</h2></div>
+      <p class="lede">Individual creators own the attention right now. They don't own what Easyriders owns.</p>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th></th><th>Individual creators / motovloggers</th><th>Easyriders</th></tr></thead>
+          <tbody>
+            <tr><td>Speed &amp; relatability</td><td>Strong — algorithmic fluency, parasocial connection</td><td>Catching up, not the natural strength</td></tr>
+            <tr><td>Institutional credibility</td><td>None — most are two years old or less</td><td>55 years of "we were there"</td></tr>
+            <tr><td>Rights &amp; relationships</td><td>None — can't license Dave Mann's estate or Barger's world</td><td>Owns or has direct access to both</td></tr>
+            <tr><td>Cross-format infrastructure</td><td>Rarely more than one channel</td><td>Print + video + event + merch already operating</td></tr>
+            <tr><td>Builder network</td><td>Whoever they can personally reach</td><td>Live relationships already in motion — Roy's Toys Customs, Michael Lichter, Edge, the Jesse James orbit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Is the archive an active commercial asset today?</h3>
+      <p>Only partially. It's used reactively for content — the Vault series, "Back in the Day" — but it isn't yet productized: no searchable archive product, no systematic licensed-merch pipeline, no standing monetization plan. This is the single most underexploited asset in the business.</p>
+
+      <h3>Could a competitor duplicate this?</h3>
+      <p>The content format, yes — within months. The archive, the relationships, and 55 years of accumulated trust, no. The moat is the asset base, not the production style, which is exactly why competing purely on content polish would be fighting on the wrong ground.</p>
+
+      <div class="verdict"><b>Verdict</b>Stop competing as a magazine. Compete as a cultural membership organization with a media arm — print, video, events, and merch are channels; belonging to the culture Easyriders originated is the product.</div>
+    </section>
+
+    <section id="s8">
+      <div class="secHead"><span class="secNum disp">08</span><h2 class="secTitle">The Economics</h2></div>
+      <p class="lede">Some of this can be answered today from the channel's own data. The rest shouldn't be guessed at — it should be instrumented.</p>
+
+      <h3>What we already know</h3>
+      <p>Blended acquisition cost for a <em>viewer</em> is already close to zero — 90.7% of May 2026 traffic came from YouTube's own Home Feed algorithm, with only 0.5% from any paid or external push. The channel is not the bottleneck. The bottleneck is everything downstream of the view: there is currently no systematic viewer-to-email mechanism, and the newsletter list itself is still built manually.</p>
+
+      <h3>What shouldn't be answered with invented numbers</h3>
+      <p>Viewer-to-email conversion, email-to-buyer conversion, first purchase value, and annual customer value all require a real baseline that doesn't exist yet for Easyriders specifically. The QR-code-to-video loop already greenlit with Keith is the first instrumented test — treat it as the source of the first real numbers, not a placeholder for numbers assumed in advance.</p>
+
+      <h3>Likely margin ranking (directional, to be tested)</h3>
+      <ol>
+        <li><strong>Sponsorships</strong> — monetizes attention already owned, no incremental production cost.</li>
+        <li><strong>Membership / events</strong> — the Hagerty pattern; recurring, identity-driven.</li>
+        <li><strong>Merchandise</strong> — Dave Mann prints and apparel tied to owned IP.</li>
+        <li><strong>Digital archive access</strong> — a new product, not yet built.</li>
+        <li><strong>Subscription</strong> — legacy strength, but the weakest unit economics of any legacy print business today.</li>
+        <li><strong>Single issue</strong> — lowest margin, mainly a discovery product now.</li>
+      </ol>
+
+      <h3>Multiple revenue surfaces per feature</h3>
+      <p>The "one feature, six outputs" model from Section 03 isn't just a content strategy — each output (video placement, merch tie-in, event appearance, sponsor mention) is a separate revenue surface generated from a single production cost already being paid for.</p>
+
+      <div class="verdict"><b>Verdict</b>Don't commit to a "profitable at X customers by Y date" number yet. Frame it to stakeholders honestly: instrumentation starts now, first real unit economics land after one full quarter of QR-code and email-funnel data — targeted for Q4 2026.</div>
+    </section>
+
+    <section id="s9">
+      <div class="secHead"><span class="secNum disp">09</span><h2 class="secTitle">Protecting the Core</h2></div>
+      <p class="lede">The existing audience isn't an obstacle to this strategy — done right, they're the ambassadors who make it credible.</p>
+
+      <h3>Why they stay</h3>
+      <p>Proximity to the real mythology and the feeling of being early and original — something no shinier, younger competitor can replicate by definition.</p>
+
+      <h3>What would read as abandonment</h3>
+      <ul>
+        <li>Replacing legacy voices (Dave Nichols, Keith himself) instead of adding new ones alongside them</li>
+        <li>Changing the visual identity or tone rather than just the presentation layer</li>
+        <li>Chasing slang or trend formats instead of letting real personalities speak</li>
+        <li>Deprioritizing print in favor of digital</li>
+      </ul>
+
+      <h3>One brand, two audiences</h3>
+      <p>Hagerty already proved the model: traditional collectors and younger enthusiasts under one club and one media umbrella, with differentiated series and offers rather than a second brand. Easyriders' legacy-facing content (deep Vault, print-forward) should continue untouched while new series run alongside it — addition, not replacement.</p>
+
+      <h3>Legacy subscribers as ambassadors</h3>
+      <p>An underused lever. The existing base holds relationships and stories current production doesn't have on rotation — the Deadwood show alone proves those community ties are still live. Recruit longtime readers as on-camera contributors and hosts for archive content, not just as subscribers.</p>
+
+      <div class="verdict"><b>Verdict</b>Modernization expands the audience only if it's executed as addition. It divides the audience the moment Easyriders removes or replaces anything flagged untouchable in Section 6. Treat "Not Everyone Likes It" as an early warning signal worth monitoring, not a headline to be proud of on its own.</div>
+    </section>
+
+    <section id="s10">
+      <div class="secHead"><span class="secNum disp">10</span><h2 class="secTitle">The Giveaway Decision</h2></div>
+      <p class="lede">Two questions had to be settled before any entry copy could be written: who is this prize legally allowed to reach, and which prize format actually gets promoted. Both are resolved below.</p>
+
+      <h3>The rule that does the targeting for you</h3>
+      <p>Entry is limited to active Easyriders subscribers — there is no free or alternative entry path. That single rule does more targeting work than any creative decision could: it doesn't exclude any generation by name, but it has the effect of ruling one out entirely.</p>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Generation</th><th>Will they pay to enter?</th><th>Role in this campaign</th></tr></thead>
+          <tbody>
+            <tr><td>Gen X</td><td>Yes — best target</td><td>Primary. Highest income, most mythology-literate, least allergic to a straightforward subscribe-to-enter ask.</td></tr>
+            <tr><td>Millennials</td><td>Yes — second-best</td><td>Secondary. Real income and built-in affinity for custom-build and experience culture.</td></tr>
+            <tr><td>Boomers</td><td>Mostly already in</td><td>Retention, not growth — largely auto-entered as existing subscribers.</td></tr>
+            <tr><td>Gen Z</td><td>No</td><td>Excluded by effect, not by rule. Lowest willingness to pay for a subscription for a chance to win — not worth marketing spend here.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ride vs. custom bike — the decision matrix</h3>
+      <p>The real choice on the table was a motorcycle ride for four or five winners versus a single one-of-one custom build. Scored against the two things that actually matter — which drives more subscriptions, and which is easier to get in front of prospects at all:</p>
+
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Demographic</th><th>Best for subscriptions</th><th>Why</th><th>Easier to promote</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Gen X</td><td>Ride</td><td>Multiple winners read as believable odds to a generation skeptical of sweepstakes, and it taps the rally/brotherhood culture they grew up in over pure object ownership.</td><td>Ride</td><td>One clean pitch through channels already working for this group — email, Facebook, print QR, direct mail. No sustained content pipeline required.</td></tr>
+            <tr><td>Millennials</td><td>Ride</td><td>Better odds convert this value-conscious generation too, and a group experience is inherently shareable — built for Instagram/Reels and "tag a friend."</td><td>Ride</td><td>Same single-asset simplicity. A bike build could engage this generation via serialized content, but only after years of sustained production investment.</td></tr>
+            <tr><td>Boomers</td><td>Roughly even</td><td>Mostly already subscribed regardless of prize — neither format adds meaningful new dollars.</td><td>Ride</td><td>Simpler to explain in a renewal notice than a multi-year build story.</td></tr>
+            <tr><td>Gen Z</td><td>N/A</td><td>Excluded from targeting either way.</td><td>N/A</td><td>Not a factor in this decision.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verdict"><b>Verdict</b>The ride wins on both axes, and it isn't close. A custom bike carries real emotional weight, but it's a multi-year content commitment — roughly two years of build-progress footage and builder profiles before the promotion pays off, with real risk of interest cooling over that runway. A ride can be explained in one sentence, promoted through every channel already in use, and produces its own content the moment it happens. Recommendation: run the ride as the subscription-driving giveaway. If a custom build still gets made, position it separately as a flagship legacy project — not the vehicle for moving the subscription needle.</div>
+
+      <h3>Entry copy</h3>
+      <p>Same rule for everyone — must be an active subscriber to be entered — with different framing per target segment.</p>
+      <blockquote>Subscribe. You're in. That's it.<br>Every active Easyriders subscriber is automatically entered to win one of five spots on an exclusive Easyriders ride. No sharing, no follow requirement — just the magazine you already read, and a real seat on the road.<cite>Gen X pitch — direct, transactional, no gimmicks</cite></blockquote>
+      <blockquote>One subscription. One legendary ride. Five seats up for grabs.<br>Subscribing gets you in the running — and gets you every issue, every Vault story, every ride we cover before anyone else sees it.<cite>Millennial pitch — story-driven, built for sharing</cite></blockquote>
+
+      <h3>Channel plan</h3>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>Channel</th><th>Primary audience</th><th>Cadence</th><th>CTA</th></tr></thead>
+          <tbody>
+            <tr><td>Print QR code</td><td>Gen X</td><td>Runs in the issue(s) covering the campaign window</td><td>"Scan to see the ride. Subscribe to enter."</td></tr>
+            <tr><td>YouTube long-form</td><td>Gen X, then Millennials</td><td>Existing Monday cadence</td><td>Pinned comment + on-screen subscribe link</td></tr>
+            <tr><td>YouTube Shorts</td><td>Millennials</td><td>2–3x/week during campaign</td><td>"Link in description to enter"</td></tr>
+            <tr><td>Email (Dave Nichols' list)</td><td>Gen X</td><td>Folded into existing Tuesday newsletter</td><td>Subscribe/renew button</td></tr>
+            <tr><td>Facebook</td><td>Gen X</td><td>1–2x/week</td><td>"Subscribe to be entered"</td></tr>
+            <tr><td>Instagram</td><td>Millennials</td><td>3x/week during campaign</td><td>"Subscribe (link in bio) — tag a friend"</td></tr>
+            <tr><td>Direct mail / renewal notice</td><td>Gen X, lapsed subscribers</td><td>One-time send at campaign launch</td><td>Renewal form + giveaway mention</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Deliberately excluded:</strong> TikTok. No legal path exists to convert that audience into entries since subscription is required, so spend there would be awareness with no conversion path.</p>
+    </section>
+
+    <section id="roadmap">
+      <div class="secHead"><span class="secNum disp">→</span><h2 class="secTitle">Where This Already Meets Reality</h2></div>
+      <p class="lede">The strategy isn't hypothetical — three moves already in motion with Keith map directly onto it.</p>
+      <div class="roadmapGrid">
+        <div class="roadmapItem">
+          <div class="step">01</div>
+          <div><h4>QR code, print to video</h4><p>Already greenlit. This is the first real instrument for viewer-to-email conversion (Section 8) and the first test of "unlock the next part of the story" as an email trigger (Section 4).</p></div>
+        </div>
+        <div class="roadmapItem">
+          <div class="step">02</div>
+          <div><h4>Subscriber ride giveaway</h4><p>Resolved in Section 10: a multi-winner ride, not the single custom bike, is the recommended subscription-driving prize — faster to launch, better perceived odds, no multi-year content runway required. The Roy's Toys/Edge custom build can still proceed as a separate flagship legacy project.</p></div>
+        </div>
+        <div class="roadmapItem">
+          <div class="step">03</div>
+          <div><h4>iMemories archive digitization</h4><p>The literal first step toward productizing the archive flagged in Section 7 as the most underexploited asset in the business.</p></div>
+        </div>
+      </div>
+      <p>Next: formalize the "one feature, six outputs" production template (Section 3), and use the QR-code test's first full month of data to build the actual funnel numbers Section 8 deliberately left unguessed.</p>
+
+      <div class="companionCard">
+        <div class="txt"><strong>Companion Brief</strong>The Hagerty Model — what they built, the conflict-of-interest critique against them, and why Easyriders should take the membership insight without the vertical-integration risk.</div>
+        <a class="go" href="/easyriders-hagerty-model.html">Open the Brief ↗</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer id="sources">
+  <div class="footerInner">
+    <div class="tocLabel" style="margin-bottom:0.8rem;">Sources</div>
+    <ul class="sources">
+      <li><a href="https://www.riders-share.com/blog/article/motorcycle-rider-demographics-market-shift-2026">Riders Share — Motorcycle Rider Demographics &amp; Market Shift Analysis 2026</a></li>
+      <li><a href="https://www.cycletrader.com/blog/2025/04/23/how-generation-z-is-changing-motorcycle-riding/">Cycle Trader — How Generation Z Is Changing Motorcycle Riding</a></li>
+      <li><a href="https://www.cycletrader.com/blog/2025/08/05/the-new-wave-of-riders-breaking-down-the-growing-demographics-in-motorcycling/">Cycle Trader — The New Wave of Riders</a></li>
+      <li><a href="https://www.revzilla.com/common-tread/what-motorcycles-will-generation-z-buy">RevZilla — What Motorcycles Will Generation Z Buy?</a></li>
+      <li><a href="https://carinterior.alibaba.com/buyingguides/gen-z-motorcycle-buying-trends">CarInterior — Is Gen Z Buying Motorcycles? A 2025 Guide</a></li>
+      <li><a href="https://www.csm-research.com/the-aging-rider-crisis-how-demographic-shifts-are-reshaping-motorcycle-market-strategies/">CSM Research — The Aging Rider Crisis</a></li>
+      <li><a href="https://www.riders-share.com/blog/article/are-motorcycle-sales-declining">Riders Share — Are Motorcycle Sales Declining?</a></li>
+      <li><a href="https://2wheelshero.com/blogs/2wheels-hero-shop-news/the-rise-of-custom-motorcycles-new-trends">2Wheels Hero — The Rise of Custom Motorcycles: New Trends for 2025</a></li>
+      <li><a href="https://www.bikebound.com/2025/04/05/hbs-2025-racers/">BikeBound — Handbuilt Show 2025</a></li>
+      <li><a href="https://americanrider.com/rallies-bike-shows/2025-handbuilt-show-returns-to-austin-texas-march-28-30/2025/02/26">American Rider — 2025 Handbuilt Show Returns to Austin</a></li>
+      <li><a href="https://www.motorcyclecruiser.com/news/honda-custom-motorcycle-winners-from-wheels-and-waves/">Motorcycle Cruiser — Honda Custom Show Winners from Wheels and Waves 2025</a></li>
+      <li><a href="https://www.riders-share.com/blog/article/womens-motorcycle-clubs-and-collectives">Riders Share — Badass Women's Motorcycle Clubs &amp; Collectives</a></li>
+      <li><a href="https://motorcyclemissions.org/blogs/blog/trailblazers-and-titans-celebrating-women-s-impact-on-motorcycle-racing-and-culture">Motorcycle Missions — Trailblazers and Titans</a></li>
+      <li><a href="https://www.ctam.com/industry-resources/media-behaviors-and-industry-trends/the-state-of-gen-z/">CTAM — The State of Gen Z</a></li>
+      <li><a href="https://www.meltwater.com/en/blog/content-consumption-gen-z">Meltwater — How Gen Z Consumes Content</a></li>
+      <li><a href="https://www.askattest.com/blog/research/gen-z-media-consumption">Ask Attest — Gen Z Media Consumption 2026</a></li>
+      <li><a href="https://portersfiveforce.com/blogs/marketing-strategy/hagerty">Porter's Five Force — Hagerty Sales &amp; Marketing Strategy</a></li>
+      <li><a href="https://www.hagerty.com/media/magazine/">Hagerty Media — Hagerty Drivers Club Magazine</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.tocLink'));
+  var map = {};
+  links.forEach(function(l){
+    var href = l.getAttribute('href');
+    if(!href || href.charAt(0) !== '#') return;
+    var id = href.slice(1);
+    var el = document.getElementById(id);
+    if(el) map[id] = l;
+  });
+  if(!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var link = map[entry.target.id];
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(function(l){ if(l.classList.contains('tocLink') && !l.classList.contains('external')) l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-15% 0px -70% 0px'});
+  Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
+})();
+</script>
