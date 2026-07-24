@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Found — Roofing Vertical Build Brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #CC2929; --navy: #1A2B4A; --cream: #F8F2CC; --white: #fff;
+      --border: #cfc5b5; --muted: #6b7a99;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; font-size: 18px; }
+
+    nav {
+      background: var(--white); border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-sub {
+      font-size: .78rem; font-weight: 500; color: var(--muted); letter-spacing: .08em;
+      text-transform: uppercase; margin-left: .6rem; border-left: 1px solid #ccc; padding-left: .6rem;
+    }
+    nav .nav-home { margin-left: auto; font-size: .85rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    nav .nav-home:hover { color: var(--red); }
+
+    .hero { background: var(--navy); padding: 4rem 2rem 3.25rem; text-align: center; }
+    .hero-label {
+      display: inline-block; background: var(--red); color: #fff; font-family: 'Oswald', sans-serif;
+      font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 20px; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; color: #fff;
+      line-height: 1.15; margin-bottom: .9rem; max-width: 760px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero > p { color: rgba(255,255,255,.85); font-size: 1.15rem; max-width: 660px; margin: 0 auto; line-height: 1.65; }
+
+    main { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+    .masthead {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      text-align: center; padding: .65rem 1rem; font-size: .85rem; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .masthead strong { color: var(--navy); font-weight: 600; }
+
+    .stat-band {
+      background: var(--navy); border-radius: 12px; padding: 1.3rem 2rem; margin: 2rem auto 1.5rem; max-width: 980px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem;
+    }
+    .stat { text-align: center; }
+    .stat-value { font-family: 'Oswald', sans-serif; font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1.1; }
+    .stat-label { font-size: .8rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: .35rem; }
+
+    .thesis { background: var(--navy); border-radius: 12px; padding: 2rem 2.25rem; margin-bottom: 3rem; }
+    .thesis h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff;
+      letter-spacing: .04em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .thesis p { color: rgba(255,255,255,.85); font-size: 1.08rem; line-height: 1.7; margin-bottom: .85rem; }
+    .thesis p:last-child { margin-bottom: 0; }
+    .thesis strong { color: #fff; }
+
+    .toc {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem 2.25rem; margin-bottom: 3rem;
+    }
+    .toc h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--navy);
+      letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem;
+      padding-bottom: .5rem; border-bottom: 3px solid var(--red); display: inline-block;
+    }
+    .toc ol { list-style: none; columns: 2; column-gap: 2.5rem; }
+    .toc li { margin-bottom: .6rem; break-inside: avoid; }
+    .toc a { text-decoration: none; color: #2E3A52; font-size: 1.05rem; display: flex; gap: .6rem; align-items: baseline; }
+    .toc a:hover { color: var(--red); }
+    .toc .n { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--red); font-size: .95rem; min-width: 1.6rem; }
+    @media (max-width: 600px) { .toc ol { columns: 1; } }
+
+    .cat {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      border-top: 4px solid var(--navy); padding: 2rem 2.25rem; margin-bottom: 2rem;
+    }
+    .cat.pending { border-top-color: var(--muted); }
+    .cat-num {
+      font-family: 'Oswald', sans-serif; font-size: .9rem; font-weight: 700; color: var(--red);
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: .35rem;
+    }
+    .cat h2 {
+      font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--navy);
+      letter-spacing: .02em; margin-bottom: 1rem;
+    }
+    .status-chip {
+      display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: .2rem .7rem; border-radius: 10px; margin-left: .6rem; vertical-align: middle;
+    }
+    .status-live { background: #2A6B45; color: #fff; }
+    .status-pending { background: #E8E2D2; color: #6E7686; }
+    .cat p.lead { font-size: 1.08rem; color: #3E4653; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cat ul { margin: 0 0 1.25rem 1.2rem; }
+    .cat li { font-size: 1.02rem; color: #3E4653; line-height: 1.7; margin-bottom: .5rem; }
+    .cat li strong { color: var(--navy); }
+
+    .dive-btn {
+      display: inline-block; background: var(--red); color: #fff; font-family: 'Inter', sans-serif;
+      font-size: 1.05rem; font-weight: 600; padding: .9rem 2.1rem; border-radius: 6px;
+      text-decoration: none; letter-spacing: .02em; transition: opacity .15s, transform .15s;
+    }
+    .dive-btn:hover { opacity: .88; transform: translateY(-1px); }
+    .dive-btn.disabled { background: var(--muted); pointer-events: none; opacity: .6; }
+
+    footer {
+      background: var(--navy); border-top: 3px solid var(--red);
+      padding: 1.75rem 2rem; text-align: center;
+    }
+    footer p { font-size: .85rem; color: rgba(255,255,255,.6); }
+    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .cat { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Get Found — Build Brief</span>
+  <a class="nav-home" href="/">← Horsepower Hub</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Working Brief · v3</div>
+  <h1>Get Found — <span>Roofing Vertical</span> Build</h1>
+  <p>A focused, repeatable sales engine reselling LaunchReady's Get Found — AI-search visibility — into Indianapolis-area roofing companies. One audience, one offer, one funnel, proven once before it expands.</p>
+</div>
+
+<div class="masthead">Prepared by <strong>Horsepower AI</strong> &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; Owner <strong>Jeff Najar</strong></div>
+
+<main>
+
+  <div class="stat-band">
+    <div class="stat"><div class="stat-value">Roofing</div><div class="stat-label">Vertical #1 of 3</div></div>
+    <div class="stat"><div class="stat-value">$3,500<span style="font-size:1rem;">/mo</span></div><div class="stat-label">Target Retainer</div></div>
+    <div class="stat"><div class="stat-value">7 hrs</div><div class="stat-label">Weekly Outreach Capacity</div></div>
+    <div class="stat"><div class="stat-value">Indy → IN → NC</div><div class="stat-label">Geographic Sequence</div></div>
+  </div>
+
+  <div class="thesis">
+    <h2>The Thesis</h2>
+    <p>Horsepower AI is building a focused, repeatable sales engine to resell LaunchReady's Get Found — a managed AI-search visibility service — into Indianapolis-area service businesses, starting with roofing companies. The site at horsepowerai.ai has one job: convert a skeptical, pitch-fatigued local business owner into a booked call, using Jeff's own AI-visibility proof as the credibility hook rather than generic claims.</p>
+    <p>The model is sequential by design. <strong>One vertical is proven first</strong> — real prospects, a real case study, a real founding client — before expanding to cosmetic dentistry and personal injury law. Geography follows the same logic: Indianapolis and its suburbs first, then Indiana's larger cities, then the rest of the state, then North Carolina.</p>
+    <p>Three terms anchor the positioning: <strong>Answer Engine Optimization (AEO)</strong> as the technical category, <strong>AI Search Visibility</strong> as the plain-English customer-facing version, and <strong>Get Found</strong> as the branded product itself — each paired with "Indianapolis" to keep the claim winnable rather than competing nationally.</p>
+    <p>The engine has four moving parts: a lead-capture site that owns attribution instead of redirecting traffic straight to LaunchReady, AEO-optimized content that answers real buyer questions, a newsletter that nurtures prospects who aren't ready yet, and a prospect tracker that turns outreach into a visible, working pipeline. This is a deliberately narrow bet: prove the model works once, with real revenue and a real client story, before scaling it wider.</p>
+  </div>
+
+  <div class="toc" id="toc">
+    <h2>In This Brief</h2>
+    <ol>
+      <li><a href="website-build-spec.html"><span class="n">01</span> Website Build Spec</a></li>
+      <li><a href="business-offer.html"><span class="n">02</span> Business &amp; Offer</a></li>
+      <li><a href="marketing-sales.html"><span class="n">03</span> Marketing &amp; Sales Playbook</a></li>
+      <li><a href="operations-measurement.html"><span class="n">04</span> Operations &amp; Measurement</a></li>
+      <li><a href="results.html"><span class="n">05</span> Results Dashboard</a></li>
+    </ol>
+  </div>
+
+  <!-- 01 WEBSITE BUILD SPEC -->
+  <div class="cat" id="website-build-spec">
+    <div class="cat-num">Section 01</div>
+    <h2>Website Build Spec <span class="status-chip status-live">Live — v3</span></h2>
+    <p class="lead">The horsepowerai.ai site, spec'd end to end: design system, funnel architecture, and the "Gemini Visibility Check" — a real, live AI-lookup assessment that scores a roofing company's actual answer-engine presence, not a self-reported guess.</p>
+    <ul>
+      <li><strong>Core mechanic:</strong> visitor enters business name and service area, a real Gemini API query set runs live, and the result is a genuine measured score — not an estimate dressed up as one.</li>
+      <li><strong>Attribution-safe by design:</strong> every lead is captured on Horsepower's own infrastructure before any handoff to LaunchReady — no CTA ever redirects raw traffic off-domain.</li>
+      <li><strong>Scoring methodology:</strong> a versioned 5-query set, exact point-by-point formulas, and business-matching rules that prevent false-positive scores from generic business names.</li>
+      <li><strong>Corrected under review:</strong> three rounds of external critique caught real mistakes along the way — a homeowner-vs-buyer SEO targeting error and a fabricated "free" API cost claim — both fixed rather than left in place.</li>
+    </ul>
+    <a class="dive-btn" href="website-build-spec.html">Website Build Spec Deep Dive →</a>
+  </div>
+
+  <!-- 02 BUSINESS & OFFER -->
+  <div class="cat pending" id="business-offer">
+    <div class="cat-num">Section 02</div>
+    <h2>Business &amp; Offer <span class="status-chip status-pending">In Progress</span></h2>
+    <p class="lead">Pricing, the LaunchReady partnership structure, margins, and responsibilities. Blocked on wholesale-cost and accountability terms with Harrison Painter — Jeff is proceeding to sell regardless, with attribution protected on Horsepower's own infrastructure in the meantime.</p>
+    <a class="dive-btn disabled" href="business-offer.html">Coming Soon</a>
+  </div>
+
+  <!-- 03 MARKETING & SALES -->
+  <div class="cat pending" id="marketing-sales">
+    <div class="cat-num">Section 03</div>
+    <h2>Marketing &amp; Sales Playbook <span class="status-chip status-pending">In Progress</span></h2>
+    <p class="lead">Content strategy, prospecting channels, the sales call structure, and objection handling for a skeptical, pitch-fatigued buyer. Not yet built.</p>
+    <a class="dive-btn disabled" href="marketing-sales.html">Coming Soon</a>
+  </div>
+
+  <!-- 04 OPERATIONS & MEASUREMENT -->
+  <div class="cat pending" id="operations-measurement">
+    <div class="cat-num">Section 04</div>
+    <h2>Operations &amp; Measurement <span class="status-chip status-pending">In Progress</span></h2>
+    <p class="lead">The 7 hrs/week outreach capacity, weekly rhythm, and KPI targets — treated as a starting hypothesis to revisit after real weeks of data, not a fixed commitment. Not yet built.</p>
+    <a class="dive-btn disabled" href="operations-measurement.html">Coming Soon</a>
+  </div>
+
+  <!-- 05 RESULTS -->
+  <div class="cat" id="results">
+    <div class="cat-num">Section 05</div>
+    <h2>Results Dashboard <span class="status-chip status-live">Live</span></h2>
+    <p class="lead">A real, honest snapshot of pipeline and revenue — updated by hand for now, never a fabricated number. Currently pre-launch: the prospect tracker is built and empty, waiting on real outreach to begin.</p>
+    <a class="dive-btn" href="results.html">Open Results Dashboard →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Get Found — Roofing Vertical Build Brief &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+</body>
+</html>

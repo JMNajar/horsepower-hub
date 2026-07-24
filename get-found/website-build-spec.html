@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Found — Website Build Spec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #CC2929; --navy: #1A2B4A; --cream: #F8F2CC; --white: #fff;
+      --border: #cfc5b5; --muted: #6b7a99;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; font-size: 18px; }
+    nav {
+      background: var(--white); border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-sub {
+      font-size: .78rem; font-weight: 500; color: var(--muted); letter-spacing: .08em;
+      text-transform: uppercase; margin-left: .6rem; border-left: 1px solid #ccc; padding-left: .6rem;
+    }
+    nav .nav-home { margin-left: auto; font-size: .85rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    nav .nav-home:hover { color: var(--red); }
+    main { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-head { margin-bottom: 1rem; }
+    .page-head h1 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .page-head p { color: #4a5570; font-size: 1.08rem; line-height: 1.6; max-width: 720px; }
+    .doc-link-panel {
+      background: var(--navy); border-radius: 12px; padding: 1.5rem 2rem; margin: 1.75rem 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .doc-link-panel div { color: rgba(255,255,255,.8); font-size: .95rem; line-height: 1.5; max-width: 560px; }
+    .doc-link-panel strong { color: #fff; }
+    .doc-link-btn {
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: .95rem; padding: .8rem 1.6rem;
+      border-radius: 6px; background: var(--red); color: #fff; text-decoration: none; white-space: nowrap;
+    }
+    .doc-link-btn:hover { opacity: .88; }
+    .cat {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      border-top: 4px solid var(--navy); padding: 1.75rem 2.1rem; margin-bottom: 1.5rem;
+    }
+    .cat h2 { font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: .85rem; }
+    .cat ul { margin: 0 0 0 1.2rem; }
+    .cat li { font-size: 1rem; color: #3E4653; line-height: 1.65; margin-bottom: .5rem; }
+    .cat li strong { color: var(--navy); }
+    .revision-note {
+      background: #fff8f8; border: 1px solid #f0d0d0; border-left: 4px solid var(--red);
+      border-radius: 8px; padding: 1.1rem 1.4rem; margin-bottom: 2rem; font-size: .95rem; color: #3E4653; line-height: 1.6;
+    }
+    .revision-note strong { color: var(--navy); }
+    footer { background: var(--navy); border-top: 3px solid var(--red); padding: 1.75rem 2rem; text-align: center; }
+    footer p { font-size: .85rem; color: rgba(255,255,255,.6); }
+    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Get Found — Website Build Spec</span>
+  <a class="nav-home" href="/get-found/">← Get Found Brief</a>
+</nav>
+
+<main>
+  <div class="page-head">
+    <h1>Website Build Spec — v3</h1>
+    <p>The horsepowerai.ai build spec, in brief. The living, fully detailed version — every section, exact scoring formulas, the full backend/API contract — stays in the Google Doc below as the source of truth, so this summary and the working spec never drift out of sync.</p>
+  </div>
+
+  <div class="doc-link-panel">
+    <div><strong>Full technical spec (v3)</strong> — design system, funnel, Get Found Score / Gemini Visibility Check methodology, backend &amp; API specification, data contracts. Updated as decisions get made.</div>
+    <a class="doc-link-btn" href="https://docs.google.com/document/d/1JTfPOr3P1wQ1yyTNKlvANudtD4HjgpoZjIcg4w0JaeM/edit" target="_blank" rel="noopener">Open Full Spec ↗</a>
+  </div>
+
+  <div class="revision-note">
+    <strong>Built under real scrutiny, not rubber-stamped:</strong> this spec went through three rounds of external critique. Two real mistakes got caught and fixed rather than left in place — the SEO content was originally targeted at homeowners instead of the actual buyer (roofing company owners), and an early cost claim said Gemini's API was free when live research showed grounding is billed separately and the free-tier terms changed twice in 2026. Both corrections are documented in the spec itself, not quietly erased.
+  </div>
+
+  <div class="cat">
+    <h2>What's Decided</h2>
+    <ul>
+      <li><strong>One audience, one offer:</strong> Indianapolis-area roofing company owners, converting into booked strategy calls — not a generic multi-industry site.</li>
+      <li><strong>The core mechanic:</strong> a "Gemini Visibility Check" — a real, live AI-lookup assessment, not a self-reported questionnaire dressed up as a measurement. Five versioned search queries, real scoring math, business-matching rules to prevent false-positive results.</li>
+      <li><strong>Attribution-safe funnel:</strong> every lead is captured on Horsepower's own infrastructure — form, backend, Sheet — before any handoff to LaunchReady. No CTA ever redirects raw traffic off-domain.</li>
+      <li><strong>Tech stack:</strong> static HTML/CSS/JS, Vercel hosting (recommended), the existing Apps Script + Sheets lead-router pattern extended with new Gemini API scoring logic.</li>
+      <li><strong>Accessibility &amp; display:</strong> WCAG 2.2 AA as the floor, large-font/high-contrast defaults sitewide, matching Jeff's standing display preference.</li>
+    </ul>
+  </div>
+
+  <div class="cat">
+    <h2>What's Still Open</h2>
+    <ul>
+      <li><strong>Gemini proof-of-concept</strong> — real API cost, grounding availability, and latency need to be measured against an actual key and the real query set before the architecture and budget lock. Not resolvable by more research.</li>
+      <li><strong>Hosting, brand assets, pricing display, and booking-link confirmation</strong> — quick decisions, still pending Jeff's sign-off.</li>
+      <li><strong>Deferred to v4 on purpose:</strong> privacy/consent copy, full analytics event implementation, security/abuse enforcement detail, a functional test plan, and a deployment/rollback plan. Scoped in the spec, not yet written — sequenced this way to avoid rushing them to the same shallow-precision problem already corrected twice.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>Get Found — Website Build Spec &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+</body>
+</html>

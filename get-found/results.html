@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Found — Results Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #CC2929; --navy: #1A2B4A; --cream: #F8F2CC; --white: #fff;
+      --border: #cfc5b5; --muted: #6b7a99; --good: #2A6B45;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; font-size: 18px; }
+    nav {
+      background: var(--white); border-bottom: 3px solid var(--red);
+      padding: .75rem 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    nav img { height: 40px; object-fit: contain; }
+    .nav-sub {
+      font-size: .78rem; font-weight: 500; color: var(--muted); letter-spacing: .08em;
+      text-transform: uppercase; margin-left: .6rem; border-left: 1px solid #ccc; padding-left: .6rem;
+    }
+    nav .nav-home { margin-left: auto; font-size: .85rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    nav .nav-home:hover { color: var(--red); }
+    main { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page-head { margin-bottom: 2rem; }
+    .page-head h1 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .page-head p { color: #4a5570; font-size: 1.08rem; line-height: 1.6; max-width: 700px; }
+    .honesty-note {
+      background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--red);
+      border-radius: 8px; padding: 1.1rem 1.4rem; margin-bottom: 2.5rem; font-size: .98rem;
+      color: #3E4653; line-height: 1.6;
+    }
+    .honesty-note strong { color: var(--navy); }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;
+    }
+    .metric-card {
+      background: var(--navy); border-radius: 12px; padding: 1.5rem 1.5rem;
+    }
+    .metric-label { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: .6rem; }
+    .metric-value { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: .3rem; }
+    .metric-sub { font-size: .82rem; color: rgba(255,255,255,.5); }
+    .section-heading {
+      font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--navy);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 1.25rem; padding-bottom: .5rem;
+      border-bottom: 3px solid var(--red); display: inline-block;
+    }
+    .update-panel {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 2.5rem;
+    }
+    .update-panel p { font-size: .95rem; color: #4a5570; margin-bottom: 1rem; line-height: 1.6; }
+    .update-row { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; margin-bottom: .75rem; }
+    .update-row label { font-size: .85rem; font-weight: 600; min-width: 160px; color: var(--navy); }
+    .update-row input { font-family: 'Inter', sans-serif; font-size: .95rem; padding: .5rem .75rem; border: 1px solid var(--border); border-radius: 6px; width: 160px; }
+    .save-btn {
+      font-family: 'Inter', sans-serif; font-size: .9rem; font-weight: 600; padding: .65rem 1.5rem;
+      border-radius: 6px; border: none; background: var(--red); color: #fff; cursor: pointer; margin-top: .5rem;
+    }
+    .save-btn:hover { opacity: .88; }
+    .last-updated { font-size: .8rem; color: var(--muted); margin-top: .75rem; }
+    footer { background: var(--navy); border-top: 3px solid var(--red); padding: 1.75rem 2rem; text-align: center; }
+    footer p { font-size: .85rem; color: rgba(255,255,255,.6); }
+    footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <img src="../assets/horsepowerai-logo.png" alt="Horsepower AI" onerror="this.style.display='none'">
+  <span class="nav-sub">Get Found — Results Dashboard</span>
+  <a class="nav-home" href="/get-found/">← Get Found Brief</a>
+</nav>
+
+<main>
+  <div class="page-head">
+    <h1>Results Dashboard</h1>
+    <p>A real, honest snapshot of the Get Found roofing pipeline. No fabricated numbers — pre-launch metrics show their true zero state until real outreach and real revenue exist.</p>
+  </div>
+
+  <div class="honesty-note">
+    <strong>Why this starts at zero:</strong> the site isn't live yet and outreach hasn't started, so pipeline and revenue are genuinely zero. This dashboard is a manually-updated snapshot for now, tied to the real <a href="https://docs.google.com/spreadsheets/d/1R39HLQVCWMM76-0W6-DqbyHAT3MmLX6McEu7qkx2oFk/edit" target="_blank" rel="noopener" style="color:var(--red);font-weight:600;">Get Found — Prospect Tracker</a> sheet — never a placeholder dressed up as a live number.
+  </div>
+
+  <div class="section-heading">Pipeline &amp; Revenue</div>
+  <div class="metrics-grid" id="metricsGrid">
+    <div class="metric-card">
+      <div class="metric-label">Prospects in Tracker</div>
+      <div class="metric-value" id="mProspects">0</div>
+      <div class="metric-sub">Real Indianapolis roofers researched</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Outreach Sent</div>
+      <div class="metric-value" id="mOutreach">0</div>
+      <div class="metric-sub">This week</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Strategy Calls Booked</div>
+      <div class="metric-value" id="mCalls">0</div>
+      <div class="metric-sub">All time</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Clients Signed</div>
+      <div class="metric-value" id="mClients">0</div>
+      <div class="metric-sub">At $3,500/mo target</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Monthly Recurring Revenue</div>
+      <div class="metric-value" id="mMRR">$0</div>
+      <div class="metric-sub">From signed clients</div>
+    </div>
+  </div>
+
+  <div class="update-panel">
+    <p><strong>Manual update</strong> — update these by hand until the dashboard is wired directly to the Prospect Tracker sheet. Saved locally in this browser, same pattern as the hub's other manually-tracked numbers.</p>
+    <div class="update-row"><label>Prospects</label><input type="number" id="inProspects" min="0"></div>
+    <div class="update-row"><label>Outreach sent (week)</label><input type="number" id="inOutreach" min="0"></div>
+    <div class="update-row"><label>Calls booked</label><input type="number" id="inCalls" min="0"></div>
+    <div class="update-row"><label>Clients signed</label><input type="number" id="inClients" min="0"></div>
+    <button class="save-btn" onclick="saveMetrics()">Save Snapshot</button>
+    <div class="last-updated" id="lastUpdated"></div>
+  </div>
+</main>
+
+<footer>
+  <p>Get Found — Results Dashboard &nbsp;·&nbsp; Prepared by <a href="/">Horsepower AI</a> &nbsp;·&nbsp; &copy; 2026</p>
+</footer>
+
+<script>
+  (function () {
+    var KEY = 'getFoundResults';
+
+    function render() {
+      var raw = localStorage.getItem(KEY);
+      var data = raw ? JSON.parse(raw) : { prospects: 0, outreach: 0, calls: 0, clients: 0, ts: null };
+
+      document.getElementById('mProspects').textContent = data.prospects;
+      document.getElementById('mOutreach').textContent = data.outreach;
+      document.getElementById('mCalls').textContent = data.calls;
+      document.getElementById('mClients').textContent = data.clients;
+      document.getElementById('mMRR').textContent = '$' + (data.clients * 3500).toLocaleString();
+
+      document.getElementById('inProspects').value = data.prospects;
+      document.getElementById('inOutreach').value = data.outreach;
+      document.getElementById('inCalls').value = data.calls;
+      document.getElementById('inClients').value = data.clients;
+
+      var lu = document.getElementById('lastUpdated');
+      if (data.ts) {
+        var d = new Date(data.ts);
+        lu.textContent = 'Last updated: ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      } else {
+        lu.textContent = 'Not yet updated — showing honest zero state.';
+      }
+    }
+
+    window.saveMetrics = function () {
+      var data = {
+        prospects: parseInt(document.getElementById('inProspects').value) || 0,
+        outreach: parseInt(document.getElementById('inOutreach').value) || 0,
+        calls: parseInt(document.getElementById('inCalls').value) || 0,
+        clients: parseInt(document.getElementById('inClients').value) || 0,
+        ts: Date.now()
+      };
+      localStorage.setItem(KEY, JSON.stringify(data));
+      render();
+    };
+
+    render();
+  })();
+</script>
+
+</body>
+</html>
