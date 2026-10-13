@@ -45,6 +45,11 @@
   .actions h3 { font-size:1rem; margin:14px 0 4px; color:var(--accent); }
   .hyp { display:inline-block; font-size:0.72rem; font-weight:700; color:var(--note); border:1.5px solid var(--note); border-radius:4px; padding:0 6px; margin-left:4px; }
   .srcTag { display:inline-block; vertical-align:middle; font-size:0.7rem; font-weight:600; color:var(--accent); border:1.5px solid var(--accent); border-radius:999px; padding:1px 9px; margin-left:6px; letter-spacing:.02em; }
+  .st { display:inline-block; font-size:0.75rem; font-weight:700; border-radius:4px; padding:1px 7px; border:1.5px solid; white-space:nowrap; }
+  .st.done { color:var(--good); border-color:var(--good); }
+  .st.part { color:var(--note); border-color:var(--note); }
+  .st.todo { color:var(--warn); border-color:var(--warn); }
+  .st.na { color:var(--muted); border-color:var(--muted); }
   .src { font-size:0.8rem; color:var(--muted); margin-top:20px; }
   @media print { html { font-size:13.5px; } body { background:#fff; } main { padding:0; max-width:none; } .card, .callout { -webkit-print-color-adjust:exact; print-color-adjust:exact; } @page { size:Letter; margin:0.5in; } }
 </style>
@@ -53,7 +58,7 @@
 <body>
 <main>
   <h1>Roys Toys Roadwear Dashboard</h1>
-  <p class="sub"><strong>Week 1 final update</strong> &bull; Updated Tuesday, October 13, 2026 &bull; Store numbers: Sep 12 to Oct 13 unless noted &bull; Sources: Shopify, Google Analytics, Meta Ads Manager, OuterSignal</p>
+  <p class="sub"><strong>Week 1 final update</strong> &bull; Updated Tuesday, October 13, 2026 &bull; Store numbers: Sep 12 to Oct 13 unless noted &bull; Sources: Shopify, Google Analytics, Meta Ads Manager, OuterSignal, WeScale</p>
 
   <div class="grid kpis">
     <div class="card kpi"><div class="label">Store visits</div><div class="val">519</div><div class="foot">Shopify sessions, Sep 12 to Oct 13</div></div>
@@ -192,12 +197,66 @@
     </table>
   </div>
 
+
+  <div class="card section" id="wescale">
+    <h2>WeScale program tracker <span class="srcTag">WeScale</span></h2>
+    <p style="margin:0 0 10px;font-size:0.92rem">Roadwear scored against the <strong>[MASTER] WeScale Checklist</strong> (Chris Heckman, 8 stages, 1,689 tasks) and the <strong>WeScale V3 Course Resources</strong> sheet. <strong>Roadwear is in Stage 4: Test.</strong> This tracker is a moving program: when you add WeScale material, say "update the WeScale tracker" and it gets re-scored.</p>
+
+    <table class="ws-stage">
+      <tr><th>WeScale stage</th><th>Roadwear status</th><th>What's left</th></tr>
+      <tr><td>0 &middot; Foundations</td><td><span class="st part">MOSTLY DONE</span></td><td>BuzzWinkle LLC and store in place. WeScale's minimum test budget is <strong>$500&ndash;$1,000</strong>; Roadwear's ad cap is $250/month. Original designs only: 4 shirts have trademark risk (10/11 audit).</td></tr>
+      <tr><td>1 &middot; Research</td><td><span class="st part">IMPLIED</span></td><td>Niche (riders, custom bikes, Americana) is clear but no written niche research or competitor review on file.</td></tr>
+      <tr><td>2 &middot; Build</td><td><span class="st part">MOSTLY DONE</span></td><td>Brand, domain, email, Shopify, Printify, pixel and catalog done. Open: Meta domain verification, "Powered by Shopify" still in footer, compare-at prices not checked.</td></tr>
+      <tr><td>3 &middot; Design</td><td><span class="st part">MOSTLY DONE</span></td><td>125 designs live (WeScale target 100+). Open: 7 duplicate listings, 4 trademark-risk shirts, WeScale's per-design checklist not in use.</td></tr>
+      <tr><td><strong>4 &middot; Test</strong></td><td><span class="st part">IN PROGRESS</span></td><td><strong>Current stage.</strong> Detail below.</td></tr>
+      <tr><td>5 &middot; $10K / 6 &middot; $100K / 7 &middot; $1M+</td><td><span class="st na">LATER</span></td><td>Advanced email, Google Ads, scaling, team, exit planning. Not yet.</td></tr>
+    </table>
+
+    <h3 style="font-size:1rem;margin:16px 0 6px;color:var(--accent)">Stage 4: Test, step by step</h3>
+    <table>
+      <tr><th>WeScale step</th><th>Status</th><th>Where Roadwear stands</th></tr>
+      <tr><td>4.1 Mockup test campaign</td><td><span class="st done">DONE</span></td><td>Oct 11&ndash;12. Winners: Mockup 3 ($0.38/click), Mockup 4 ($0.54), Mockup 9 ($0.80). WeScale's target is <strong>$0.50&ndash;$0.75 per click</strong>; 3 and 4 hit it. <em>Difference from WeScale:</em> it calls for equal spend per mockup; ours ran in one ad set, so 7 of 10 barely ran.</td></tr>
+      <tr><td>4.2 Finalize the mockup</td><td><span class="st todo">NOT STARTED</span></td><td>Apply the winning mockup style (Mockup 3's frame) to every product in the store, then check quality, mobile display and load speed.</td></tr>
+      <tr><td>4.3 Facebook design test, Cycle 1</td><td><span class="st todo">NEXT</span></td><td>WeScale: 1 campaign, 1 ad set, <strong>1 catalog ad</strong>, $12.50/day Thu&ndash;Sun ($50). Find designs with cheap clicks or sales. Winners go to Cycle 2; no winners, repeat Cycle 1.</td></tr>
+      <tr><td>4.3 Facebook design test, Cycle 2</td><td><span class="st na">LATER</span></td><td>1 campaign, 1 ad set, static ads of the Cycle 1 winners, $12.50/day Thu&ndash;Sun.</td></tr>
+      <tr><td>4.4 Email setup (Klaviyo)</td><td><span class="st part">PARTIAL</span></td><td>Klaviyo installed, one basic popup live. WeScale wants: single opt-in "Email PopUp" and "SMS PopUp" lists, a multi-step Email + SMS popup (desktop and mobile versions, shown on exit or after 50% scroll, never on /cart or /checkout), a welcome flow and an abandoned-cart flow. Roadwear's welcome flow is still in Draft on the wrong list.</td></tr>
+      <tr><td>4.5 Funnel optimization</td><td><span class="st todo">MANY GAPS</span></td><td>See the funnel checklist below.</td></tr>
+      <tr><td>4.6 Design iteration</td><td><span class="st na">WAITING</span></td><td>Needs design-test results first (4.3).</td></tr>
+      <tr><td>4.7 Post-sale operations</td><td><span class="st part">PARTIAL</span></td><td>Done: refund policy, support email, Printify missing-package policy, order emails. Open: product reviews (Loox installed but no review widget showing), customer feedback survey.</td></tr>
+    </table>
+
+    <h3 style="font-size:1rem;margin:16px 0 6px;color:var(--accent)">Funnel checklist (WeScale 4.5), checked against the live store</h3>
+    <table>
+      <tr><th>WeScale rule</th><th>Status</th><th>Roadwear today</th></tr>
+      <tr><td>Main pages load in under 5 seconds</td><td><span class="st todo">FAILS ON PHONE</span></td><td>Phone: 12.5 s to show, 16.5 s usable. Computer: 1.3 s. See Site speed.</td></tr>
+      <tr><td>Pop-ups only after the visitor engages</td><td><span class="st todo">CHECK</span></td><td>The 15% pop-up appeared during page load in our preview test.</td></tr>
+      <tr><td>Simple product titles</td><td><span class="st todo">FAILS</span></td><td>Many titles describe the whole design, e.g. "House of Choppers Nation T-Shirt &mdash; Skull &amp; Flames Biker Tee." WeScale: short name only.</td></tr>
+      <tr><td>Remove "Powered by Shopify"</td><td><span class="st todo">FAILS</span></td><td>Still on in the footer.</td></tr>
+      <tr><td>Free-shipping message matches the real rule</td><td><span class="st todo">FAILS</span></td><td>Cart bar says "Spend $X more" toward <strong>$75</strong>; the real rule is <strong>3+ tees</strong>. Should say "Add 1 more tee for free shipping."</td></tr>
+      <tr><td>Footer promises match policy</td><td><span class="st todo">VERIFY</span></td><td>Bottom bar says "30 Day Guarantee &amp; Free Size Exchanges." The refund policy covers damaged or wrong items; confirm free size exchanges are actually offered.</td></tr>
+      <tr><td>Site-wide offer in the top bar, linked to shop</td><td><span class="st part">PARTIAL</span></td><td>"Free shipping on 3+ tees" is there but not clickable.</td></tr>
+      <tr><td>Best-sellers first, square images</td><td><span class="st done">DONE</span></td><td>Collections sort by best-selling; square product images.</td></tr>
+      <tr><td>Trust seals near Add to Cart, 2 rows of recommended products</td><td><span class="st todo">CHECK</span></td><td>Not confirmed on the product page yet.</td></tr>
+      <tr><td>No overcharging on 2&ndash;3 shirt shipping</td><td><span class="st part">PARTIAL</span></td><td>Free on 3+; 2 shirts still pay Printify's weight-based rate.</td></tr>
+    </table>
+
+    <h3 style="font-size:1rem;margin:16px 0 6px;color:var(--accent)">Next 5 steps, in WeScale order</h3>
+    <ol style="margin:0;padding-left:1.3em;font-size:0.95rem">
+      <li><strong>Finalize the mockup (4.2):</strong> make Mockup 3's frame the store standard and roll it out to the top designs first.</li>
+      <li><strong>Run Cycle 1 design test (4.3)</strong> as a catalog ad, $12.50/day Thu&ndash;Sun, after blocking Audience Network and WhatsApp.</li>
+      <li><strong>Fix the funnel basics (4.5):</strong> phone speed (Size Guide add-on), shorter product titles, free-shipping bar wording, "Powered by Shopify," pop-up timing.</li>
+      <li><strong>Build WeScale's email setup (4.4):</strong> Email + SMS popup, welcome flow, abandoned-cart flow.</li>
+      <li><strong>Decide the ad budget (Stage 0):</strong> WeScale recommends $500&ndash;$1,000 for testing; Roadwear is set at $250/month.</li>
+    </ol>
+    <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">Where Roadwear already matches WeScale: $12.50/day Thursday&ndash;Sunday testing, Sales objective with ad-set budgets, PG-only ads (WeScale warns profanity and adult themes risk account bans), and judging winners on cost per click before sales.</div>
+  </div>
+
   <div class="card section actions">
     <h2>What to do this week (Oct 13 to 18)</h2>
     <h3>Before the next ad run (by Wednesday 6 PM)</h3>
     <ol>
       <li><strong>Block Audience Network and WhatsApp.</strong> Ads Manager left menu &gt; Advertising settings &gt; Placement controls. Due Wednesday 10/14.</li>
-      <li><strong>Decide Thursday's run.</strong> Keep winners Mockups 3, 4 and 9. The other 7 never had a fair turn. Options: run the same 10 again, or keep 3 winners and add new pictures. Schedule Thursday 9:00 AM to Sunday 11:55 PM. Publish by Wednesday 6 PM.</li>
+      <li><strong>Decide Thursday's run.</strong> WeScale's next step after the mockup test is a <strong>design test</strong>: 1 catalog ad, $12.50/day Thursday 9:00 AM to Sunday 11:55 PM. Alternative: rerun the mockups with equal spend per picture. Publish by Wednesday 6 PM. See WeScale tracker.</li>
       <li><strong>Raise or confirm the monthly ad spending limit</strong> ($250/month) covers the planned weekends before publishing.</li>
     </ol>
     <h3>Find out why ad visitors leave</h3>
@@ -220,7 +279,7 @@
     </ol>
   </div>
 
-  <p class="src">Shopify: ShopifyQL reports (sessions, sales), Orders and Abandoned checkouts, read Oct 13. Google Analytics property "Roys Toys Roadwear" (556986901, BuzzWinkle account), Traffic acquisition, Sep 15 to Oct 12. Meta Ads Manager, campaign "RTR - Mockup Test," final, all 10 ads Completed. OuterSignal dashboard, read Oct 12 and Oct 13. Site speed: Lighthouse 12.2.1, mobile and desktop presets, Oct 13. Items marked UNCONFIRMED or UNTESTED are ideas, not findings. Snapshot, not live; ask Donahue to refresh.</p>
+  <p class="src">Shopify: ShopifyQL reports (sessions, sales), Orders and Abandoned checkouts, read Oct 13. Google Analytics property "Roys Toys Roadwear" (556986901, BuzzWinkle account), Traffic acquisition, Sep 15 to Oct 12. Meta Ads Manager, campaign "RTR - Mockup Test," final, all 10 ads Completed. OuterSignal dashboard, read Oct 12 and Oct 13. Site speed: Lighthouse 12.2.1, mobile and desktop presets, Oct 13. WeScale: [MASTER] WeScale Checklist and WeScale V3 Course Resources (Chris Heckman), reviewed Oct 13. Items marked UNCONFIRMED or UNTESTED are ideas, not findings. Snapshot, not live; ask Donahue to refresh.</p>
 </main>
 <div class="tip" id="tip"></div>
 <script>
