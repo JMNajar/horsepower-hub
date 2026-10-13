@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Roadwear Dashboard</title>
+<style>
+  :root { --ink:#111; --ink2:#3a3f4a; --muted:#5b6270; --bg:#f4f6fa; --card:#fff; --line:#cfd5e0; --accent:#0b3d91; --bar:#2a5fc4; --barHi:#0b3d91; --good:#145c2c; --goodbg:#e6f4ea; --warn:#8a1c1c; --warnbg:#fdecec; --note:#7a4b00; --notebg:#fff4dc; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink:#f2f4f8; --ink2:#d3d8e2; --muted:#a9b1bf; --bg:#11151c; --card:#1a2029; --line:#323b48; --accent:#8fb3ff; --bar:#6f9bf0; --barHi:#a9c4ff; --good:#7fd69a; --goodbg:#163222; --warn:#ff9b9b; --warnbg:#3a1b1b; --note:#ffd27a; --notebg:#3a2e12; } }
+  * { box-sizing:border-box; }
+  html { font-size:18.5px; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Segoe UI", Arial, sans-serif; line-height:1.45; }
+  main { max-width:1100px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.9rem; margin:0; color:var(--accent); }
+  .sub { color:var(--muted); margin:4px 0 20px; font-size:0.95rem; }
+  h2 { font-size:1.25rem; margin:0 0 12px; color:var(--ink); }
+  .grid { display:grid; gap:14px; }
+  .kpis { grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); margin-bottom:16px; }
+  .card { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:16px 18px; break-inside:avoid; }
+  .kpi .label { font-size:0.85rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
+  .kpi .val { font-size:2.1rem; font-weight:700; margin:2px 0; }
+  .kpi .foot { font-size:0.85rem; color:var(--ink2); }
+  .two { grid-template-columns:1fr 1fr; }
+  @media (max-width:760px) { .two { grid-template-columns:1fr; } }
+  .section { margin-top:16px; }
+  table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  th, td { padding:7px 8px; border-bottom:1px solid var(--line); text-align:left; }
+  th { color:var(--muted); font-weight:600; font-size:0.8rem; text-transform:uppercase; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  .callout { border-radius:10px; padding:14px 18px; margin:0 0 14px; break-inside:avoid; border:2px solid; }
+  .callout.good { background:var(--goodbg); border-color:var(--good); }
+  .callout.warn { background:var(--warnbg); border-color:var(--warn); }
+  .callout.note { background:var(--notebg); border-color:var(--note); }
+  .callout b.tag { display:inline-block; font-size:0.8rem; padding:1px 8px; border-radius:4px; margin-right:6px; color:#fff; }
+  .good b.tag { background:#145c2c; } .warn b.tag { background:#8a1c1c; } .note b.tag { background:#7a4b00; }
+  .funnel .row { display:grid; grid-template-columns:150px 1fr 70px; align-items:center; gap:10px; margin:8px 0; }
+  .funnel .track { height:26px; background:transparent; }
+  .funnel .fill { height:26px; background:var(--bar); border-radius:0 4px 4px 0; min-width:3px; }
+  .funnel .lab { font-size:0.9rem; color:var(--ink2); }
+  .funnel .num { text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
+  svg text { fill:var(--muted); font-size:11px; font-family:"Segoe UI", Arial, sans-serif; }
+  .tip { position:fixed; pointer-events:none; background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:0.85rem; box-shadow:0 2px 8px rgba(0,0,0,.18); display:none; }
+  .actions li { margin:6px 0; }
+  .srcTag { display:inline-block; vertical-align:middle; font-size:0.7rem; font-weight:600; color:var(--accent); border:1.5px solid var(--accent); border-radius:999px; padding:1px 9px; margin-left:6px; letter-spacing:.02em; }
+  .src { font-size:0.8rem; color:var(--muted); margin-top:20px; }
+  @media print { html { font-size:13.5px; } body { background:#fff; } main { padding:0; max-width:none; } .card, .callout { -webkit-print-color-adjust:exact; print-color-adjust:exact; } @page { size:Letter; margin:0.5in; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Roys Toys Roadwear Dashboard</h1>
+  <p class="sub">Snapshot: Monday, October 12, 2026, 8:55 PM &bull; Last 30 days (Sep 12 to Oct 12) unless noted &bull; Sources: Shopify, Google Analytics, Meta Ads Manager, OuterSignal</p><p class="sub" style="margin-top:-14px">Top five numbers: Shopify (visits, orders, sales, conversion) and Meta (ad spend).</p>
+
+  <div class="grid kpis">
+    <div class="card kpi"><div class="label">Store visits</div><div class="val">510</div><div class="foot">Shopify sessions, 30 days</div></div>
+    <div class="card kpi"><div class="label">Orders</div><div class="val">4</div><div class="foot">3 customers + 1 test order</div></div>
+    <div class="card kpi"><div class="label">Customer sales</div><div class="val">$99.37</div><div class="foot">$129.71 including test order</div></div>
+    <div class="card kpi"><div class="label">Conversion rate</div><div class="val">0.78%</div><div class="foot">Orders &divide; visits (target 2&ndash;4%)</div></div>
+    <div class="card kpi"><div class="label">Facebook ad spend</div><div class="val">$21.60</div><div class="foot">Oct 11&ndash;12 mockup test, 0 sales</div></div>
+  </div>
+
+  <div class="callout good"><b class="tag">WIN</b><strong>House of Choppers Nation is selling.</strong> Both Sunday orders (#1006 and #1007, $69.88 total) came from <strong>houseofchoppersnation.com</strong>. The same buyer bought a Johnny Mac's Cross Tribal tee and a House of Choppers Nation tee. In Google Analytics, House of Choppers visitors stay <strong>1 min 43 sec</strong> and 81% engage. It is the best traffic the store has.</div>
+  <div class="callout warn"><b class="tag">PROBLEM</b><strong>Facebook ad clicks leave almost instantly.</strong> Google Analytics shows Facebook-referred visitors stay about <strong>2 seconds</strong> (mobile Facebook: 0 seconds, 4% engaged). The ads produced 89 store visits, 5 carts, 2 checkouts, and no orders. Likely causes: Audience Network and accidental taps (placements not yet blocked) and the slow first page load on mobile.</div>
+  <div class="callout note"><b class="tag">NOTE</b>The same House of Choppers buyer placed two separate orders 7 minutes apart and paid $4.95 shipping twice. A "Buy 2, save on shipping" message on House of Choppers pages could turn that into one bigger order.</div>
+
+  <div class="grid two section">
+    <div class="card">
+      <h2>Daily store visits <span class="srcTag">Shopify</span></h2>
+      <svg id="daily" viewBox="0 0 520 230" width="100%" role="img" aria-label="Daily Shopify sessions, Sep 12 to Oct 12. Peak 183 on Oct 11, the first ad day."></svg>
+      <div class="foot" style="font-size:0.85rem;color:var(--muted)">Oct 11 spike = first Facebook ad day (183 visits). Oct 12 is a partial day.</div>
+    </div>
+    <div class="card funnel">
+      <h2>Shopping funnel (30 days) <span class="srcTag">Shopify</span></h2>
+      <div id="funnel"></div>
+      <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:8px">96% of shoppers who add to cart reach checkout, but only 1 in 5 checkouts finishes. The leak is at checkout.</div>
+    </div>
+  </div>
+
+  <div class="card section">
+    <h2>Where visitors come from, and how good they are (Sep 14 to Oct 11) <span class="srcTag">Google Analytics</span></h2>
+    <table>
+      <tr><th>Source</th><th class="n">Visits</th><th class="n">Engaged</th><th class="n">Avg time</th><th class="n">Purchases</th><th class="n">Revenue</th></tr>
+      <tr><td>Facebook (ad clicks)</td><td class="n">118</td><td class="n">48%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Direct / typed in</td><td class="n">37</td><td class="n">43%</td><td class="n">17s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Facebook mobile</td><td class="n">28</td><td class="n">4%</td><td class="n">0s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td><strong>houseofchoppersnation.com</strong></td><td class="n"><strong>27</strong></td><td class="n"><strong>81%</strong></td><td class="n"><strong>1m 43s</strong></td><td class="n"><strong>2</strong></td><td class="n"><strong>$56.34</strong></td></tr>
+      <tr><td>Facebook paid (catalog)</td><td class="n">18</td><td class="n">50%</td><td class="n">2m 51s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Shopify admin (team)</td><td class="n">11</td><td class="n">73%</td><td class="n">1m 05s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>facebook.com</td><td class="n">10</td><td class="n">30%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Other</td><td class="n">8</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="n">0</td><td class="n">$0.00</td></tr>
+    </table>
+    <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">Google's revenue ($56.34) is product sales after its own adjustments; Shopify's order totals include shipping.</div>
+  </div>
+
+  <div class="grid two section">
+    <div class="card">
+      <h2>Orders <span class="srcTag">Shopify</span></h2>
+      <table>
+        <tr><th>Order</th><th>Date</th><th>Shirt</th><th>Source</th><th class="n">Total</th></tr>
+        <tr><td>#1007</td><td>Oct 11</td><td>House of Choppers Nation Tee (L, Charcoal)</td><td>HOCN site</td><td class="n">$34.94</td></tr>
+        <tr><td>#1006</td><td>Oct 11</td><td>Johnny Mac's Cross Tribal Tee (L, Black)</td><td>HOCN site</td><td class="n">$34.94</td></tr>
+        <tr><td>#1005</td><td>Oct 10</td><td>Test order (Jeff, kept as sample)</td><td>Test</td><td class="n">$30.34</td></tr>
+        <tr><td>#1004</td><td>Sep 16</td><td>1 tee</td><td>Customer</td><td class="n">$29.49</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Facebook mockup test (Oct 11&ndash;12) <span class="srcTag">Meta Ads</span></h2>
+      <table>
+        <tr><th>Ad</th><th class="n">Spent</th><th class="n">Clicks</th><th class="n">Cost/click</th><th>Grade</th></tr>
+        <tr><td>Mockup 3</td><td class="n">$5.70</td><td class="n">17</td><td class="n">$0.34</td><td>&#9733; Winner</td></tr>
+        <tr><td>Mockup 4</td><td class="n">$7.44</td><td class="n">15</td><td class="n">$0.50</td><td>&#9733; Winner</td></tr>
+        <tr><td>Mockup 9</td><td class="n">$6.35</td><td class="n">8</td><td class="n">$0.79</td><td>&#9733; Winner</td></tr>
+        <tr><td>Mockup 8</td><td class="n">$1.34</td><td class="n">2</td><td class="n">$0.67</td><td>? Not enough data</td></tr>
+        <tr><td>Mockup 6</td><td class="n">$0.18</td><td class="n">2</td><td class="n">$0.09</td><td>? Not enough data</td></tr>
+        <tr><td>Mockups 1, 2, 5, 7, 10</td><td class="n">$0.59</td><td class="n">0</td><td class="n">&ndash;</td><td>? Not enough data</td></tr>
+        <tr><td><strong>Total</strong></td><td class="n"><strong>$21.60</strong></td><td class="n"><strong>44</strong></td><td class="n"><strong>$0.49</strong></td><td></td></tr>
+      </table>
+      <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">Shopify: ad visitors = 89 visits, 5 carts, 2 checkouts, 0 orders.</div>
+    </div>
+  </div>
+
+  <div class="card section">
+    <h2>Customer intelligence <span class="srcTag">OuterSignal</span></h2>
+    <div class="grid kpis" style="margin-bottom:10px">
+      <div class="kpi"><div class="label">Customers profiled</div><div class="val">5</div><div class="foot">All time</div></div>
+      <div class="kpi"><div class="label">Signals</div><div class="val">0</div><div class="foot">VIP / notable buyers flagged</div></div>
+      <div class="kpi"><div class="label">Signal rate</div><div class="val">0.00%</div><div class="foot">Share of customers flagged</div></div>
+      <div class="kpi"><div class="label">Data integrity</div><div class="val">98.85%</div><div class="foot">Order data synced cleanly</div></div>
+    </div>
+    <table>
+      <tr><th>OuterSignal feature</th><th>Status</th></tr>
+      <tr><td>High-signal customers</td><td>None detected yet</td></tr>
+      <tr><td>Intelligence feed (VIP activity)</td><td>No activity yet</td></tr>
+      <tr><td>Personas</td><td>Locked: needs a paid plan <strong>and</strong> 1,000+ customers</td></tr>
+      <tr><td>Playbooks (send data to Slack / Klaviyo)</td><td>Not set up. Slack and Klaviyo not connected to OuterSignal</td></tr>
+      <tr><td>Plan</td><td>Free, connected to Shopify</td></tr>
+    </table>
+    <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">What it means: with 5 customers, OuterSignal has nothing to find yet. It earns its keep once orders grow. The one useful step now is connecting it to Klaviyo so new buyers' profile details reach your email list automatically.</div>
+  </div>
+
+  <div class="card section">
+    <h2>What to do this week</h2>
+    <ol class="actions">
+      <li><strong>Block Audience Network and WhatsApp</strong> before Thursday (Ads Manager left menu &gt; Advertising settings &gt; Placement controls). The 2-second visits point here first.</li>
+      <li><strong>Lean into House of Choppers.</strong> It is the only source producing buyers. Ask Jack to feature the shirts and the new link: roystoysroadwear.com/collections/house-of-choppers-nation.</li>
+      <li><strong>Find the checkout leak.</strong> 21 checkouts, 4 orders. Walk through checkout on a phone and check shipping cost shock ($4.95 on one shirt).</li>
+      <li><strong>Consider a House of Choppers ad</strong> pointed at the collection, using the audience that already buys.</li>
+      <li><strong>Get the signed split agreement with Jack</strong> now that real money is flowing through his shirts.</li>
+    </ol>
+  </div>
+
+  <p class="src">Shopify: ShopifyQL reports (sessions, sales) and Orders, read Oct 12 8:36 PM. Google Analytics property "Roys Toys Roadwear" (556986901, BuzzWinkle account), Traffic acquisition, last 28 days. Meta Ads Manager, campaign "RTR - Mockup Test," Oct 11&ndash;12. OuterSignal dashboard and Personas pages, read Oct 12 8:50 PM. This is a snapshot, not live; ask Donahue to refresh it.</p>
+</main>
+<div class="tip" id="tip"></div>
+<script>
+const days=["Sep 12","Sep 13","Sep 14","Sep 15","Sep 16","Sep 17","Sep 18","Sep 19","Sep 20","Sep 21","Sep 22","Sep 23","Sep 24","Sep 25","Sep 26","Sep 27","Sep 28","Sep 29","Sep 30","Oct 1","Oct 2","Oct 3","Oct 4","Oct 5","Oct 6","Oct 7","Oct 8","Oct 9","Oct 10","Oct 11","Oct 12"];
+const vals=[2,0,8,8,6,22,20,22,4,8,3,3,7,10,7,41,5,27,2,13,4,7,1,4,10,7,16,18,26,183,16];
+const svg=document.getElementById('daily'), NS='http://www.w3.org/2000/svg', tip=document.getElementById('tip');
+const W=520,H=230,L=34,R=8,T=12,B=28, max=200, pw=W-L-R, ph=H-T-B, bw=pw/vals.length;
+const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+[0,50,100,150,200].forEach(v=>{const y=T+ph-(v/max)*ph; svg.appendChild(el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:'var(--line)','stroke-width':v?0.6:1})); const t=el('text',{x:L-6,y:y+4,'text-anchor':'end'}); t.textContent=v; svg.appendChild(t);});
+vals.forEach((v,i)=>{const h=Math.max((v/max)*ph, v?1.5:0), x=L+i*bw+1, y=T+ph-h;
+  const r=el('rect',{x,y,width:bw-2,height:h,rx:2,fill:i===29?'var(--barHi)':'var(--bar)'}); svg.appendChild(r);
+  const hit=el('rect',{x:L+i*bw,y:T,width:bw,height:ph,fill:'transparent'});
+  hit.addEventListener('mousemove',e=>{tip.style.display='block';tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px';tip.innerHTML='<b>'+days[i]+'</b><br>'+v+' visits';});
+  hit.addEventListener('mouseleave',()=>tip.style.display='none'); svg.appendChild(hit);});
+[0,7,14,21,29].forEach(i=>{const t=el('text',{x:L+i*bw+bw/2,y:H-8,'text-anchor':'middle'}); t.textContent=days[i]; svg.appendChild(t);});
+const lbl=el('text',{x:L+29*bw+bw/2-4,y:T+ph-(183/max)*ph-4,'text-anchor':'end',style:'fill:var(--ink);font-weight:600'}); lbl.textContent='183, first ad day'; svg.appendChild(lbl);
+const steps=[["Store visits",510],["Added to cart",22],["Reached checkout",21],["Orders",4]];
+document.getElementById('funnel').innerHTML=steps.map(([k,v])=>`<div class="row"><div class="lab">${k}</div><div class="track"><div class="fill" style="width:${Math.max(v/510*100,0.8)}%"></div></div><div class="num">${v}</div></div>`).join('');
+</script>
+</body>
+</html>
