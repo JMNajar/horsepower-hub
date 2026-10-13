@@ -87,16 +87,14 @@
           <tr><td>Shopify's own tracking scripts</td><td class="n">1.1 s, 290 KB</td></tr>
           <tr><td>Klaviyo (email sign-up)</td><td class="n">285 KB</td></tr>
           <tr><td>Google Tag Manager</td><td class="n">176 KB</td></tr>
-          <tr><td>Loox Reviews (decided to remove 9/25, still loading)</td><td class="n">16 KB</td></tr>
           <tr><td>195 scripts in total, 1,293 page elements</td><td class="n">9.5 s of phone processing</td></tr>
         </table>
-        <div style="font-size:0.85rem;color:var(--muted);margin-top:6px">Not the problem: images (165 KB total, already sized for phones), fonts (63 KB), and server speed (0.19 s).</div>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:6px">Not the problem: images (165 KB total, already sized for phones), fonts (only 4 files load: Inter in 3 weights plus Shop Pay's button font), server speed (0.19 s), and Loox Reviews (16 KB, no measurable slowdown).</div>
       </div>
       <div>
         <h3 style="font-size:1rem;margin:4px 0 6px;color:var(--accent)">How to make it faster (in order)</h3>
         <ol style="margin:0;padding-left:1.2em;font-size:0.92rem">
           <li><strong>Turn off the BuildMyPOD Size Guide portal</strong> and show sizes as a simple chart in the product description. Biggest single fix. <em>Online Store &gt; Themes &gt; Customize &gt; App embeds / product page blocks.</em></li>
-          <li><strong>Uninstall Loox Reviews.</strong> <em>Settings &gt; Apps &gt; Loox &gt; Uninstall.</em></li>
           <li><strong>Check whether Google Tag Manager is needed.</strong> Google Analytics already runs through Shopify; if nothing else uses GTM, remove it.</li>
           <li><strong>Keep only one Klaviyo sign-up form live</strong> and delay its pop-up a few seconds so it loads after the page.</li>
           <li><strong>Remove unused sections</strong> from the product page template to cut the 1,293 page elements.</li>
@@ -204,7 +202,7 @@
     </ol>
     <h3>Find out why ad visitors leave</h3>
     <ol start="4">
-      <li><strong>Speed up the phone page</strong> (tested Oct 13: 35/100 on phones, 96/100 on computers). Start with the BuildMyPOD Size Guide portal and Loox Reviews. Steps are in the Site speed section.</li>
+      <li><strong>Speed up the phone page</strong> (tested Oct 13: 35/100 on phones, 96/100 on computers). Start with the BuildMyPOD Size Guide portal. Steps are in the Site speed section.</li>
       <li><strong>After the placement block, compare</strong> Facebook visitors' average time in Google Analytics. If it rises well above 2 seconds, the bad clicks were Audience Network or accidental taps.</li>
     </ol>
     <h3>Build on House of Choppers (the only source selling)</h3>
