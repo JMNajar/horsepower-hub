@@ -41,68 +41,77 @@
   .funnel .num { text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
   svg text { fill:var(--muted); font-size:11px; font-family:"Segoe UI", Arial, sans-serif; }
   .tip { position:fixed; pointer-events:none; background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:0.85rem; box-shadow:0 2px 8px rgba(0,0,0,.18); display:none; }
-  .actions li { margin:6px 0; }
+  .actions li { margin:7px 0; }
+  .actions h3 { font-size:1rem; margin:14px 0 4px; color:var(--accent); }
+  .hyp { display:inline-block; font-size:0.72rem; font-weight:700; color:var(--note); border:1.5px solid var(--note); border-radius:4px; padding:0 6px; margin-left:4px; }
   .srcTag { display:inline-block; vertical-align:middle; font-size:0.7rem; font-weight:600; color:var(--accent); border:1.5px solid var(--accent); border-radius:999px; padding:1px 9px; margin-left:6px; letter-spacing:.02em; }
   .src { font-size:0.8rem; color:var(--muted); margin-top:20px; }
   @media print { html { font-size:13.5px; } body { background:#fff; } main { padding:0; max-width:none; } .card, .callout { -webkit-print-color-adjust:exact; print-color-adjust:exact; } @page { size:Letter; margin:0.5in; } }
 </style>
 </head>
+
 <body>
 <main>
   <h1>Roys Toys Roadwear Dashboard</h1>
-  <p class="sub">Snapshot: Monday, October 12, 2026, 8:55 PM (checkout section added Oct 13) &bull; Last 30 days (Sep 12 to Oct 12) unless noted &bull; Sources: Shopify, Google Analytics, Meta Ads Manager, OuterSignal</p><p class="sub" style="margin-top:-14px">Top five numbers: Shopify (visits, orders, sales, conversion) and Meta (ad spend).</p>
+  <p class="sub"><strong>Week 1 final update</strong> &bull; Updated Tuesday, October 13, 2026 &bull; Store numbers: Sep 12 to Oct 13 unless noted &bull; Sources: Shopify, Google Analytics, Meta Ads Manager, OuterSignal</p>
 
   <div class="grid kpis">
-    <div class="card kpi"><div class="label">Store visits</div><div class="val">510</div><div class="foot">Shopify sessions, 30 days</div></div>
+    <div class="card kpi"><div class="label">Store visits</div><div class="val">519</div><div class="foot">Shopify sessions, Sep 12 to Oct 13</div></div>
     <div class="card kpi"><div class="label">Orders</div><div class="val">4</div><div class="foot">3 customers + 1 test order</div></div>
     <div class="card kpi"><div class="label">Customer sales</div><div class="val">$99.37</div><div class="foot">$129.71 including test order</div></div>
-    <div class="card kpi"><div class="label">Conversion rate</div><div class="val">0.78%</div><div class="foot">Orders &divide; visits (target 2&ndash;4%)</div></div>
-    <div class="card kpi"><div class="label">Facebook ad spend</div><div class="val">$21.60</div><div class="foot">Oct 11&ndash;12 mockup test, 0 sales</div></div>
+    <div class="card kpi"><div class="label">Conversion rate</div><div class="val">0.77%</div><div class="foot">Orders &divide; visits (target 2&ndash;4%)</div></div>
+    <div class="card kpi"><div class="label">Facebook ad spend</div><div class="val">$23.57</div><div class="foot">Final, Oct 11&ndash;12 mockup test. 0 sales</div></div>
   </div>
 
-  <div class="callout good"><b class="tag">WIN</b><strong>House of Choppers Nation is selling.</strong> Both Sunday orders (#1006 and #1007, $69.88 total) came from <strong>houseofchoppersnation.com</strong>. The same buyer bought a Johnny Mac's Cross Tribal tee and a House of Choppers Nation tee. In Google Analytics, House of Choppers visitors stay <strong>1 min 43 sec</strong> and 81% engage. It is the best traffic the store has.</div>
-  <div class="callout warn"><b class="tag">PROBLEM</b><strong>Facebook ad clicks leave almost instantly.</strong> Google Analytics shows Facebook-referred visitors stay about <strong>2 seconds</strong> (mobile Facebook: 0 seconds, 4% engaged). The ads produced 89 store visits, 5 carts, 2 checkouts, and no orders. Likely causes: Audience Network and accidental taps (placements not yet blocked) and the slow first page load on mobile.</div>
-  <div class="callout note"><b class="tag">NOTE</b>The same House of Choppers buyer placed two separate orders 7 minutes apart and paid $4.95 shipping twice. A "Buy 2, save on shipping" message on House of Choppers pages could turn that into one bigger order.</div>
+  <div class="callout good"><b class="tag">WIN</b><strong>House of Choppers Nation is the only source selling.</strong> Both orders this week (#1006 and #1007, Sunday, $69.88 total) came from <strong>houseofchoppersnation.com</strong>: one buyer, a Johnny Mac's Cross Tribal tee and a House of Choppers Nation tee. Google Analytics: 27 visits from that site, <strong>81% engaged, 1 min 43 sec average</strong>, 2 purchases (7.4% of its visits bought). No new orders came in after Sunday.</div>
+  <div class="callout warn"><b class="tag">PROBLEM</b><strong>The mockup ads drove clicks but no buyers.</strong> Final: <strong>$23.57 spent, 45 link clicks, 90 store visits, 5 carts, 2 checkouts, 0 orders.</strong> In Google Analytics, Facebook-referred visitors (120) stayed about <strong>2 seconds</strong>; mobile Facebook visitors (28) stayed 0 seconds, 4% engaged. Possible causes <span class="hyp">UNCONFIRMED</span>: Audience Network and accidental taps (placements were not blocked), or a slow first page load on mobile. Neither has been tested yet. One contrast: visits Google labels "facebook / paid" (29) stayed <strong>2 min 36 sec</strong>, so not all Facebook traffic is poor.</div>
+  <div class="callout note"><b class="tag">NOTE</b>The House of Choppers buyer placed two separate orders 7 minutes apart and paid $4.95 shipping on each. One order with both shirts would have meant one shipment. Idea <span class="hyp">UNTESTED</span>: a "buy 2" or "free shipping on 3+" reminder on House of Choppers product pages.</div>
 
   <div class="grid two section">
     <div class="card">
       <h2>Daily store visits <span class="srcTag">Shopify</span></h2>
-      <svg id="daily" viewBox="0 0 520 230" width="100%" role="img" aria-label="Daily Shopify sessions, Sep 12 to Oct 12. Peak 183 on Oct 11, the first ad day."></svg>
-      <div class="foot" style="font-size:0.85rem;color:var(--muted)">Oct 11 spike = first Facebook ad day (183 visits). Oct 12 is a partial day.</div>
+      <svg id="daily" viewBox="0 0 520 230" width="100%" role="img" aria-label="Daily Shopify sessions, Sep 12 to Oct 13. Peak 183 on Oct 11, the first ad day."></svg>
+      <div style="font-size:0.85rem;color:var(--muted)">Oct 11 spike = first ad day (183 visits). Oct 12 = 18. Oct 13 is a partial day.</div>
     </div>
     <div class="card funnel">
-      <h2>Shopping funnel (30 days) <span class="srcTag">Shopify</span></h2>
+      <h2>Shopping funnel <span class="srcTag">Shopify</span></h2>
       <div id="funnel"></div>
-      <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:8px">Shopify counts 21 checkout sessions and 4 orders. That count includes test and team sessions and repeat visits by the same shopper, so the real drop-off is smaller. See "Checkout drop-off" below.</div>
+      <div style="font-size:0.85rem;color:var(--muted);margin-top:8px">Sep 12 to Oct 13. Checkout sessions include test and team visits and repeat visits by one shopper, so the real drop-off is smaller. See "Checkout drop-off."</div>
     </div>
   </div>
 
   <div class="card section">
-    <h2>Checkout drop-off: what the records show <span class="srcTag">Shopify</span></h2>
-    <p style="margin:0 0 10px">Shopify only saves an abandoned checkout when the shopper types an email or phone. Of the 17 checkout sessions without an order, <strong>only 4 left a record</strong>:</p>
+    <h2>Facebook mockup test: final results (Oct 11&ndash;12) <span class="srcTag">Meta Ads</span></h2>
     <table>
-      <tr><th>Date</th><th>Who</th><th>Cart</th><th>Where they stopped</th></tr>
-      <tr><td>Sep 15</td><td>Jeff (test)</td><td>3 shirts, $92.97</td><td>Test, not a real shopper</td></tr>
-      <tr><td>Oct 5 (2 tries, 1 min apart)</td><td>One shopper using a masked email</td><td>Johnny Mac's Purple Pinup Tee, XS, $29.99</td><td><strong>Email step.</strong> No shipping address entered, so they <strong>never saw a shipping price</strong></td></tr>
-      <tr><td>Oct 10</td><td>Jeff (test)</td><td>3 shirts, $92.97</td><td>Test of free shipping on 3+</td></tr>
+      <tr><th>Ad</th><th class="n">Spent</th><th class="n">Views</th><th class="n">Link clicks</th><th class="n">Cost/click</th><th class="n">Click rate</th><th class="n">Page views</th><th>Grade</th></tr>
+      <tr><td><strong>Mockup 3</strong></td><td class="n">$6.40</td><td class="n">187</td><td class="n"><strong>17</strong></td><td class="n"><strong>$0.38</strong></td><td class="n"><strong>9.09%</strong></td><td class="n">15</td><td>&#9733; Winner (best)</td></tr>
+      <tr><td>Mockup 4</td><td class="n">$8.68</td><td class="n">335</td><td class="n">16</td><td class="n">$0.54</td><td class="n">4.78%</td><td class="n">13</td><td>&#9733; Winner</td></tr>
+      <tr><td>Mockup 9</td><td class="n">$6.37</td><td class="n">168</td><td class="n">8</td><td class="n">$0.80</td><td class="n">4.76%</td><td class="n">8</td><td>&#9733; Winner</td></tr>
+      <tr><td>Mockup 8</td><td class="n">$1.35</td><td class="n">61</td><td class="n">2</td><td class="n">$0.68</td><td class="n">3.28%</td><td class="n">2</td><td>? Not enough data</td></tr>
+      <tr><td>Mockup 6</td><td class="n">$0.18</td><td class="n">7</td><td class="n">2</td><td class="n">$0.09</td><td class="n">28.57%</td><td class="n">2</td><td>? Not enough data</td></tr>
+      <tr><td>Mockups 1, 2, 5, 7, 10</td><td class="n">$0.59</td><td class="n">19</td><td class="n">0</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="n">0</td><td>? Not enough data</td></tr>
+      <tr><td><strong>Total</strong></td><td class="n"><strong>$23.57</strong></td><td class="n"><strong>777</strong></td><td class="n"><strong>45</strong></td><td class="n"><strong>$0.52</strong></td><td class="n"></td><td class="n"><strong>40</strong></td><td></td></tr>
     </table>
-    <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:8px"><strong>Conclusion:</strong> there is <strong>no evidence of shipping-price shock</strong>. The one real abandoned checkout stopped before shipping was shown. The other ~13 checkout sessions left no email, so Shopify cannot tell where they stopped; some are likely quick looks, bots, or ad taps. The store's recovery email ("Complete your order") did not send for this shopper. Worth checking why.</div>
+    <div style="font-size:0.85rem;color:var(--muted);margin-top:6px">Ran Sunday 1:00 AM to Monday 11:55 PM. Monday was outside the Thursday&ndash;Sunday rule because Meta requires at least 24 hours on a daily budget. Spend went to 3 of 10 ads ($5+ each); 7 got under $2 and never had a fair turn. Shopify: ad visitors = 90 visits, 5 carts, 2 checkouts, 0 orders.</div>
   </div>
 
   <div class="card section">
-    <h2>Where visitors come from, and how good they are (Sep 14 to Oct 11) <span class="srcTag">Google Analytics</span></h2>
+    <h2>Where visitors come from, and how good they are (Sep 15 to Oct 12) <span class="srcTag">Google Analytics</span></h2>
     <table>
       <tr><th>Source</th><th class="n">Visits</th><th class="n">Engaged</th><th class="n">Avg time</th><th class="n">Purchases</th><th class="n">Revenue</th></tr>
-      <tr><td>Facebook (ad clicks)</td><td class="n">118</td><td class="n">48%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
-      <tr><td>Direct / typed in</td><td class="n">37</td><td class="n">43%</td><td class="n">17s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Facebook (referral, mostly ad clicks)</td><td class="n">120</td><td class="n">48%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Direct / typed in</td><td class="n">39</td><td class="n">41%</td><td class="n">16s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Facebook paid</td><td class="n">29</td><td class="n">55%</td><td class="n">2m 36s</td><td class="n">0</td><td class="n">$0.00</td></tr>
       <tr><td>Facebook mobile</td><td class="n">28</td><td class="n">4%</td><td class="n">0s</td><td class="n">0</td><td class="n">$0.00</td></tr>
       <tr><td><strong>houseofchoppersnation.com</strong></td><td class="n"><strong>27</strong></td><td class="n"><strong>81%</strong></td><td class="n"><strong>1m 43s</strong></td><td class="n"><strong>2</strong></td><td class="n"><strong>$56.34</strong></td></tr>
-      <tr><td>Facebook paid (catalog)</td><td class="n">18</td><td class="n">50%</td><td class="n">2m 51s</td><td class="n">0</td><td class="n">$0.00</td></tr>
       <tr><td>Shopify admin (team)</td><td class="n">11</td><td class="n">73%</td><td class="n">1m 05s</td><td class="n">0</td><td class="n">$0.00</td></tr>
       <tr><td>facebook.com</td><td class="n">10</td><td class="n">30%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
-      <tr><td>Other</td><td class="n">8</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Facebook feed</td><td class="n">5</td><td class="n">40%</td><td class="n">2s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Google search</td><td class="n">3</td><td class="n">67%</td><td class="n">1m 09s</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td>Other</td><td class="n">4</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="n">0</td><td class="n">$0.00</td></tr>
+      <tr><td><strong>Total</strong></td><td class="n"><strong>276</strong></td><td class="n"><strong>47%</strong></td><td class="n"><strong>34s</strong></td><td class="n"><strong>2</strong></td><td class="n"><strong>$56.34</strong></td></tr>
     </table>
-    <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">Google's revenue ($56.34) is product sales after its own adjustments; Shopify's order totals include shipping.</div>
+    <div style="font-size:0.85rem;color:var(--muted);margin-top:6px">Google's revenue is product sales after its own adjustments; Shopify's order totals include shipping. Google counts fewer visits than Shopify because it measures differently.</div>
   </div>
 
   <div class="grid two section">
@@ -117,70 +126,77 @@
       </table>
     </div>
     <div class="card">
-      <h2>Facebook mockup test (Oct 11&ndash;12) <span class="srcTag">Meta Ads</span></h2>
+      <h2>Checkout drop-off <span class="srcTag">Shopify</span></h2>
+      <p style="margin:0 0 8px;font-size:0.92rem">Shopify saves an abandoned checkout only when the shopper types an email or phone. Only 4 records exist:</p>
       <table>
-        <tr><th>Ad</th><th class="n">Spent</th><th class="n">Clicks</th><th class="n">Cost/click</th><th>Grade</th></tr>
-        <tr><td>Mockup 3</td><td class="n">$5.70</td><td class="n">17</td><td class="n">$0.34</td><td>&#9733; Winner</td></tr>
-        <tr><td>Mockup 4</td><td class="n">$7.44</td><td class="n">15</td><td class="n">$0.50</td><td>&#9733; Winner</td></tr>
-        <tr><td>Mockup 9</td><td class="n">$6.35</td><td class="n">8</td><td class="n">$0.79</td><td>&#9733; Winner</td></tr>
-        <tr><td>Mockup 8</td><td class="n">$1.34</td><td class="n">2</td><td class="n">$0.67</td><td>? Not enough data</td></tr>
-        <tr><td>Mockup 6</td><td class="n">$0.18</td><td class="n">2</td><td class="n">$0.09</td><td>? Not enough data</td></tr>
-        <tr><td>Mockups 1, 2, 5, 7, 10</td><td class="n">$0.59</td><td class="n">0</td><td class="n">&ndash;</td><td>? Not enough data</td></tr>
-        <tr><td><strong>Total</strong></td><td class="n"><strong>$21.60</strong></td><td class="n"><strong>44</strong></td><td class="n"><strong>$0.49</strong></td><td></td></tr>
+        <tr><th>Date</th><th>Who</th><th>Where they stopped</th></tr>
+        <tr><td>Sep 15, Oct 10</td><td>Jeff (tests)</td><td>Tests, not shoppers</td></tr>
+        <tr><td>Oct 5 (2 tries)</td><td>One shopper, masked email, Purple Pinup Tee XS</td><td><strong>Email step.</strong> Never reached shipping</td></tr>
       </table>
-      <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">Shopify: ad visitors = 89 visits, 5 carts, 2 checkouts, 0 orders.</div>
+      <div style="font-size:0.85rem;color:var(--muted);margin-top:6px"><strong>No evidence of shipping-price shock.</strong> The store's "Complete your order" recovery email shows <strong>Not sent</strong> for that shopper. Cause not yet checked.</div>
     </div>
   </div>
 
   <div class="card section">
     <h2>Customer intelligence <span class="srcTag">OuterSignal</span></h2>
-    <div class="grid kpis" style="margin-bottom:10px">
-      <div class="kpi"><div class="label">Customers profiled</div><div class="val">5</div><div class="foot">All time</div></div>
-      <div class="kpi"><div class="label">Signals</div><div class="val">0</div><div class="foot">VIP / notable buyers flagged</div></div>
-      <div class="kpi"><div class="label">Signal rate</div><div class="val">0.00%</div><div class="foot">Share of customers flagged</div></div>
-      <div class="kpi"><div class="label">Data integrity</div><div class="val">98.85%</div><div class="foot">Order data synced cleanly</div></div>
-    </div>
+    <div class="callout note" style="margin-bottom:10px"><b class="tag">DATA ISSUE</b>OuterSignal's numbers changed between page loads on Oct 13: <strong>1 then 2 customers</strong>, data integrity <strong>25% then 49%</strong> (it showed 5 customers and 98.85% on Oct 12). It appears to be reprocessing. <strong>Do not rely on these numbers this week.</strong> Re-check Friday.</div>
     <table>
-      <tr><th>OuterSignal feature</th><th>Status</th></tr>
-      <tr><td>High-signal customers</td><td>None detected yet</td></tr>
-      <tr><td>Intelligence feed (VIP activity)</td><td>No activity yet</td></tr>
-      <tr><td>Personas</td><td>Locked: needs a paid plan <strong>and</strong> 1,000+ customers</td></tr>
-      <tr><td>Playbooks (send data to Slack / Klaviyo)</td><td>Not set up. Slack and Klaviyo not connected to OuterSignal</td></tr>
-      <tr><td>Plan</td><td>Free, connected to Shopify</td></tr>
+      <tr><th>OuterSignal</th><th>Oct 12</th><th>Oct 13</th></tr>
+      <tr><td>Customers profiled</td><td>5</td><td>1 to 2 (changing)</td></tr>
+      <tr><td>Signals (VIP / notable buyers)</td><td>0</td><td>0</td></tr>
+      <tr><td>Data integrity</td><td>98.85%</td><td>25% to 49% (changing)</td></tr>
+      <tr><td>Personas</td><td colspan="2">Locked: needs a paid plan and 1,000+ customers</td></tr>
+      <tr><td>Playbooks (Slack / Klaviyo)</td><td colspan="2">Not set up</td></tr>
     </table>
-    <div class="foot" style="font-size:0.85rem;color:var(--muted);margin-top:6px">What it means: with 5 customers, OuterSignal has nothing to find yet. It earns its keep once orders grow. The one useful step now is connecting it to Klaviyo so new buyers' profile details reach your email list automatically.</div>
   </div>
 
-  <div class="card section">
-    <h2>What to do this week</h2>
-    <ol class="actions">
-      <li><strong>Block Audience Network and WhatsApp</strong> before Thursday (Ads Manager left menu &gt; Advertising settings &gt; Placement controls). The 2-second visits point here first.</li>
-      <li><strong>Lean into House of Choppers.</strong> It is the only source producing buyers. Ask Jack to feature the shirts and the new link: roystoysroadwear.com/collections/house-of-choppers-nation.</li>
-      <li><strong>Investigate the checkout drop-off.</strong> 21 checkout sessions, 4 orders, but only one real abandoned checkout on record, and it stopped at the email step. Reason unknown. Check why the "Complete your order" recovery email did not send, and re-check the abandoned checkouts list as traffic grows.</li>
-      <li><strong>Consider a House of Choppers ad</strong> pointed at the collection, using the audience that already buys.</li>
-      <li><strong>Get the signed split agreement with Jack</strong> now that real money is flowing through his shirts.</li>
+  <div class="card section actions">
+    <h2>What to do this week (Oct 13 to 18)</h2>
+    <h3>Before the next ad run (by Wednesday 6 PM)</h3>
+    <ol>
+      <li><strong>Block Audience Network and WhatsApp.</strong> Ads Manager left menu &gt; Advertising settings &gt; Placement controls. Due Wednesday 10/14.</li>
+      <li><strong>Decide Thursday's run.</strong> Keep winners Mockups 3, 4 and 9. The other 7 never had a fair turn. Options: run the same 10 again, or keep 3 winners and add new pictures. Schedule Thursday 9:00 AM to Sunday 11:55 PM. Publish by Wednesday 6 PM.</li>
+      <li><strong>Raise or confirm the monthly ad spending limit</strong> ($250/month) covers the planned weekends before publishing.</li>
+    </ol>
+    <h3>Find out why ad visitors leave</h3>
+    <ol start="4">
+      <li><strong>Test the product page on a phone</strong> (Destroy the Future): how long it takes to show the shirt and the Add to Cart button. Run Google PageSpeed on the page. This checks the "slow page" possibility.</li>
+      <li><strong>After the placement block, compare</strong> Facebook visitors' average time in Google Analytics. If it rises well above 2 seconds, the bad clicks were Audience Network or accidental taps.</li>
+    </ol>
+    <h3>Build on House of Choppers (the only source selling)</h3>
+    <ol start="6">
+      <li><strong>Ask Jack to feature the shirts</strong> and the link roystoysroadwear.com/collections/house-of-choppers-nation on his site and socials.</li>
+      <li><strong>Get the signed split agreement and photo license with Jack.</strong> Real orders are now flowing through his shirts.</li>
+      <li><strong>Consider a House of Choppers ad</strong> pointed at that collection as a separate test.</li>
+    </ol>
+    <h3>Store fixes</h3>
+    <ol start="9">
+      <li><strong>Check why the "Complete your order" recovery email did not send.</strong> Shopify admin &gt; Marketing &gt; Automations.</li>
+      <li><strong>Fix the four trademark-risk shirts</strong> from the 10/11 catalog audit (Frankenstein face, "Live to Ride," "Hog," "Breakfast of Champions") and draft the 7 duplicate listings.</li>
+      <li><strong>Add the SPF email record</strong> (overdue since 10/10) through NameSilo.</li>
+      <li><strong>Re-check OuterSignal Friday.</strong> Connecting it to Klaviyo is optional and can wait until the store has steady orders.</li>
     </ol>
   </div>
 
-  <p class="src">Shopify: ShopifyQL reports (sessions, sales) and Orders, read Oct 12 8:36 PM. Google Analytics property "Roys Toys Roadwear" (556986901, BuzzWinkle account), Traffic acquisition, last 28 days. Meta Ads Manager, campaign "RTR - Mockup Test," Oct 11&ndash;12. OuterSignal dashboard and Personas pages, read Oct 12 8:50 PM. Shopify Abandoned checkouts, read Oct 13. This is a snapshot, not live; ask Donahue to refresh it.</p>
+  <p class="src">Shopify: ShopifyQL reports (sessions, sales), Orders and Abandoned checkouts, read Oct 13. Google Analytics property "Roys Toys Roadwear" (556986901, BuzzWinkle account), Traffic acquisition, Sep 15 to Oct 12. Meta Ads Manager, campaign "RTR - Mockup Test," final, all 10 ads Completed. OuterSignal dashboard, read Oct 12 and Oct 13. Items marked UNCONFIRMED or UNTESTED are ideas, not findings. Snapshot, not live; ask Donahue to refresh.</p>
 </main>
 <div class="tip" id="tip"></div>
 <script>
-const days=["Sep 12","Sep 13","Sep 14","Sep 15","Sep 16","Sep 17","Sep 18","Sep 19","Sep 20","Sep 21","Sep 22","Sep 23","Sep 24","Sep 25","Sep 26","Sep 27","Sep 28","Sep 29","Sep 30","Oct 1","Oct 2","Oct 3","Oct 4","Oct 5","Oct 6","Oct 7","Oct 8","Oct 9","Oct 10","Oct 11","Oct 12"];
-const vals=[2,0,8,8,6,22,20,22,4,8,3,3,7,10,7,41,5,27,2,13,4,7,1,4,10,7,16,18,26,183,16];
+const days=["Sep 12","Sep 13","Sep 14","Sep 15","Sep 16","Sep 17","Sep 18","Sep 19","Sep 20","Sep 21","Sep 22","Sep 23","Sep 24","Sep 25","Sep 26","Sep 27","Sep 28","Sep 29","Sep 30","Oct 1","Oct 2","Oct 3","Oct 4","Oct 5","Oct 6","Oct 7","Oct 8","Oct 9","Oct 10","Oct 11","Oct 12","Oct 13"];
+const vals=[2,0,8,8,6,22,20,22,4,8,3,3,7,10,7,41,5,27,2,13,4,7,1,4,10,7,16,18,26,183,18,7];
 const svg=document.getElementById('daily'), NS='http://www.w3.org/2000/svg', tip=document.getElementById('tip');
 const W=520,H=230,L=34,R=8,T=12,B=28, max=200, pw=W-L-R, ph=H-T-B, bw=pw/vals.length;
 const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
 [0,50,100,150,200].forEach(v=>{const y=T+ph-(v/max)*ph; svg.appendChild(el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:'var(--line)','stroke-width':v?0.6:1})); const t=el('text',{x:L-6,y:y+4,'text-anchor':'end'}); t.textContent=v; svg.appendChild(t);});
 vals.forEach((v,i)=>{const h=Math.max((v/max)*ph, v?1.5:0), x=L+i*bw+1, y=T+ph-h;
-  const r=el('rect',{x,y,width:bw-2,height:h,rx:2,fill:i===29?'var(--barHi)':'var(--bar)'}); svg.appendChild(r);
+  svg.appendChild(el('rect',{x,y,width:bw-2,height:h,rx:2,fill:i===29?'var(--barHi)':'var(--bar)'}));
   const hit=el('rect',{x:L+i*bw,y:T,width:bw,height:ph,fill:'transparent'});
   hit.addEventListener('mousemove',e=>{tip.style.display='block';tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px';tip.innerHTML='<b>'+days[i]+'</b><br>'+v+' visits';});
   hit.addEventListener('mouseleave',()=>tip.style.display='none'); svg.appendChild(hit);});
 [0,7,14,21,29].forEach(i=>{const t=el('text',{x:L+i*bw+bw/2,y:H-8,'text-anchor':'middle'}); t.textContent=days[i]; svg.appendChild(t);});
 const lbl=el('text',{x:L+29*bw+bw/2-4,y:T+ph-(183/max)*ph-4,'text-anchor':'end',style:'fill:var(--ink);font-weight:600'}); lbl.textContent='183, first ad day'; svg.appendChild(lbl);
-const steps=[["Store visits",510],["Added to cart",22],["Reached checkout",21],["Orders",4]];
-document.getElementById('funnel').innerHTML=steps.map(([k,v])=>`<div class="row"><div class="lab">${k}</div><div class="track"><div class="fill" style="width:${Math.max(v/510*100,0.8)}%"></div></div><div class="num">${v}</div></div>`).join('');
+const steps=[["Store visits",519],["Added to cart",24],["Reached checkout",23],["Orders",4]];
+document.getElementById('funnel').innerHTML=steps.map(([k,v])=>`<div class="row"><div class="lab">${k}</div><div class="track"><div class="fill" style="width:${Math.max(v/519*100,0.8)}%"></div></div><div class="num">${v}</div></div>`).join('');
 </script>
 </body>
 </html>
