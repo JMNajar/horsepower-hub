@@ -2,7 +2,7 @@
 // The password lives in the Vercel env var ROADWEAR_PASSWORD (not in this repo).
 // Any username works; only the password is checked.
 export const config = {
-  matcher: ['/roadwear-dashboard', '/roadwear-dashboard/:path*'],
+  matcher: ['/roadwear-dashboard', '/roadwear-dashboard/:path*', '/vcg-dashboard', '/vcg-dashboard/:path*'],
 };
 
 export default function middleware(request) {
