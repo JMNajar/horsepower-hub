@@ -382,6 +382,15 @@
     .cat-mockup       { background: #6a4e8a; color: #fff; }
     .cat-marketing    { background: #2A6B45; color: #fff; }
     .cat-community    { background: #1A7BA0; color: #fff; }
+    .cat-pod          { background: #8A5300; color: #fff; }
+    .pod-links { display: flex; gap: .5rem; margin-top: .6rem; flex-wrap: wrap; }
+    .pod-links a {
+      font-size: .82rem; font-weight: 600; text-decoration: none;
+      padding: .45rem .8rem; border-radius: 8px;
+      border: 1px solid var(--navy); color: var(--navy);
+    }
+    .pod-links a:first-child { background: var(--navy); color: #fff; }
+    .pod-links a:hover { background: var(--red); border-color: var(--red); color: #fff; }
 
     /* BUILD CARDS */
     .builds-grid {
@@ -739,6 +748,27 @@
           <div class="build-card-best-for"><strong>Best for:</strong> Business leaders evaluating AI readiness, Horsepower AI client engagements</div>
           <div class="build-card-link">Open Playbook ↗</div>
         </a>
+
+      </div>
+    </div>
+
+    <!-- POD SYSTEM -->
+    <div class="category">
+      <div class="category-header">
+        <span class="cat-tag cat-pod">POD System</span>
+      </div>
+      <div class="builds-grid">
+
+        <div class="build-card">
+          <div class="build-card-tag">Private &mdash; Password Required</div>
+          <h3>&#128274; Roadwear</h3>
+          <p>Roys Toys Roadwear ad program, updated every Monday: what we spent, what's working, what isn't, and what's next. The newest snapshot is always Current; past weeks move to History.</p>
+          <div class="build-card-best-for"><strong>Best for:</strong> Jeff and Ronda's weekly partner update</div>
+          <div class="pod-links">
+            <a href="/pod/roadwear/current/" target="_blank" rel="noopener">Current Snapshot</a>
+            <a href="/pod/roadwear/history/" target="_blank" rel="noopener">History</a>
+          </div>
+        </div>
 
       </div>
     </div>
